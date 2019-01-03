@@ -1,0 +1,32 @@
+div.premades, div.recents {
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+div.premades a, div.recents a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 10%;
+    text-decoration: none;
+}
+
+div a:hover {
+    background-color: #777;
+}
+
+button.custom {
+    background-color: #333;
+    border: none;
+    color: white;
+    padding: 4% 48%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #777;
+}
