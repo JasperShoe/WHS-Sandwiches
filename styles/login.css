@@ -1,10 +1,10 @@
 body{
 
-    background-color: rgba(255, 165, 0, 0.48);
+    background-color: rgb(49, 28, 0);
     height: 100%;
     width: 100%;
     font-family: 'Lato', sans-serif;
-    color: rgba(0, 0, 0, 0.51);
+    color: rgb(0, 0, 0);
     font-size: 12pt;
     padding: 0;
     margin: 0;
@@ -14,7 +14,7 @@ body{
 
 html{
 
-    background-color: rgba(255, 140, 0, 0.21);
+    background-color: rgb(0, 0, 0);
     height: 100%;
     width: 100%;
 
@@ -65,7 +65,7 @@ footer{
 
     display: block;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.52);
+    background-color: rgba(255, 173, 28, 0.73);
     height: auto;
     position:absolute;
     bottom:0;
