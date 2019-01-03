@@ -2,18 +2,18 @@ body{
 
     padding: 0 20px 20px 20px;
     width: 800px;
-    border: 5px solid #ffffff;
-    background-color: orange;
+    border: 5px solid rgba(255, 255, 255, 0.44);
+    background-color: rgba(255, 165, 0, 0.45);
     margin: 0 auto;
     font-family: 'Lato', sans-serif;
-    color: black;
+    color: rgba(0, 0, 0, 0.44);
     font-size: 12pt;
 
 }
 
 html{
 
-    background-color: darkorange;
+    background-color: rgba(255, 0, 249, 0.31);
 
 }
 
