@@ -4,29 +4,27 @@ body {
     color: rgba(0, 0, 0, 0.51);
     font-size: 12pt;
     padding: 0;
-    margin-top: 0;
-    margin-left: auto;
-    margin-right: auto;
-    border: 0;
+    margin: 0;
+    position: center;
+    border: none;
 }
 
 header {
     background-color: darkorange;
+    text-align: left;
+    padding: 20px 20px 20px 20px;
 }
 
 h1 {
-    text-align: left;
-    padding: 20px 20px 10px 20px;
     margin: 0;
 }
 
-div.premades, div.recents {
+div.premades, div.recents, div.customize {
     background-color: #333;
     overflow: auto;
     white-space: nowrap;
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
 div.premades a, div.recents a {
@@ -43,14 +41,11 @@ div a:hover {
 
 button.custom {
     background-color: #333;
+    width: 100%;
+    padding: 5%;
     border: none;
     color: white;
-    position: center;
-    width: 90%;
-    height: 100px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
     font-size: 12pt;
 }
 
