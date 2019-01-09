@@ -10,20 +10,14 @@ body {
     border: none;
 }
 
-header {
+header, footer {
     background-color: darkorange;
     text-align: left;
     padding: 20px 20px 20px 20px;
 }
 
-h1 {
+h1, em {
     margin: 0;
-}
-em {
-    text-align: left;
-    position: relative;
-    bottom: 10px;
-    left: 22px
 }
 
 div.premades, div.recents, div.customize {
@@ -44,7 +38,7 @@ div.premades a, div.recents a {
     display: inline-block;
 }
 
-div a:hover, button:hover {
+div a:hover, div.customize button:hover {
     background-color: #777;
 }
 
