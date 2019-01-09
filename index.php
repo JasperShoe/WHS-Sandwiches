@@ -1,4 +1,4 @@
-<?php
+<?php header( 'Location: /views/pages/index.html' ) ;  ?>
 /**
  * Created by PhpStorm.
  * User: zimme
