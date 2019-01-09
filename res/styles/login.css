@@ -1,10 +1,11 @@
 body{
 
-    background-color: rgb(222, 222, 222);
+    /*background-color: rgb(222, 222, 222);*/
+    background-color: rgb(255, 210, 117);
     height: 100%;
     width: 100%;
     font-family: 'Lato', sans-serif;
-    color: rgba(0, 0, 0, 0.76);
+    color: rgb(23, 23, 23);
     font-size: 12pt;
     padding: 0;
     margin: 0;
@@ -23,7 +24,7 @@ html{
 h1{
 
     text-align: left;
-    padding: 25px 0 10px 0px;
+    padding: 25px 0 10px 0;
     margin: 0;
 
 }
@@ -61,7 +62,7 @@ footer{
 
     display: block;
     width: 100%;
-    background-color: rgb(255, 210, 117);
+    background-color: white;
     height: auto;
     position: absolute;
     bottom: 0;
@@ -71,7 +72,7 @@ footer{
 
 header{
 
-    background-color: rgb(255, 210, 117);
+    background-color: white;
 
 }
 
