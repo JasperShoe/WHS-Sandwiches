@@ -1,4 +1,5 @@
 <?php header( 'Location: /pages/login.html' ) ;  ?>
+
 /**
  * Created by PhpStorm.
  * User: michael_chen
