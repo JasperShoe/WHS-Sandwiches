@@ -1,6 +1,6 @@
 body{
 
-    background-color: rgb(159, 159, 159);
+    background-color: rgb(222, 222, 222);
     height: 100%;
     width: 100%;
     font-family: 'Lato', sans-serif;
@@ -14,7 +14,7 @@ body{
 
 html{
 
-    background-color: rgb(255, 184, 92);
+    background-color: rgb(255, 210, 117);
     height: 100%;
     width: 100%;
 
@@ -61,7 +61,7 @@ footer{
 
     display: block;
     width: 100%;
-    background-color: rgb(255, 184, 92);
+    background-color: rgb(255, 210, 117);
     height: auto;
     position: absolute;
     bottom: 0;
@@ -71,7 +71,7 @@ footer{
 
 header{
 
-    background-color: rgb(255, 184, 92);
+    background-color: rgb(255, 210, 117);
 
 }
 

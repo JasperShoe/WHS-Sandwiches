@@ -1,4 +1,4 @@
-<?php header( 'Location: /views/pages/index.html' ) ;  ?>
+<?php header( 'Location: /pages/login.html' ) ;  ?>
 /**
  * Created by PhpStorm.
  * User: michael_chen
