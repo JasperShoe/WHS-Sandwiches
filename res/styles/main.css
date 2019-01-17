@@ -42,7 +42,7 @@ div.scroll a {
     display: inline-block;
 }
 
-div a:hover, div.customize button:hover {
+div a:hover, div button:hover {
     background-color: #777;
 }
 
