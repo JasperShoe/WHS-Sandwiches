@@ -1,0 +1,48 @@
+body {
+    background-color: #ebebeb;
+}
+
+header, footer{
+    color: #FF7F50;
+    background-color: #ebebeb;
+}
+.tablink {
+    background-color: #333333;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 33.33%;
+}
+
+/* Buttons turn grey when you hover */
+.tablink:hover {
+    background-color: #777;
+}
+
+/* Set default styles for tab content */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 50px;
+    text-align: center;
+    /*width: auto;*/
+}
+div.info{
+    float: left;
+}
+
+footer{
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    bottom: 0;
+    text-align: center;
+    font-size: 10px;
+    float: left;
+
+}

@@ -80,7 +80,7 @@ header, footer{
     align-self: center;
     width: 300px;
     height: 400px;
-    margin-top: 70px;
+    margin-top: 40px;
     margin-left: auto;
     margin-right: auto;
     border-style: solid;
@@ -88,4 +88,25 @@ header, footer{
     border-width: 10px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
 
+}
+
+
+#loginBlock label {
+    display: block;
+    width: 100%
+}
+
+#loginBlock input {
+    border: 1px solid #ddd;
+    padding: 8px 1px;
+    width: 100%;
+    border-radius: 3px;
+    margin: 2px 0 20px 0;
+}
+
+#loginBlock input[type="submit"] {
+    color: white;
+    background: #274555;
+    border: 0;
+    cursor: pointer;
 }
