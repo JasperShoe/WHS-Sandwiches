@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8bffab40-2783-42dd-b3d5-3e0beb51b7f1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pages/mainscreen.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/styles/mainscreen.css" afterDir="false" />
+    <list default="true" id="8bffab40-2783-42dd-b3d5-3e0beb51b7f1" name="Default Changelist" comment="Info on main screen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/customize.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/customize.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/styles/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/res/styles/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/res/styles/main.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,29 +14,23 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/apache/apache.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-59" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pages/login.html">
+        <entry file="file://$PROJECT_DIR$/pages/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h1#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="441">
+              <caret line="52" column="13" lean-forward="true" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/styles/login.css">
+        <entry file="file://$PROJECT_DIR$/res/styles/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="82" column="17" selection-start-line="82" selection-start-column="17" selection-end-line="82" selection-end-column="17" />
+            <state relative-caret-position="30">
+              <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -53,8 +41,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="CSS File" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -87,11 +75,11 @@
         <option value="$PROJECT_DIR$/res/styles/login.css" />
         <option value="$PROJECT_DIR$/res/styles/ordering.css" />
         <option value="$PROJECT_DIR$/pages/ordering.html" />
-        <option value="$PROJECT_DIR$/pages/main.html" />
-        <option value="$PROJECT_DIR$/res/styles/main.css" />
         <option value="$PROJECT_DIR$/pages/mainscreen.html" />
         <option value="$PROJECT_DIR$/res/styles/mainscreen.css" />
         <option value="$PROJECT_DIR$/pages/a.html" />
+        <option value="$PROJECT_DIR$/res/styles/main.css" />
+        <option value="$PROJECT_DIR$/pages/main.html" />
       </list>
     </option>
   </component>
@@ -112,6 +100,11 @@
             <path>
               <item name="WHS-Sandwiches" type="b2602c69:ProjectViewProjectNode" />
               <item name="WHS-Sandwiches" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WHS-Sandwiches" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WHS-Sandwiches" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WHS-Sandwiches" type="b2602c69:ProjectViewProjectNode" />
@@ -164,27 +157,19 @@
     </option>
   </component>
   <component name="RunManager" selected="JavaScript Debug.main.html">
-    <configuration name="a.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/WHS-Sandwiches/pages/a.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
     <configuration name="login.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/WHS-Sandwiches/pages/login.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="main.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/WHS-Sandwiches/pages/main.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="mainscreen.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/WHS-Sandwiches/pages/mainscreen.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="ordering.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/WHS-Sandwiches/pages/ordering.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.login.html" />
+      <item itemvalue="JavaScript Debug.main.html" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JavaScript Debug.main.html" />
-        <item itemvalue="JavaScript Debug.a.html" />
-        <item itemvalue="JavaScript Debug.mainscreen.html" />
-        <item itemvalue="JavaScript Debug.ordering.html" />
         <item itemvalue="JavaScript Debug.login.html" />
       </list>
     </recent_temporary>
@@ -219,7 +204,8 @@
       <workItem from="1548821634424" duration="2100000" />
       <workItem from="1548862910703" duration="7489000" />
       <workItem from="1549463256243" duration="13221000" />
-      <workItem from="1550066126046" duration="764000" />
+      <workItem from="1550066126046" duration="2381000" />
+      <workItem from="1550157231711" duration="648000" />
     </task>
     <task id="LOCAL-00001" summary="Changed Name">
       <created>1544187722449</created>
@@ -389,11 +375,39 @@
       <option name="project" value="LOCAL" />
       <updated>1549569063265</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Revamp">
+      <created>1550155360754</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1550155360754</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Revamp">
+      <created>1550155966019</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1550155966019</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Margins and fonts">
+      <created>1550156048870</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1550156048870</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Info on main screen">
+      <created>1550157275096</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1550157275096</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47989000" />
+    <option name="totallyTimeSpent" value="50254000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -452,7 +466,9 @@
     <MESSAGE value="testing git" />
     <MESSAGE value="main" />
     <MESSAGE value="Revamp" />
-    <option name="LAST_COMMIT_MESSAGE" value="Revamp" />
+    <MESSAGE value="Margins and fonts" />
+    <MESSAGE value="Info on main screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Info on main screen" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test.js" />
@@ -474,81 +490,27 @@
     <entry file="file://$PROJECT_DIR$/index.php" />
     <entry file="file://$PROJECT_DIR$/res/styles/ordering.css" />
     <entry file="file://$PROJECT_DIR$/pages/ordering.html" />
-    <entry file="file://$PROJECT_DIR$/res/styles/mainscreen.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/a.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="141" column="62" selection-start-line="141" selection-start-column="62" selection-end-line="141" selection-end-column="62" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/mainscreen.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/customize.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="57" column="74" selection-start-line="57" selection-start-column="74" selection-end-line="57" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/res/styles/mainscreen.css" />
+    <entry file="file://$PROJECT_DIR$/pages/a.html" />
+    <entry file="file://$PROJECT_DIR$/pages/mainscreen.html" />
+    <entry file="file://$PROJECT_DIR$/pages/customize.html" />
+    <entry file="file://$PROJECT_DIR$/res/logo.png" />
+    <entry file="file://$PROJECT_DIR$/res/styles/login.css" />
+    <entry file="file://$PROJECT_DIR$/pages/login.html" />
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/apache/apache.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-59" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/logo.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/styles/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="82" column="17" selection-start-line="82" selection-start-column="17" selection-end-line="82" selection-end-column="17" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/res/styles/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="41" column="26" lean-forward="true" selection-start-line="45" selection-end-line="46" />
+        <state relative-caret-position="30">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h1#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="441">
+          <caret line="52" column="13" lean-forward="true" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
         </state>
       </provider>
     </entry>
