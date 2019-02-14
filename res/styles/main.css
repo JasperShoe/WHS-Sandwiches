@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+    text-align: center;
+    background: white;
+    font-family: 'Lato', sans-serif;
+}
+
+.header h1 {
+    font-size: 40px;
+    color: #FF8C00;
+    margin-bottom: 5px;
+}
+.header p {
+    font-style: italic;
+    margin-top: 0;
+}
+
+/* The whole navbar */
+.navbar {
+    overflow: hidden; /* Controls what happens to content that is too big to fit into an area.
+    The overflow, in this case, is clipped, and the rest of the content will be invisible */
+
+    background-color: #333;
+}
+
+/* Individual navbar links */
+.navbar a {
+    float: left; /* Links will stay side-by-side */
+    display: block; /* Change the display to block, for responsive reasons */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 33.33%; /*Each link in the navbar will take up 1/3 of the width*/
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+/* Ensure proper sizing */
+* {
+    box-sizing: border-box;
+}
+
+/* Column container */
+.info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.leftcol {
+    flex: 10%; /* Sets the width of the left bar */
+    background-color: #f1f1f1;
+}
+
+.middlecol {
+    flex: 80%; /* Set the width of the main column */
+    background-color: white;
+    padding: 20px; /* 20px on top, bottom, left, and right */
+}
+.middlecol h2 {
+    text-align: center;
+}
+
+.rightcol {
+    flex: 10%; /* Set the width of the right bar */
+    background-color: #f1f1f1;
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+    .navbar a {
+        float: none;
+        width: 100%;
+    }
+}
+.footer {
+    text-align: center;
+    background: #ddd;
+    font-size: 10px;
+    padding: 10px;
+}
+
