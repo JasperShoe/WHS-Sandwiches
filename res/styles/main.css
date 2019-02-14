@@ -7,7 +7,6 @@ body {
     text-align: center;
     color: #f9a114;
     font-family: 'Lato', sans-serif;
-    padding: 5px;
 }
 
 .header h1 {
@@ -53,6 +52,9 @@ body {
     display: flex;
     flex-wrap: wrap;
 }
+.info p, li {
+    line-height: 1.5;
+}
 
 .sidecol {
     flex: 10%; /* Sets the width of the side bars */
@@ -82,7 +84,7 @@ img {
 .footer {
     text-align: center;
     background: #ddd;
-    font-size: 10px;
+    font-size: 8px;
     padding: 10px;
 }
 
