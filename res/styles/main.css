@@ -45,7 +45,16 @@ img {
     background-color: white;
     padding: 20px; /* 20px on top, bottom, left, and right */
 }
-.middlecol h2 {
+.middlecol h2{
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.middlecol h3{
+    /*padding: 0;*/
+    margin: 0;
+}
+#error{
     text-align: center;
 }
 
