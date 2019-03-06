@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> WHS Sandwiches </title>
+    <!--specifies which character set the website is written with-->
+    <meta charset="UTF-8">
+
+    <!--stylesheets-->
+    <link href="../res/styles/main.css" rel="stylesheet" type="text/css">
+    <link href="../res/styles/navbar.css" rel="stylesheet" type="text/css">
+    <link href="../res/styles/checkboxes.css" rel="stylesheet" type="text/css">
+    <link href="../res/styles/collapsible.css" rel="stylesheet" type="text/css">
+
+    <!--logo-->
+    <link rel="shortcut icon" href="../logo.jpeg">
+    <!-- importing google's fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="header">
+    <br>
+    <a href=main.html> SubWayland </a>
+    <p> Easy On-The-Go Ordering </p>
+</div>
+
+<div class="navbar">
+    <a href="customize.html"> CREATE YOUR SANDWICH </a>
+    <a href="http://www.google.com"> YOUR FAVORITES </a>
+    <a href="https://www.wayland.k12.ma.us/UserFiles/Servers/Server_1036352/File/Food%20Services/february19mainevent.pdf">
+        LUNCH MENU
+    </a>
+</div>
+
+<div class="info">
+    <div class="sidecol">
+        <img src="../images/graytexture.png">
+    </div>
+
+    <div class="middlecol">
+        <h2> Select Your Ingredients</h2>
+        <button class="accordion">Bread</button>
+        <div class="panel">
+            <br>
+            <label class="checkcontainer">One
+                <!--add checked = "checked" to check beforehand-->
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkcontainer">Two
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkcontainer">Three
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <br>
+
+        </div>
+
+        <button class="accordion">Meat</button>
+        <div class="panel">
+            <br>
+            <label class="checkcontainer">One
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkcontainer">Two
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkcontainer">Three
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <br>
+        </div>
+
+        <button class="accordion">Cheese</button>
+        <div class="panel">
+            <br>
+            <label class="checkcontainer">One
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkcontainer">Two
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkcontainer">Three
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <br>
+        </div>
+
+        <button class="accordion">Toppings</button>
+        <div class="panel">
+            <br>
+            <label class="checkcontainer">One
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkcontainer">Two
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkcontainer">Three
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <br>
+        </div>
+
+        <button class="accordion">Sauce</button>
+        <div class="panel">
+            <br>
+            <label class="checkcontainer">One
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkcontainer">Two
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkcontainer">Three
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <br>
+        </div>
+
+        <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            }
+        </script>
+
+    </div>
+    <div class="sidecol">
+        <img src="../images/graytexture.png">
+    </div>
+</div>
+
+<div class="footer">
+    <h2> Copyright © 2019 | Made by Jasper, Michael, Rafael, and Robert? </h2>
+</div>
+
+</body>
+
+</html>
