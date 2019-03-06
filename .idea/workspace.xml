@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8bffab40-2783-42dd-b3d5-3e0beb51b7f1" name="Default Changelist" comment="Node Modules">
+    <list default="true" id="8bffab40-2783-42dd-b3d5-3e0beb51b7f1" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/pages/customize.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/res/styles/navbar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -106,11 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/customize.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1216">
-              <caret line="104" column="38" selection-start-line="104" selection-start-column="38" selection-end-line="104" selection-end-column="38" />
+            <state relative-caret-position="225">
+              <caret line="15" column="50" lean-forward="true" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -133,7 +133,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/styles/checkboxes.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
@@ -216,8 +216,8 @@
         <option value="$PROJECT_DIR$/res/styles/main.css" />
         <option value="$PROJECT_DIR$/pages/main.html" />
         <option value="$PROJECT_DIR$/res/styles/collapsible.css" />
-        <option value="$PROJECT_DIR$/pages/customize.html" />
         <option value="$PROJECT_DIR$/res/styles/checkboxes.css" />
+        <option value="$PROJECT_DIR$/pages/customize.html" />
       </list>
     </option>
   </component>
@@ -250,17 +250,6 @@
             </path>
             <path>
               <item name="WHS-Sandwiches" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WHS-Sandwiches" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WHS-Sandwiches" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WHS-Sandwiches" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="styles" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WHS-Sandwiches" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
             </path>
           </expand>
@@ -279,6 +268,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/res" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -353,7 +343,7 @@
       <workItem from="1550165867736" duration="1957000" />
       <workItem from="1550239532687" duration="2605000" />
       <workItem from="1551185731190" duration="150000" />
-      <workItem from="1551888011839" duration="4233000" />
+      <workItem from="1551888011839" duration="4481000" />
     </task>
     <task id="LOCAL-00001" summary="Changed Name">
       <created>1544187722449</created>
@@ -572,11 +562,18 @@
       <option name="project" value="LOCAL" />
       <updated>1550172086590</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Customization Screen and CSS organization">
+      <created>1551895316371</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1551895316371</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60454000" />
+    <option name="totallyTimeSpent" value="60702000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -591,13 +588,13 @@
     <frame x="0" y="23" width="1440" height="797" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26037195" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26037195" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" weight="0.32891566" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49928468" weight="0.32907802" />
@@ -606,7 +603,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32891566" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49427754" weight="0.38439715" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50572246" side_tool="true" weight="0.38439715" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49928468" weight="0.32907802" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49928468" visible="true" weight="0.32907802" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -640,7 +637,8 @@
     <MESSAGE value="Info on main screen" />
     <MESSAGE value="Node Modules" />
     <MESSAGE value="Header styling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Header styling" />
+    <MESSAGE value="Customization Screen and CSS organization" />
+    <option name="LAST_COMMIT_MESSAGE" value="Customization Screen and CSS organization" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test.js" />
@@ -650,7 +648,7 @@
     <entry file="file://$PROJECT_DIR$/Customize.html~origin_master" />
     <entry file="file://$PROJECT_DIR$/login.html" />
     <entry file="file://$PROJECT_DIR$/styles/login.css" />
-    <entry file="file://$PROJECT_DIR$/styles/main.css" />
+    <entry file="file://$PROJECT_DIR$/res/styles/main.css" />
     <entry file="file://$PROJECT_DIR$/logo2.png" />
     <entry file="file://$PROJECT_DIR$/logo.png" />
     <entry file="file://$PROJECT_DIR$/main.html" />
@@ -709,13 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/customize.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1216">
-          <caret line="104" column="38" selection-start-line="104" selection-start-column="38" selection-end-line="104" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/styles/collapsible.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -727,6 +718,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/customize.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="50" lean-forward="true" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
         </state>
       </provider>
     </entry>
