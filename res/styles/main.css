@@ -44,6 +44,7 @@ img {
     flex: 80%; /* Set the width of the main column */
     background-color: white;
     padding: 20px; /* 20px on top, bottom, left, and right */
+    margin-bottom: 53px;
 }
 .middlecol h2{
     text-align: center;
