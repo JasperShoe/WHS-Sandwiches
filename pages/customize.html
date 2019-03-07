@@ -23,14 +23,34 @@
     </script>
     <script type="text/javascript" language="javascript">
         $(document).ready(function () {
+            var id;
             $.getJSON('http://localhost:3000/ingredient_types', function (json) {
-                for (var i = 0; i < json.length; i++) {
-                    $('#it-div').append('<button class = "accordion">' + json[i].name + ' (select up to ' + json[i].limit + ') </button>');
-                }
+                $.getJSON('http://localhost:3000/ingredients', function (json2) {
+                    for (var i = 0; i < json.length; i++) {
+                        $('#it-div').append('<button class = "accordion">' +
+                            json[i].name + ' (select up to ' + json[i].limit +
+                            ') </button>');
+                        id = json[i]._id;
+                        for (var j = 0; j < json2.length; j++) {
+                            if (json2[j].ingredient_type_id === id) {
+
+                                $('#it-div').append('<div class = "panel"><br><label class="checkcontainer">' + json2[j].name + '<input type="checkbox"><span class="checkmark"></span></label><br></div>')
+                            }
+                        }
+                    }
+                });
+
+
             });
 
+
         });
+
+
+
     </script>
+
+
 </head>
 
 <body>
@@ -56,43 +76,28 @@
 
     <div class="middlecol">
         <h2> Select Your Ingredients</h2>
-        <div id="it-div">
-        </div>
 
-        <!--Button Here-->
-        <!--<div class="panel">-->
-        <!--<br>-->
-        <!--<label class="checkcontainer">Ciabatta-->
-        <!--<input type="checkbox">-->
-        <!--<span class="checkmark"></span>-->
-        <!--</label>-->
-        <!--<label class="checkcontainer">White-->
-        <!--<input type="checkbox">-->
-        <!--<span class="checkmark"></span>-->
-        <!--</label>-->
-        <!--<label class="checkcontainer">Wheat-->
-        <!--<input type="checkbox">-->
-        <!--<span class="checkmark"></span>-->
-        <!--</label>-->
-        <!--<br>-->
-        <!--</div>-->
+        <div id="it-div"></div>
+
     </div>
-
     <script>
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function () {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                } else {
-                    panel.style.maxHeight = panel.scrollHeight + "px";
-                }
-            });
+        function expand() {
+            var acc = document.getElementsByClassName('accordion');
+            for (var i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            }
         }
+        setTimeout(expand, 1000)
+
+
     </script>
 
     <div class="sidecol">
