@@ -21,36 +21,6 @@ body {
     font-style: italic;
     margin-top: 0;
 }
-
-/* The whole navbar */
-.navbar {
-    overflow: hidden; /* Controls what happens to content that is too big to fit into an area.
-    The overflow, in this case, is clipped, and the rest of the content will be invisible */
-
-    background-color: #333;
-}
-
-/* Individual navbar links */
-.navbar a {
-    float: left; /* Links will stay side-by-side */
-    display: block; /* Change the display to block, for responsive reasons */
-    color: white;
-    text-align: center;
-    padding: 20px;
-    width: 33.33%; /*Each link in the navbar will take up 1/3 of the width*/
-    text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.navbar a:hover {
-    background-color: #ddd;
-    color: black;
-}
-/* Ensure proper sizing */
-* {
-    box-sizing: border-box;
-}
-
 /* Column container */
 .info {
     display: flex;
@@ -74,8 +44,18 @@ img {
     flex: 80%; /* Set the width of the main column */
     background-color: white;
     padding: 20px; /* 20px on top, bottom, left, and right */
+    margin-bottom: 53px;
 }
-.middlecol h2 {
+.middlecol h2{
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.middlecol h3{
+    /*padding: 0;*/
+    margin: 0;
+}
+#error{
     text-align: center;
 }
 
