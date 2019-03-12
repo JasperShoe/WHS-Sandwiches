@@ -3,28 +3,49 @@
 
 <head>
     <title> WHS Sandwiches </title>
-    <!--specifies which character set the website is written with-->
     <meta charset="UTF-8">
+
+    <!--stylesheets-->
     <link href="../styles/main.css" rel="stylesheet" type="text/css">
     <link href="../styles/navbar.css" rel="stylesheet" type="text/css">
+    <link href="../styles/checkboxes.css" rel="stylesheet" type="text/css">
+    <link href="../styles/collapsible.css" rel="stylesheet" type="text/css">
+
     <!--logo-->
-    <link rel="shortcut icon" href="../images/logo.png">
+    <link href="../images/logo.png" rel="shortcut icon">
+
     <!-- importing google's fonts -->
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <!--javascript files-->
+    <script src="../scripts/get_ingredient_options.js"></script>
+    <script src="../scripts/expand_accordion.js"></script>
+    <script src="../scripts/create_order.js"></script>
+
+    <!--Google sign-in-->
+    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+
+    <script src="../scripts/google_signin.js"></script>
+
+
 </head>
 
 <body>
 
 <div class="header">
     <br>
-    <a href = main.html> SubWayland </a>
-    <p> Easy On-The-Go Ordering </p>
+    <a href = main.html>SubWayland</a>
+    <p>Easy On-The-Go Ordering</p>
 </div>
 
 <div class="navbar">
-    <a id="signinButton"> CREATE YOUR SANDWICH </a>
-    <a href="favorites.html"> YOUR FAVORITES </a>
+    <a onclick="signIn()">CREATE YOUR SANDWICH</a>
+    <a href="favorites.html">YOUR FAVORITES</a>
     <a href="https://www.wayland.k12.ma.us/UserFiles/Servers/Server_1036352/File/Food%20Services/february19mainevent.pdf">
         LUNCH MENU
     </a>
@@ -59,6 +80,7 @@
                 At lunch, your sandwich will be labeled with your name. Pick up your sandwich and type in your lunch code.
             </li>
         </ol>
+        <a href="#" onclick="signOut();">Sign out</a>
     </div>
 
     <div class="sidecol">

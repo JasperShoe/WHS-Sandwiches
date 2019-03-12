@@ -3,16 +3,13 @@
 
 <head>
     <title> WHS Sandwiches </title>
-    <!--specifies which character set the website is written with-->
     <meta charset="UTF-8">
-    <!--<meta name="google-signin-client_id" content="137343299835-5vtibq9c072o11ullqob6d7snqes1530.apps.googleusercontent.com">-->
 
     <!--stylesheets-->
     <link href="../styles/main.css" rel="stylesheet" type="text/css">
     <link href="../styles/navbar.css" rel="stylesheet" type="text/css">
     <link href="../styles/checkboxes.css" rel="stylesheet" type="text/css">
     <link href="../styles/collapsible.css" rel="stylesheet" type="text/css">
-
 
     <!--logo-->
     <link href="../images/logo.png" rel="shortcut icon">
@@ -22,81 +19,26 @@
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
 
-    <!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
-    <!--<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>-->
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-    <!-- The top of file index.html -->
-    <html itemscope itemtype="http://schema.org/Article">
-    <head>
-        <!-- BEGIN Pre-requisites -->
-        <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">-->
-        <!--</script>-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer>
-        </script>
-        <!-- END Pre-requisites -->
-        <script>
-            function start() {
-                gapi.load('auth2', function() {
-                    auth2 = gapi.auth2.init({
-                        client_id: '137343299835-5vtibq9c072o11ullqob6d7snqes1530.apps.googleusercontent.com',
-                        // Scopes to request in addition to 'profile' and 'email'
-                        //scope: 'additional_scope'
-                    });
-                });
-            }
-        </script>
+    <!--javascript files-->
+    <script src="../scripts/get_ingredient_options.js"></script>
+    <script src="../scripts/expand_accordion.js"></script>
+    <script src="../scripts/create_order.js"></script>
 
-    <!--Javascript code for adding the ingredient types and ingredients into the accordions.-->
-    <script src="../scripts/getingredients.js"></script>
-
-    <!--Javascript code for expanding accordions.-->
-    <script src="../scripts/expandaccordion.js"></script>
-
-    <!--Javascript code for signing in/out.-->
-    <script src="../scripts/googlesignin.js"></script>
-    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+    <!--Google sign-in-->
+    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
 
 
-    <script language="javascript" type="text/javascript">
 
-        // This function will execute when this html page loads.
-        $(document).ready(function () {
-            var id;
-            // Gets the data from the ingredient_types and ingredients collections.
-            $.getJSON('http://localhost:3000/ingredient_types', function (json) {
-                $.getJSON('http://localhost:3000/ingredients', function (json2) {
-
-                    // Loop through the list of ingredient types ("json") and add their names to the accordions.
-                    for (var i = 0; i < json.length; i++) {
-                        if (json[i].name === "Bread")
-                            $('#it-div').append('<button class = "accordion">' + json[i].name + ' (select ' + json[i].limit + ') </button><hr>');
-                        else
-                            $('#it-div').append('<button class = "accordion">' + json[i].name + ' (select up to ' + json[i].limit + ') </button><hr>');
-
-                        // Hold on to the id of each ingredient type so that we can identify the ingredients.
-                        id = json[i]._id;
-                        // Now, loop through the list of ingredients, "json2" (we're still in the first loop).
-                        // Get all of the ingredients that are of the type so that we can separate them into the panels of the accordions.
-                        for (var j = 0; j < json2.length; j++) {
-                            ingredient_name = json2[j].name;
-                            if (json2[j].ingredient_type_id === id) {
-                                $('#it-div').append('<div class = "panel"><br><label class="checkcontainer">' + json2[j].name + '<input class = "ingredientcheckbox" type="checkbox" name = ingredient_name ><span class="checkmark"></span></label><br></div>')
-                            }
-                        }
-                    }
-                });
-            });
-        });
-
-
-    </script>
-
-
+    <script src="../scripts/google_signin.js"></script>
+    
 </head>
 
 <body>
+
+
 
 <div class="header">
     <br>
@@ -107,7 +49,7 @@
 
 
 <div class="navbar">
-    <a id="signinButton"> CREATE YOUR SANDWICH </a>
+    <a href="customize.html"> CREATE YOUR SANDWICH </a>
     <a href="favorites.html"> YOUR FAVORITES </a>
     <a href="https://www.wayland.k12.ma.us/UserFiles/Servers/Server_1036352/File/Food%20Services/february19mainevent.pdf">
         LUNCH MENU
@@ -127,121 +69,10 @@
         <br>
         <h2> Finalize Your Order</h2>
         <br>
-        <!-- Add where you want your sign-in button to render -->
-        <!-- Use an image that follows the branding guidelines in a real app -->
-        <!--<button >Sign in with Google</button>-->
-
         <button onclick="getOrder();"> Order</button>
-        <script>
-            function getOrder(){
-                var ingredients = document.getElementsByClassName("ingredientcheckbox");
-                var orderIngredients = [];
-
-                // console.log(all);
-                for (var i = 0; i < ingredients.length; i++) {
-                    if (ingredients[i].checked) {
-                        orderIngredients.push(ingredients[i].parentElement.innerText);
-                    }
-                }
-                console.log(orderIngredients);
-                clearChecklist(ingredients);
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", 'http://localhost:3000/orders', false);
-                var data = new FormData();
-                data.append('student_email', 'rafavchaves@gmail.com')
-                data.append('ingredients', 'orderIngredients')
-                data.append('which_lunch', '1')
-
-                xhr.send();
-            }
-
-            function clearChecklist(ingrs){
-                for (var i = 0; i < ingrs.length; i++) {
-                    if (ingrs[i].checked){
-                        ingrs[i].checked = false;
-                    }
-                }
-            }
-        </script>
-
-        <script>
-            $('#signinButton').click(function() {
-                // signInCallback defined in step 6.
-                auth2.grantOfflineAccess().then(signInCallback);
-            });
-        </script>
-        <!--<div id="my-signin2"></div>-->
-        <script>
-            function onSuccess(googleUser) {
-                console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-                window.location.href = "https://www.example.com";
-            }
-            function onFailure(error) {
-                console.log(error);
-            }
-            function renderButton() {
-                gapi.signin2.render('my-signin2', {
-                    'scope': 'profile email',
-                    'width': 240,
-                    'height': 50,
-                    'longtitle': true,
-                    'theme': 'light',
-                    'onsuccess': onSuccess,
-                    'onfailure': onFailure
-                });
-            }
-        </script>
-
         <a href="#" onclick="signOut();">Sign out</a>
-        <script>
-            function signOut() {
-                var auth2 = gapi.auth2.getAuthInstance();
-                auth2.signOut().then(function () {
-                    console.log('User signed out.');
-                });
-            }
-        </script>
 
     </div>
-    <script>
-        // This javascript function expands/collapses the "accordions".
-        function expand() {
-            var acc = document.getElementsByClassName('accordion'); // Get the five accordion elements.
-
-            // Loop through each of the accordions on the doc
-            for (var i = 0; i < acc.length; i++) {
-
-                // Add a click lister that will execute the inside function whenever the accordion is clicked on.
-                acc[i].addEventListener("click", function () {
-
-                    // Everything in here will execute whenever an accordion is clicked.
-                    this.classList.toggle("active");
-                    var panel = this.nextElementSibling;
-                    while (panel) { // While the next element exists
-                        if (panel.style.maxHeight) { // If the panel has a maxHeight (meaning it's open), then close it
-                            panel.style.maxHeight = null;
-                        } else { // If the panel doesn't have a maxHeight, it is closed.
-                            panel.style.maxHeight = panel.scrollHeight + "px"; // This opens the panel.
-                        }
-
-                        // Keep going to the next element to open it until we hit the next accordion (which will be a button).
-                        // If we hit a button, terminate the while loop by setting the panel to null.
-                        if (panel.nextElementSibling === null)
-                            panel = null;
-                        else if (panel.nextElementSibling.nodeName.toLowerCase() === "button")
-                            panel = null;
-                        else
-                            panel = panel.nextElementSibling;
-                    }
-                });
-            }
-        }
-
-        // Delays the calling of expand() so that it doesn't execute before our html is fully loaded.
-        setTimeout(expand, 1000);
-
-
-    </script>
 
     <div class="sidecol">
         <img alt="" src="../images/graytexture.png">
@@ -253,37 +84,6 @@
     <!--<h2> Copyright © 2019 | Made by Jasper, Michael, Rafael, and Robert? </h2>-->
     <h2> Made by Rafael Chaves, Jasper Hsu, and Michael Chen </h2>
 </div>
-<!-- Last part of BODY element in file index.html -->
-<script>
-    function signInCallback(authResult) {
-        if (authResult['code']) {
-            window.location.replace("customize.html");
-
-
-            // Hide the sign-in button now that the user is authorized, for example:
-            // $('#signinButton').attr('style', 'display: none');
-
-            // Send the code to the server
-            $.ajax({
-                type: 'POST',
-                url: 'http://example.com/storeauthcode',
-                // Always include an `X-Requested-With` header in every AJAX request,
-                // to protect against CSRF attacks.
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
-                },
-                contentType: 'application/octet-stream; charset=utf-8',
-                success: function(result) {
-                    // Handle or verify the server response.
-                },
-                processData: false,
-                data: authResult['code']
-            });
-        } else {
-            // There was an error.
-        }
-    }
-</script>
 
 
 </body>

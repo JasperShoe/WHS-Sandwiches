@@ -1,10 +1,9 @@
 // This function will execute when this html page loads.
 $(document).ready(function () {
-    var id;
     // Gets the data from the ingredient_types and ingredients collections.
     $.getJSON('http://localhost:3000/ingredient_types', function (json) {
         $.getJSON('http://localhost:3000/ingredients', function (json2) {
-
+            var id;
             // Loop through the list of ingredient types ("json") and add their names to the accordions.
             for (var i = 0; i < json.length; i++) {
                 if (json[i].name === "Bread")
