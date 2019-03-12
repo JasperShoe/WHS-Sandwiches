@@ -5,7 +5,7 @@
     <title> WHS Sandwiches </title>
     <!--specifies which character set the website is written with-->
     <meta charset="UTF-8">
-    <meta name="google-signin-client_id" content="137343299835-bkvevo3c368t0er8l159rncqcstoo2lt.apps.googleusercontent.com">
+    <meta name="google-signin-client_id" content="137343299835-5vtibq9c072o11ullqob6d7snqes1530.apps.googleusercontent.com">
 
     <!--stylesheets-->
     <link href="../res/styles/main.css" rel="stylesheet" type="text/css">
@@ -21,7 +21,9 @@
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
 
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"
             type="text/javascript">
@@ -38,7 +40,10 @@
 
                     // Loop through the list of ingredient types ("json") and add their names to the accordions.
                     for (var i = 0; i < json.length; i++) {
-                        $('#it-div').append('<button class = "accordion">' + json[i].name + ' (select up to ' + json[i].limit + ') </button><hr>');
+                        if (json[i].name === "Bread")
+                            $('#it-div').append('<button class = "accordion">' + json[i].name + ' (select ' + json[i].limit + ') </button><hr>');
+                        else
+                            $('#it-div').append('<button class = "accordion">' + json[i].name + ' (select up to ' + json[i].limit + ') </button><hr>');
 
                         // Hold on to the id of each ingredient type so that we can identify the ingredients.
                         id = json[i]._id;
@@ -89,7 +94,6 @@
     <p> Easy On-The-Go Ordering </p>
 </div>
 
-<div class="g-signin2" data-onsuccess="onSignIn"></div>
 
 
 <div class="navbar">
@@ -109,6 +113,38 @@
         <h2> Select Your Ingredients</h2>
 
         <div id="it-div"></div>
+        <br>
+        <br>
+        <div id="my-signin2"></div>
+        <script>
+            function onSuccess(googleUser) {
+                console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+            }
+            function onFailure(error) {
+                console.log(error);
+            }
+            function renderButton() {
+                gapi.signin2.render('my-signin2', {
+                    'scope': 'profile email',
+                    'width': 240,
+                    'height': 50,
+                    'longtitle': true,
+                    'theme': 'light',
+                    'onsuccess': onSuccess,
+                    'onfailure': onFailure
+                });
+            }
+        </script>
+
+        <a href="#" onclick="signOut();">Sign out</a>
+        <script>
+            function signOut() {
+                var auth2 = gapi.auth2.getAuthInstance();
+                auth2.signOut().then(function () {
+                    console.log('User signed out.');
+                });
+            }
+        </script>
 
     </div>
     <script>
