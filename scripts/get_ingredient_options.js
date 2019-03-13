@@ -4,6 +4,7 @@ $(document).ready(function () {
     $.getJSON('http://localhost:3000/ingredient_types', function (json) {
         $.getJSON('http://localhost:3000/ingredients', function (json2) {
             var id;
+
             // Loop through the list of ingredient types ("json") and add their names to the accordions.
             for (var i = 0; i < json.length; i++) {
                 if (json[i].name === "Bread")
@@ -18,7 +19,7 @@ $(document).ready(function () {
                 // Get all of the ingredients that are of the type so that we can separate them into the panels of the accordions.
                 for (var j = 0; j < json2.length; j++) {
                     if (json2[j].ingredient_type_id === id) {
-                        $('#it-div').append('<div class = "panel"><br><label class="checkcontainer">' + json2[j].name + '<input type="checkbox"><span class="checkmark"></span></label><br></div>')
+                        $('#it-div').append('<div class = "panel"><br><label class="checkcontainer">' + json2[j].name + '<input class = "ingredientcheckbox" type="checkbox"><span class="checkmark"></span></label><br></div>')
                     }
                 }
             }

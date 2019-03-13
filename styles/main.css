@@ -3,13 +3,13 @@ body {
     margin: 0;
 }
 
-.header {
+.title {
     text-align: center;
     font-family: 'Merriweather', serif;
     color: #f9a114;
 }
 
-.header a {
+.title a {
     font-size: 30pt;
     margin-bottom: 0;
     letter-spacing: 5px;
@@ -17,7 +17,7 @@ body {
     color: #f9a114;
     padding-top: 5px;
 }
-.header p {
+.title p {
     font-style: italic;
     margin-top: 0;
 }

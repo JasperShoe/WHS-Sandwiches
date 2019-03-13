@@ -21,6 +21,11 @@
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#header").load("main.html #header")
+        });
+    </script>
 
     <!--javascript files-->
     <script src="../scripts/get_ingredient_options.js"></script>
@@ -37,19 +42,7 @@
 
 <body>
 
-<div class="header">
-    <br>
-    <a href = main.html> SubWayland </a>
-    <p> Easy On-The-Go Ordering </p>
-</div>
-
-<div class="navbar">
-    <a href="customize.html"> CREATE YOUR SANDWICH </a>
-    <a href="favorites.html"> YOUR FAVORITES </a>
-    <a href="https://www.wayland.k12.ma.us/UserFiles/Servers/Server_1036352/File/Food%20Services/february19mainevent.pdf">
-        LUNCH MENU
-    </a>
-</div>
+<div id ="header"></div>
 
 <div class="info">
     <div class="sidecol">
@@ -58,7 +51,6 @@
 
     <div class="middlecol">
         <h3 id = "error">You do not have any favorite orders yet.</h3>
-        <a href="#" onclick="signOut();">Sign out</a>
     </div>
 
     <div class="sidecol">

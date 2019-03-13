@@ -1,23 +1,19 @@
 function getOrder(){
-    var ingredients = document.getElementsByClassName("ingredientcheckbox");
+    // var ingredients = document.getElementsByClassName("checkcontainer");
+    // console.log(ingredients);
+
+
+    var checkboxes = document.getElementsByClassName("ingredientcheckbox");
     var orderIngredients = [];
 
-    // console.log(all);
-    for (var i = 0; i < ingredients.length; i++) {
-        if (ingredients[i].checked) {
-            orderIngredients.push(ingredients[i].parentElement.innerText);
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            console.log(checkboxes[i].parentElement.innerText);
+            orderIngredients.push(checkboxes[i].parentElement.innerText);
         }
     }
-    console.log(orderIngredients);
-    clearChecklist(ingredients);
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", 'http://localhost:3000/orders', false);
-    var data = new FormData();
-    data.append('student_email', 'rafavchaves@gmail.com');
-    data.append('ingredients', 'orderIngredients');
-    data.append('which_lunch', '1');
-
-    xhr.send();
+    clearChecklist(checkboxes);
+    console.log(orderIngredients)
 }
 
 function clearChecklist(ingrs){

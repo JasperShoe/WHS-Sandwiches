@@ -1,25 +1,42 @@
+function getCookie(name) {
+    var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+    return v ? v[2] : null;
+}
+function setCookie(name, value, days) {
+    var d = new Date;
+    d.setTime(d.getTime() + 24*60*60*1000*days);
+    document.cookie = name + "=" + value + ";path=/;expires=" + d.toGMTString();
+}
+function deleteCookie(name) { setCookie(name, '', -1); }
+
 // Initializes the sign-in client. Called when page is loaded.
 function start() {
     gapi.load('auth2', function () {
-        console.log("started");
         auth2 = gapi.auth2.init({
             client_id: '137343299835-5vtibq9c072o11ullqob6d7snqes1530.apps.googleusercontent.com'
+        });
+        auth2.then(function () {
+
+                if (!auth2.isSignedIn.get() && (window.location.pathname === "/WHS-Sandwiches/pages/login.html"
+                    || window.location.pathname === "/WHS-Sandwiches/pages/customize.html")){
+                    auth2.grantOfflineAccess().catch(notSignedIn).then(signInCallback);
+                }
+                else if(auth2.isSignedIn.get() && window.location.pathname === "/WHS-Sandwiches/pages/login.html"){
+                    window.location.href = "customize.html";
+                }
+
+
         })
     });
 }
-
-// Called when someone clicks on the "Create Your Sandwich" tab.
-function signIn() {
-
-    // Check if user is signed in. If they are, go straight to customize page. If not, go to sign-in screen.
-    if (auth2.isSignedIn.get()) {
-        window.location.href = "customize.html";
-    } else
-        auth2.grantOfflineAccess().then(signInCallback);
+function notSignedIn(){
+    window.location.href = "main.html";
 }
+
 
 function signInCallback(authResult) {
     if (authResult['code']) {
+        setCookie("authCode", authResult['code'], 7);
         window.location.href = "customize.html";
 
         // Send the code to the server
@@ -44,6 +61,9 @@ function signInCallback(authResult) {
 }
 
 function signOut() {
+    if (window.location.pathname === "/WHS-Sandwiches/pages/customize.html")
+        window.location.href = "main.html";
+    deleteCookie("authCode");
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
         console.log('User signed out.');
