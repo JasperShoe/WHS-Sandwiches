@@ -3,33 +3,54 @@
 
 <head>
     <title> WHS Sandwiches </title>
-    <!--specifies which character set the website is written with-->
     <meta charset="UTF-8">
-    <link href="../res/styles/main.css" rel="stylesheet" type="text/css">
-    <link href="../res/styles/navbar.css" rel="stylesheet" type="text/css">
+
+    <!--stylesheets-->
+    <link href="../styles/main.css" rel="stylesheet" type="text/css">
+    <link href="../styles/navbar.css" rel="stylesheet" type="text/css">
+    <link href="../styles/checkboxes.css" rel="stylesheet" type="text/css">
+    <link href="../styles/collapsible.css" rel="stylesheet" type="text/css">
+
     <!--logo-->
-    <link rel="shortcut icon" href="../images/logo.png">
+    <link href="../images/logo.png" rel="shortcut icon">
+
     <!-- importing google's fonts -->
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <!--javascript files-->
+    <script src="../scripts/get_ingredient_options.js"></script>
+    <script src="../scripts/expand_accordion.js"></script>
+    <script src="../scripts/create_order.js"></script>
+
+    <!--Google sign-in-->
+    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+
+    <script src="../scripts/google_signin.js"></script>
+
+
 </head>
 
 <body>
-
-<div class="header">
-    <br>
-    <a href = main.html> SubWayland </a>
-    <p> Easy On-The-Go Ordering </p>
+<div id ="header">
+    <div class="title">
+        <br>
+        <a href= "main.html"> SubWayland </a>
+        <p> Easy On-The-Go Ordering </p>
+    </div>
+    <a href="#" onclick="signOut();">Sign out</a>
+    <div class="navbar">
+        <a href="login.html"> CREATE YOUR SANDWICH </a>
+        <a href="favorites.html"> YOUR FAVORITES </a>
+        <a href="https://www.wayland.k12.ma.us/UserFiles/Servers/Server_1036352/File/Food%20Services/february19mainevent.pdf">
+            LUNCH MENU
+        </a>
+    </div>
 </div>
-
-<div class="navbar">
-    <a href="customize.html"> CREATE YOUR SANDWICH </a>
-    <a href="favorites.html"> YOUR FAVORITES </a>
-    <a href="https://www.wayland.k12.ma.us/UserFiles/Servers/Server_1036352/File/Food%20Services/february19mainevent.pdf">
-        LUNCH MENU
-    </a>
-</div>
-
 <div class="info">
     <div class="sidecol">
         <img src="../images/graytexture.png" alt = "">
@@ -48,12 +69,13 @@
         <h3> How to Use </h3>
 
         <ol>
-            <li> First, select the "Create Your Sandwich" tab on the navigation bar to begin customizing your sandwich.
-                If you do not want a sandwich, you can take a look at this month's main lunch menu in the "Lunch Menu" tab.
+            <li> First, select the "Create Your Sandwich" tab on the navigation bar and log in to your Google account
+                to begin customizing your sandwich. If you do not want a sandwich, you can take a look at this month's
+                main lunch menu in the "Lunch Menu" tab.
             </li>
             <li>
-                Once you've customized your sandwich, you can save your order in the "Your Favorites" tab by clicking "Save Order".
-                Specify which lunch you will pick the sandwich up at and click "Order".
+                Once you've added your ingredients, specify which lunch you will pick up sandwich at and click "Submit Order".
+                Afterwards, you can save the order as a favorite by clicking "Save As Favorite".
             </li>
             <li>
                 At lunch, your sandwich will be labeled with your name. Pick up your sandwich and type in your lunch code.
