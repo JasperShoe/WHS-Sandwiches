@@ -13,13 +13,14 @@ $(document).ready(function () {
                     $('#it-div').append('<button class = "accordion">' + json[i].name + ' (select up to ' + json[i].limit + ') </button><hr>');
 
                 // Hold on to the id of each ingredient type so that we can identify the ingredients.
-                id = json[i]._id;
+                typeid = json[i]._id;
 
                 // Now, loop through the list of ingredients, "json2" (we're still in the first loop).
                 // Get all of the ingredients that are of the type so that we can separate them into the panels of the accordions.
                 for (var j = 0; j < json2.length; j++) {
-                    if (json2[j].ingredient_type_id === id) {
-                        $('#it-div').append('<div class = "panel"><br><label class="checkcontainer">' + json2[j].name + '<input class = "ingredientcheckbox" type="checkbox"><span class="checkmark"></span></label><br></div>')
+                    if (json2[j].ingredient_type_id === typeid) {
+                        var str = typeid.toString();
+                        $('#it-div').append('<div class = "panel"><br><label class="checkcontainer" id = str>' + json2[j].name + '<input class = "ingredientcheckbox" type="checkbox"><span class="checkmark"></span></label><br></div>')
                     }
                 }
             }
