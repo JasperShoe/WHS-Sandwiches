@@ -39,7 +39,7 @@
     <script src="../scripts/google_signin.js"></script>
     <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
     <script>
-        console.log(getCookie('authCode'));
+        // console.log(getCookie('authCode'));
         if (getCookie('authCode') === null){
             window.location.href = "login.html";
         }
@@ -70,7 +70,9 @@
         <br>
         <h2> Finalize Your Order</h2>
         <br>
-        <button onclick="getOrder();"> Order</button>
+        <button onclick="submitOrder();"> Submit Order</button>
+        <button onclick="getOrderWithQuery();"> Get Order (Query) </button>
+
 
     </div>
 

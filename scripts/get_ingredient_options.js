@@ -3,14 +3,14 @@ $(document).ready(function () {
     // Gets the data from the ingredient_types and ingredients collections.
     $.getJSON('http://localhost:3000/ingredient_types', function (json) {
         $.getJSON('http://localhost:3000/ingredients', function (json2) {
-            var id;
-
+            var typeid;
             // Loop through the list of ingredient types ("json") and add their names to the accordions.
+            var it_div = $('#it-div');
             for (var i = 0; i < json.length; i++) {
                 if (json[i].name === "Bread")
-                    $('#it-div').append('<button class = "accordion">' + json[i].name + ' (select ' + json[i].limit + ') </button><hr>');
+                    it_div.append('<button class = "accordion">' + json[i].name + ' (select ' + json[i].limit + ') </button><hr>');
                 else
-                    $('#it-div').append('<button class = "accordion">' + json[i].name + ' (select up to ' + json[i].limit + ') </button><hr>');
+                    it_div.append('<button class = "accordion">' + json[i].name + ' (select up to ' + json[i].limit + ') </button><hr>');
 
                 // Hold on to the id of each ingredient type so that we can identify the ingredients.
                 typeid = json[i]._id;
@@ -19,8 +19,19 @@ $(document).ready(function () {
                 // Get all of the ingredients that are of the type so that we can separate them into the panels of the accordions.
                 for (var j = 0; j < json2.length; j++) {
                     if (json2[j].ingredient_type_id === typeid) {
-                        var str = typeid.toString();
-                        $('#it-div').append('<div class = "panel"><br><label class="checkcontainer" id = str>' + json2[j].name + '<input class = "ingredientcheckbox" type="checkbox"><span class="checkmark"></span></label><br></div>')
+                        it_div.append('<div class = "panel"><br><label class="checkcontainer" id ="temp">' + json2[j].name + '<input class = "ingredientcheckbox" type="checkbox" id = "available"><span class="checkmark"></span></label><br></div>')
+                        var checkcontainer = $(".checkcontainer");
+                        if (checkcontainer.last().attr("id") === "temp"){
+
+                            // The attr method by default gets the first element, so we also have to call last() before it.
+                            checkcontainer.last().attr("id", typeid);
+                        }
+                        if(!json2[j].is_available){
+                            $(".ingredientcheckbox").last().attr("id", "unavailable");
+                            $("#unavailable").last().attr("disabled", "disabled")
+                        }
+
+
                     }
                 }
             }
