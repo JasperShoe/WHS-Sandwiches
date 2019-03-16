@@ -54,8 +54,29 @@ img {
 .middlecol h3{
     margin: 0;
 }
-#error{
-    text-align: center;
+.alert {
+    border-radius: 5px;
+    padding: 20px;
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    margin-bottom: 8px;
+    display: none;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: rgb(181, 218, 182);
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
 }
 
 .footer {

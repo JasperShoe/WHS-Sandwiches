@@ -23,13 +23,11 @@
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="../scripts/get_orders.js"></script>
 
     <script>
         $(document).ready(function() {
-            $("#header").load("main.html #header");
-            $("#footer").load("main.html #footer");
-
+            $(".header").load("main.html .header");
+            $(".footer").load("main.html .footer");
         });
     </script>
 
@@ -51,7 +49,7 @@
 </head>
 <body>
 
-<div id ="header"></div>
+<div class ="header"></div>
 
 <div class="info">
     <div class="sidecol">
@@ -59,29 +57,27 @@
     </div>
 
     <div class="middlecol">
+        <div class="alert" id="confirmation">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            Order Saved as Favorite.
+        </div>
         <h2> Select Your Ingredients</h2>
 
         <div id="it-div"></div>
-        <br>
-        <div class = "lunchbuttons" style = "text-align: center;">
+        <br><h2> Finalize Your Order</h2><br>
+        <div class = "lunchbuttons">
+            <h3>Select Lunch</h3>
             <input type="radio" name="lunch" value="1"> 1st<br>
             <input type="radio" name="lunch" value="2"> 2nd<br>
             <input type="radio" name="lunch" value="3"> 3rd<br>
         </div>
-        <br>
-        <h2> Finalize Your Order</h2>
-        <br>
-        <button id = "orderBtn" onclick="submitOrder();"> Submit Order</button>
+        <button id = "orderBtn" onclick="buildOrder();"> Submit Order</button>
         <div id="orderPopup" class="popup">
             <div class="popup-content">
                 <span class="close">&times;</span>
-                <p> Order Summary: </p>
                 <div id = "order_summary"></div>
-                <button id = "save">Save as Favorite</button>
-                <button id = "confirm" onclick="finalize()">Finalize Order</button>
             </div>
         </div>
-        <button onclick="getOrderWithQuery();"> Get Order (Query) </button>
 
 
     </div>

@@ -1,9 +1,9 @@
 function getCookie(name) {
-    var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+    let v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
     return v ? v[2] : null;
 }
 function setCookie(name, value, days) {
-    var d = new Date;
+    let d = new Date;
     d.setTime(d.getTime() + 24*60*60*1000*days);
     document.cookie = name + "=" + value + ";path=/;expires=" + d.toGMTString();
 }
@@ -61,7 +61,7 @@ function signInCallback(authResult) {
 }
 function onSignIn(googleUser) {
     // Useful data for your client-side scripts:
-    var profile = googleUser.getBasicProfile();
+    let profile = googleUser.getBasicProfile();
     console.log("ID: " + profile.getId()); // Don't send this directly to your server!
     console.log('Full Name: ' + profile.getName());
     console.log('Given Name: ' + profile.getGivenName());
@@ -70,7 +70,7 @@ function onSignIn(googleUser) {
     console.log("Email: " + profile.getEmail());
 
     // The ID token you need to pass to your backend:
-    var id_token = googleUser.getAuthResponse().id_token;
+    let id_token = googleUser.getAuthResponse().id_token;
     console.log("ID Token: " + id_token);
 }
 
@@ -78,7 +78,7 @@ function signOut() {
     if (window.location.pathname === "/WHS-Sandwiches/pages/customize.html")
         window.location.href = "main.html";
     deleteCookie("authCode");
-    var auth2 = gapi.auth2.getAuthInstance();
+    let auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
         console.log('User signed out.');
     });

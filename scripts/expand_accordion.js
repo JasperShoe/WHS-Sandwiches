@@ -1,16 +1,16 @@
 // This javascript function expands/collapses the "accordions".
 function expand() {
-    var acc = document.getElementsByClassName('accordion'); // Get the five accordion elements.
 
     // Loop through each of the accordions on the doc
-    for (var i = 0; i < acc.length; i++) {
+    const acc = document.getElementsByClassName('accordion'); // Get the five accordion elements.
+    for (let i = 0; i < acc.length; i++) {
 
         // Add a click lister that will execute the inside function whenever the accordion is clicked on.
         acc[i].addEventListener("click", function () {
 
             // Everything in here will execute whenever an accordion is clicked.
             this.classList.toggle("active");
-            var panel = this.nextElementSibling;
+            let panel = this.nextElementSibling;
             while (panel) { // While the next element exists
                 if (panel.style.maxHeight) { // If the panel has a maxHeight (meaning it's open), then close it
                     panel.style.maxHeight = null;
