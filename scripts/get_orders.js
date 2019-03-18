@@ -4,7 +4,7 @@ const url = "http://localhost:3000/orders/";
 //todo: scenario - how to prevent / deal with orders with ingredients that become out of stock after they are ordered
 
 $(document).ready(function () {
-    $.get(url, {student_email: "rafaelvchaves@gmail.com", daysOfOrders: 1, sort: {date: -1}}, function (orderHistory) {
+    $.get(url, {student_email: getCookie("email"), daysOfOrders: 1, sort: {date: -1}}, function (orderHistory) {
         let order_div = $('#orders_div');
         if (orderHistory.length === 0) {
             order_div.append('<h3>You have not placed any orders yet.</h3>');
