@@ -17,15 +17,18 @@ body {
     color: #f9a114;
     padding-top: 5px;
 }
+
 .title p {
     font-style: italic;
     margin-top: 0;
 }
+
 /* Column container */
 .info {
     display: flex;
     flex-wrap: wrap;
 }
+
 .info p, li {
     line-height: 1.5;
     font-size: 14pt;
@@ -35,6 +38,7 @@ body {
     flex: 10%; /* Sets the width of the side bars */
     background-color: #f1f1f1;
 }
+
 img {
     width: 100%;
     height: 100%;
@@ -46,14 +50,17 @@ img {
     padding: 20px; /* 20px on top, bottom, left, and right */
     margin-bottom: 53px;
 }
-.middlecol h2{
+
+.middlecol h2 {
     text-align: center;
     margin-top: 0;
     margin-bottom: 0;
 }
-.middlecol h3{
+
+.middlecol h3 {
     margin: 0;
 }
+
 .alert {
     border-radius: 5px;
     padding: 20px;
@@ -62,6 +69,8 @@ img {
     border-color: #d6e9c6;
     margin-bottom: 8px;
     display: none;
+    opacity: 1;
+    transition: opacity 0.6s;
 }
 
 .closebtn {

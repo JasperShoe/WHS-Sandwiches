@@ -1,5 +1,4 @@
 .accordion {
-    /*background-color: #eee;*/
     background-color: white;
     color: #444;
     cursor: pointer;
@@ -11,7 +10,6 @@
     font-size: 20px;
     transition: 0.4s;
     margin-top: 0;
-    /*margin: 0 5%;*/
 }
 hr {
     width: 100%;
@@ -26,14 +24,9 @@ hr {
 
 }
 
-.active, .accordion:hover {
-    /*background-color: #ccc;*/
-}
-
 .accordion:after {
     content: '\002B';
     color: gray;
-    /*font-weight: bold;*/
     float: right;
 
 }
