@@ -2,34 +2,44 @@ function getCookie(name) {
     let v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
     return v ? v[2] : null;
 }
+
 function setCookie(name, value, days) {
     let d = new Date;
-    d.setTime(d.getTime() + 24*60*60*1000*days);
+    d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
     document.cookie = name + "=" + value + ";path=/;expires=" + d.toGMTString();
 }
-function deleteCookie(name) { setCookie(name, '', -1); }
+
+function deleteCookie(name) {
+    setCookie(name, '', -1);
+}
 
 // Initializes the sign-in client. Called when page is loaded.
 function start() {
     gapi.load('auth2', function () {
         auth2 = gapi.auth2.init({
-            client_id: '137343299835-5vtibq9c072o11ullqob6d7snqes1530.apps.googleusercontent.com'
+            client_id: '137343299835-5vtibq9c072o11ullqob6d7snqes1530.apps.googleusercontent.com',
+            fetch_basic_profile: true
         });
+        auth2.currentUser.listen(userChanged);
         auth2.then(function () {
+            if (!auth2.isSignedIn.get() && (window.location.pathname === "/WHS-Sandwiches/pages/login.html"
+                || window.location.pathname === "/WHS-Sandwiches/pages/customize.html")) {
+                auth2.grantOfflineAccess().catch(notSignedIn).then(signInCallback);
+            }
+            else if (auth2.isSignedIn.get() && window.location.pathname === "/WHS-Sandwiches/pages/login.html") {
+                window.location.href = "customize.html";
+            }
+        });
 
-                if (!auth2.isSignedIn.get() && (window.location.pathname === "/WHS-Sandwiches/pages/login.html"
-                    || window.location.pathname === "/WHS-Sandwiches/pages/customize.html")){
-                    auth2.grantOfflineAccess().catch(notSignedIn).then(signInCallback);
-                }
-                else if(auth2.isSignedIn.get() && window.location.pathname === "/WHS-Sandwiches/pages/login.html"){
-                    window.location.href = "customize.html";
-                }
 
-
-        })
     });
 }
-function notSignedIn(){
+
+let userChanged = function (user) {
+    setCookie("email", user.getBasicProfile().getEmail(), 7);
+};
+
+function notSignedIn() {
     window.location.href = "main.html";
 }
 
@@ -58,20 +68,6 @@ function signInCallback(authResult) {
     } else {
         // There was an error.
     }
-}
-function onSignIn(googleUser) {
-    // Useful data for your client-side scripts:
-    let profile = googleUser.getBasicProfile();
-    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-    console.log('Full Name: ' + profile.getName());
-    console.log('Given Name: ' + profile.getGivenName());
-    console.log('Family Name: ' + profile.getFamilyName());
-    console.log("Image URL: " + profile.getImageUrl());
-    console.log("Email: " + profile.getEmail());
-
-    // The ID token you need to pass to your backend:
-    let id_token = googleUser.getAuthResponse().id_token;
-    console.log("ID Token: " + id_token);
 }
 
 function signOut() {

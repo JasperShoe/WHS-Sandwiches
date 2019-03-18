@@ -32,5 +32,7 @@ function expand() {
 }
 
 // Delays the calling of expand() so that it doesn't execute before our html is fully loaded.
-setTimeout(expand, 1000);
+// setTimeout(expand, 1000);
+
+
 
