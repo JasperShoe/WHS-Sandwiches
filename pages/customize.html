@@ -7,11 +7,17 @@
 
 
     <!--stylesheets-->
+    <!--<link href="../styles/bootstrap-theme.min.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="../styles/bootstrap.min.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="../styles/bootstrap-theme.css" rel="stylesheet" type="text/css">-->
+    <link href="../styles/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../styles/main.css" rel="stylesheet" type="text/css">
     <link href="../styles/navbar.css" rel="stylesheet" type="text/css">
     <link href="../styles/checkboxes.css" rel="stylesheet" type="text/css">
     <link href="../styles/collapsible.css" rel="stylesheet" type="text/css">
-    <link href="../styles/orderpopup.css" rel="stylesheet" type="text/css">
+
+
+
 
 
     <!--logo-->
@@ -33,10 +39,10 @@
     </script>
 
     <!--javascript files-->
+    <script src="../scripts/bootstrap.min.js"></script>
     <script src="../scripts/get_ingredient_options.js"></script>
-    <script src="../scripts/expand_accordion.js"></script>
+    <script src="../scripts/fill_order_modals.js"></script>
     <script src="../scripts/create_order.js"></script>
-    <script src="../scripts/order_popup.js"></script>
 
     <!--Google sign-in-->
     <script src="../scripts/google_signin.js"></script>
@@ -59,26 +65,105 @@
 
     <div class="middlecol">
         <div class="alerts">
-            <!--<span class="closebtn" onclick="closeAlert(this.parentElement)">&times;</span>-->
-            <!--Order Saved as Favorite.-->
         </div>
         <h2> Select Your Ingredients</h2>
+        <div id="ingredients-list"></div>
+        <div class="finalize">
+            <br><h2> Finalize Your Order</h2><br>
+            <div class = "lunchbuttons">
+                <h3>Select Lunch</h3>
+                <input type="radio" name="lunch" value="1"> 1st<br>
+                <input type="radio" name="lunch" value="2"> 2nd<br>
+                <input type="radio" name="lunch" value="3"> 3rd<br>
+            </div>
 
-        <div id="it-div"></div>
-        <br><h2> Finalize Your Order</h2><br>
-        <div class = "lunchbuttons">
-            <h3>Select Lunch</h3>
-            <input type="radio" name="lunch" value="1"> 1st<br>
-            <input type="radio" name="lunch" value="2"> 2nd<br>
-            <input type="radio" name="lunch" value="3"> 3rd<br>
+            <button type="button" class="btn btn-primary btn-lg" id="createOrder" data-toggle="modal" data-target="#myModal1" onclick="buildOrder();">
+                Submit Order
+            </button>
+
         </div>
-        <button id = "orderBtn" onclick="buildOrder();"> Submit Order</button>
-        <div id="orderPopup" class="popup">
-            <div class="popup-content">
-                <span class="close">&times;</span>
-                <div id = "order_summary"></div>
+
+
+        <div class="modal" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close close-button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" >Order Summary:</h4>
+                    </div>
+                    <div class="modal-body" id="order_summary_modal"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default close-button" data-dismiss="modal">Go Back</button>
+                        <button type="button" class="btn btn-default btn-next" onclick="postOrder()">Finalize Order</button>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close close-button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Your Order Has been Submitted!</h4>
+                    </div>
+                    <div class="modal-body" id="order_submitted_modal">
+                        Would you like to save this order as a favorite?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default close-button" data-dismiss="modal">No</button>
+                        <button type="button" class="btn btn-default btn-next" onclick="nameFavoriteOrder()">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close close-button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Save Favorite Order</h4>
+                    </div>
+                    <div class="modal-body" id="make_favorite_modal">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-prev">Go Back</button>
+                        <button type="button" class="btn btn-default" id="save_favorite_button" data-dismiss="modal" onclick="saveFavoriteOrder()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            $("div[id^='myModal']").each(function(){
+
+                var currentModal = $(this);
+
+                //click next
+                currentModal.find('.btn-next').click(function(){
+                    currentModal.modal('hide');
+                    currentModal.closest("div[id^='myModal']").nextAll("div[id^='myModal']").first().modal('show');
+                });
+
+                //click prev
+                currentModal.find('.btn-prev').click(function(){
+                    currentModal.modal('hide');
+                    currentModal.closest("div[id^='myModal']").prevAll("div[id^='myModal']").first().modal('show');
+                });
+
+            });
+
+        </script>
+
+        <!--<button id = "orderBtn" onclick="buildOrder();"> Submit Order</button>-->
+        <!--<div id="orderPopup" class="popup">-->
+            <!--<div class="popup-content">-->
+                <!--<span class="close">&times;</span>-->
+                <!--<div id = "order_summary"></div>-->
+            <!--</div>-->
+        <!--</div>-->
 
 
     </div>
@@ -90,6 +175,5 @@
 
 
 <div class="footer"></div>
-
 </body>
 </html>

@@ -1,4 +1,3 @@
-let orderDetails;
 let it_json, i_json;
 $.get('http://localhost:3000/ingredient_types/', function (json) {
     it_json = json;
@@ -6,36 +5,44 @@ $.get('http://localhost:3000/ingredient_types/', function (json) {
 $.get('http://localhost:3000/ingredients/', function (json) {
     i_json = json;
 });
-
-let selectedLunch;
+let orderDetails, selectedLunch;
 
 // Gets checked ingredients, checks to see if they're a valid order, then builds an order object and goes to the popup menu.
 function buildOrder() {
+    const alerts = $(".alerts");
+    alerts.empty();
+
+
 
     // Add checked ingredients to order.
     selectedLunch = $("input[name='lunch']:checked");
     const checkboxes = document.getElementsByClassName("ingredientcheckbox");
     let orderIngredients = [];
+    let createOrderButton = $('#createOrder');
     for (let i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i].checked) {
+            let ingredientPanel = checkboxes[i].parentElement.parentElement;
             orderIngredients.push({
-                ingredient_type_id: checkboxes[i].parentElement.id.toString(),
-         //todo: consider using ingredient id rather than name
+                ingredient_type_id: ingredientPanel.getAttribute("data-ingredient-type-id"),
+                _id: ingredientPanel.getAttribute("data-ingredient-id"),
                 name: checkboxes[i].parentElement.innerText
             });
         }
     }
-
     if (isValidOrder(orderIngredients)) {
-        var today = new Date();
+        createOrderButton.attr("data-toggle", "modal");
+        createOrderButton.attr("data-target", "#myModal1");
         orderDetails = {
             student_email: getCookie("email"),
             ingredients: orderIngredients,
             which_lunch: selectedLunch.val(),
-            is_favorite: false,
-            date: today
+            date: new Date()
         };
-        displayOrderSummary(orderDetails);
+        populateOrderModal(orderDetails);
+    }
+    else{
+        createOrderButton.attr("data-toggle", null);
+        createOrderButton.attr("data-target", null);
     }
 }
 
@@ -56,11 +63,11 @@ function isValidOrder(selected_ingredients) {
                 counter++;
             }
         }
-        //todo: consider updating Schema to have min and max
-        if (counter < it_json[i].limit && i === 0) {
-            alert(`Error: you have not selected a bread.`);
+        if (counter < it_json[i].minimum) {
+            alert(`Error: you have selected too few ${it_json[i].name}s`);
             return false;
-        } else if (counter > it_json[i].limit) {
+        }
+        else if (counter > it_json[i].maximum) {
             alert(`Error: you have selected too many ${it_json[i].name}s`);
             return false;
         }
@@ -68,15 +75,6 @@ function isValidOrder(selected_ingredients) {
     return true;
 }
 
-// Clears the checklist once order is validated.
-function clearChecklist(checks, radio) {
-    for (let i = 0; i < checks.length; i++) {
-        if (checks[i].checked) {
-            checks[i].checked = false;
-        }
-    }
-    radio.attr('checked', false);
-}
 
 
 

@@ -1,10 +1,10 @@
-const url = "http://localhost:3000/orders/";
+const orderUrl = "http://localhost:3000/orders/"
 
 //todo: scenario - students orders a sandwich today for consumption tomorrow
 //todo: scenario - how to prevent / deal with orders with ingredients that become out of stock after they are ordered
 
 $(document).ready(function () {
-    $.get(url, {student_email: getCookie("email"), daysOfOrders: 1, sort: {date: -1}}, function (orderHistory) {
+    $.get(orderUrl, {student_email: getCookie("email"), daysOfOrders: 1, sort: {date: -1}}, function (orderHistory) {
         let order_div = $('#orders_div');
         if (orderHistory.length === 0) {
             order_div.append('<h3>You have not placed any orders yet.</h3>');
@@ -16,11 +16,7 @@ $(document).ready(function () {
                     arr.push(orderHistory[i].ingredients[j].name)
                 }
                 order_div.append('<div class="oldOrder"><p> Order # '+ i + '</p><div class="ingredients">'+ arr + '</div><p>' + orderHistory[i].date + '</p><div class="buttons"><button class = "previousOrderButton" onclick=""> Order</button><button id = "favoriteButton" onclick="moveToFavorites(this.parentElement.id)"> Save as Favorite</button></div></div>');
-                // let OrderButton = $('.previousOrderButton');
-                // OrderButton.last().attr("id", orderHistory[i]._id);
-                // let makeFav = $('#favoriteButton');
-                // makeFav.last().attr("id", id);
-                let buttons = $(".buttons")
+                let buttons = $(".buttons");
                 buttons.last().attr("id", orderHistory[i]._id)
             }
         }
@@ -29,7 +25,7 @@ $(document).ready(function () {
 });
 function moveToFavorites(id) {
     $.ajax({
-        url: url + id,
+        url: orderUrl + id,
         method: 'PUT',
         data: {
             is_favorite: true

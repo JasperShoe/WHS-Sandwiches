@@ -1,111 +1,56 @@
-// This function will execute when this html page loads.
 $(document).ready(function () {
-    get_ingredient_options();
-});
-
-function get_ingredient_options() {
-    // Gets the data from the ingredient_types and ingredients collections.
-    $.getJSON('http://localhost:3000/ingredient_types', function (ingredient_types_json) {
-        $.getJSON('http://localhost:3000/ingredients', function (ingredients_json) {
-            let typeid;
-            // Loop through the list of ingredient types and add their names to the accordions.
-            const it_div = $('#it-div');
-            for (let i = 0; i < ingredient_types_json.length; i++) {
-                //todo: use min and max to determine the label
-                if (ingredient_types_json[i].name === "Bread")
-                    it_div.append('<button class = "accordion">' + ingredient_types_json[i].name + ' (select ' + ingredient_types_json[i].limit + ') </button><hr>');
-                else
-                    it_div.append('<button class = "accordion">' + ingredient_types_json[i].name + ' (select up to ' + ingredient_types_json[i].limit + ') </button><hr>');
-
-                // Hold on to the id of each ingredient type so that we can identify the ingredients.
-                typeid = ingredient_types_json[i]._id;
-
-                // Now, loop through the list of ingredients, "json2" (we're still in the first loop).
-                // Get all of the ingredients that are of the type so that we can separate them into the panels of the accordions.
-                for (let j = 0; j < ingredients_json.length; j++) {
-                    if (ingredients_json[j].ingredient_type_id === typeid) {
-                        if (ingredients_json[j].is_available) {
-                            it_div.append('<div class = "panel"><br><label class="checkcontainer" id ="temp">' + ingredients_json[j].name + '<input class = "ingredientcheckbox" type="checkbox" id = "available"><span class="checkmark"></span></label><br></div>')
-
-                        } else {
-                            //todo: use classes instead of ids for unavailable and available
-                            it_div.append('<div class = "panel"><br><label class="checkcontainer" id ="temp">' + ingredients_json[j].name + ' !Item Unavailable' +'<input class = "ingredientcheckbox" type="checkbox" id = "unavailable"><span class="checkmark"></span></label><br></div>')
-                            $(".ingredientcheckbox").last().attr("disabled", "disabled")
-                        }
-                        const checkcontainer = $(".checkcontainer");
-                        checkcontainer.last().attr("id", typeid);
-                    }
-                }
-            }
-        });
+    let ingredientTypePromise = getIngredientTypeData();
+    ingredientTypePromise.success(function () {
+        let ingredientPromise = getIngredientData();
+        ingredientPromise.success(expand())
     });
-    //todo: figure out how to put onSuccess in a way that it will be called after the getJSONs are completed.
 
-    // As it stands, the onsuccess is being called before the two are finished.
-    // Quick fix for now: move onSuccess() call to the end of the ingredient getJSON call.
+
+});
+function getIngredientTypeData() {
+    return $.getJSON('http://localhost:3000/ingredient_types', function (ingredient_types_json) {
+        const ingredientOptions = $('#ingredients-list');
+        for (let i = 0; i < ingredient_types_json.length; i++) {
+            if (ingredient_types_json[i].minimum === ingredient_types_json[i].maximum) {
+                ingredientOptions.append('<button class = "accordion">' + ingredient_types_json[i].name + ' (select ' + ingredient_types_json[i].minimum + ') </button>');
+            } else {
+                ingredientOptions.append('<button class = "accordion">' + ingredient_types_json[i].name + ' (select up to ' + ingredient_types_json[i].maximum + ') </button>');
+            }
+            let ingredientTypeID = ingredient_types_json[i]._id;
+            let ingredientTypeButton = $('.accordion');
+            ingredientTypeButton.last().attr("data-ingredient-type-id", ingredientTypeID);
+        }
+    });
 }
 
-// function get_ingredient_options(onSuccess) {
-//     let ingredientList;
-//     let ingredientTypeList;
-//
-//     $.getJSON('http://localhost:3000/ingredient_types', function (ingredient_types_json) {
-//         ingredientTypeList = ingredient_types_json;
-//     });
-//
-//     $.getJSON('http://localhost:3000/ingredients', function (ingredients_json) {
-//         ingredientList = ingredients_json;
-//     });
-//
-//
-//     let typeid;
-//             // Loop through the list of ingredient types and add their names to the accordions.
-//             const it_div = $('#it-div');
-//             for (let i = 0; i < ingredientTypeList.length; i++) {
-//                 //todo: use min and max to determine the label
-//                 if (ingredient_types_json[i].name === "Bread")
-//                     it_div.append('<button class = "accordion">' + ingredientTypeList[i].name + ' (select ' + ingredient_types_json[i].limit + ') </button><hr>');
-//                 else
-//                     it_div.append('<button class = "accordion">' + ingredient_types_json[i].name + ' (select up to ' + ingredient_types_json[i].limit + ') </button><hr>');
-//
-//                 // Hold on to the id of each ingredient type so that we can identify the ingredients.
-//                 typeid = ingredient_types_json[i]._id;
-//
-//                 // Now, loop through the list of ingredients, "json2" (we're still in the first loop).
-//                 // Get all of the ingredients that are of the type so that we can separate them into the panels of the accordions.
-//                 for (let j = 0; j < ingredients_json.length; j++) {
-//                     if (ingredients_json[j].ingredient_type_id === typeid) {
-//                         if (ingredients_json[j].is_available) {
-//                             it_div.append('<div class = "panel"><br><label class="checkcontainer" id ="temp">' + ingredients_json[j].name + '<input class = "ingredientcheckbox" type="checkbox" id = "available"><span class="checkmark"></span></label><br></div>')
-//
-//                         } else {
-//                             //todo: use classes instead of ids for unavailable and available
-//                             it_div.append('<div class = "panel"><br><label class="checkcontainer" id ="temp">' + ingredients_json[j].name + ' !Item Unavailable' +'<input class = "ingredientcheckbox" type="checkbox" id = "unavailable"><span class="checkmark"></span></label><br></div>')
-//                             $(".ingredientcheckbox").last().attr("disabled", "disabled")
-//                         }
-//                         const checkcontainer = $(".checkcontainer");
-//                         checkcontainer.last().attr("id", typeid);
-//                     }
-//                 }
-//             }
-//     //todo: figure out how to put onSuccess in a way that it will be called after the getJSONs are completed.
-//
-//     // As it stands, the onsuccess is being called before the two are finished.
-//     // Quick fix for now: move onSuccess() call to the end of the ingredient getJSON call.
-//     onSuccess();
-// }
+function getIngredientData() {
+    return $.getJSON('http://localhost:3000/ingredients', function (ingredients_json) {
+        let ingredientTypeAccordions = document.getElementsByClassName('accordion');
+        for (let i = 0; i < ingredientTypeAccordions.length; i++) {
+            let thisIngredientTypeID = ingredientTypeAccordions[i].getAttribute("data-ingredient-type-id");
+            let accordionWithID = $("#ingredients-list").find(`[data-ingredient-type-id='${thisIngredientTypeID}']`);
+            for (let j = 0; j < ingredients_json.length; j++) {
+                if (ingredients_json[j].ingredient_type_id === thisIngredientTypeID) {
+                    if (ingredients_json[j].is_available) {
+                        accordionWithID.after('<div class = "panel"><br><label class="checkcontainer">' + ingredients_json[j].name + '<input class = "ingredientcheckbox" type="checkbox" class = "available"><span class="checkmark"></span></label><br></div>')
+                    } else {
+                        accordionWithID.after('<div class = "panel"><br><label class="checkcontainer">' + ingredients_json[j].name + ' !Item Unavailable' + '<input class = "ingredientcheckbox" type="checkbox" class = "unavailable"><span class="checkmark"></span></label><br></div>')
+                        $(".ingredientcheckbox").last().attr("disabled", "disabled")
+                    }
+                    let ingredientID = ingredients_json[j]._id;
+                    let panel = accordionWithID.next();
+                    panel.attr("data-ingredient-id", ingredientID);
+                    panel.attr("data-ingredient-type-id", thisIngredientTypeID);
+                }
+            }
+            accordionWithID.after('<hr>');
+        }
 
-
-
-
-
-
-
-
-
-
+    });
+}
 
 function expand() {
+
 
     // Loop through each of the accordions on the doc
     const acc = document.getElementsByClassName('accordion'); // Get the five accordion elements.
@@ -113,6 +58,7 @@ function expand() {
 
         // Add a click lister that will execute the inside function whenever the accordion is clicked on.
         acc[i].addEventListener("click", function () {
+
 
             // Everything in here will execute whenever an accordion is clicked.
             this.classList.toggle("active");
@@ -136,16 +82,4 @@ function expand() {
         });
     }
 }
-
-// function setUnavailable(id) {
-//     console.log(id);
-//     $.ajax({
-//         url: 'http://localhost:3000/ingredients/' + id,
-//         method: 'PUT',
-//         data: {
-//             is_available: false
-//         }
-//     });
-// }
-
 

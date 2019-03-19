@@ -73,7 +73,10 @@ function signInCallback(authResult) {
 function signOut() {
     if (window.location.pathname === "/WHS-Sandwiches/pages/customize.html")
         window.location.href = "main.html";
+    else if (window.location.pathname === "/WHS-Sandwiches/pages/favorites.html")
+        window.location.reload();
     deleteCookie("authCode");
+    deleteCookie("email");
     let auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
         console.log('User signed out.');

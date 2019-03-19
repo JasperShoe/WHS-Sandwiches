@@ -94,4 +94,7 @@ img {
     font-size: 8px;
     padding: 10px;
 }
+#favorites_div h3 {
+    text-align: center;
+}
 
