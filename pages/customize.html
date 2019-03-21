@@ -14,7 +14,7 @@
     <link href="../styles/main.css" rel="stylesheet" type="text/css">
     <link href="../styles/navbar.css" rel="stylesheet" type="text/css">
     <link href="../styles/checkboxes.css" rel="stylesheet" type="text/css">
-    <link href="../styles/collapsible.css" rel="stylesheet" type="text/css">
+    <link href="../styles/accordion.css" rel="stylesheet" type="text/css">
 
 
 
@@ -41,8 +41,10 @@
     <!--javascript files-->
     <script src="../scripts/bootstrap.min.js"></script>
     <script src="../scripts/get_ingredient_options.js"></script>
-    <script src="../scripts/fill_order_modals.js"></script>
+    <script src="../scripts/submit_order.js"></script>
     <script src="../scripts/create_order.js"></script>
+    <script src="../scripts/order_favorite.js"></script>
+    <script src="../scripts/alerts.js"></script>
 
     <!--Google sign-in-->
     <script src="../scripts/google_signin.js"></script>
@@ -65,6 +67,7 @@
 
     <div class="middlecol">
         <div class="alerts">
+            <div class="alert"><span class="closebtn" onclick="closeAlert(this.parentElement)">&times;</span><div class="alert-msg"></div></div>
         </div>
         <h2> Select Your Ingredients</h2>
         <div id="ingredients-list"></div>

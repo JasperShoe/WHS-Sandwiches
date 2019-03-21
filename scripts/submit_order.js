@@ -34,10 +34,8 @@ function postOrder() {
         contentType: 'application/json',
         data: JSON.stringify(finalOrder),
         dataType: 'json',
-        // success: function (data){
-        //     orderCompleted(data.ingredients);
-        // }
     });
+    $(window).scrollTop(0);
     const checkboxes = document.getElementsByClassName("ingredientcheckbox");
     const selectedLunch = $("input[name='lunch']:checked");
     clearChecklist(checkboxes, selectedLunch);
@@ -68,8 +66,8 @@ function saveFavoriteOrder(){
             contentType: 'application/json',
             data: JSON.stringify(favOrder),
             dataType: 'json',
-            success: function (data){
-                confirmFavoriteAddition(data.favorite_name);
+            success: function (new_favorite_order){
+                showAlert(new_favorite_order.favorite_name);
             }
         });
         const order_summary = $('#order_summary_modal');
@@ -89,21 +87,6 @@ function clearChecklist(checks, radio) {
         }
     }
     radio.attr('checked', false);
-}
-
-function confirmFavoriteAddition(name){
-    const msg = $(".alerts");
-    msg.append(`<div class="alert"><span class="closebtn" onclick="closeAlert(this.parentElement)">&times;</span>"${name}" has been saved to your favorites. </div>`);
-    let alert = document.getElementsByClassName("alert")[0];
-    alert.style.display = "block";
-    alert.style.opacity = "100";
-    $(window).scrollTop(0);
-}
-function closeAlert(div){
-    const alerts = $(".alerts");
-    div.style.opacity = "0";
-    setTimeout(function(){ alerts.empty(); }, 600);
-
 }
 
 function collapseAll() {

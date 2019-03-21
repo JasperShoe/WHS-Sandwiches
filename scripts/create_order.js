@@ -9,16 +9,16 @@ let orderDetails, selectedLunch;
 
 // Gets checked ingredients, checks to see if they're a valid order, then builds an order object and goes to the popup menu.
 function buildOrder() {
-    const alerts = $(".alerts");
-    alerts.empty();
+    const alert = $(".alert-msg");
+    alert.text("");
 
 
 
     // Add checked ingredients to order.
     selectedLunch = $("input[name='lunch']:checked");
     const checkboxes = document.getElementsByClassName("ingredientcheckbox");
-    let orderIngredients = [];
     let createOrderButton = $('#createOrder');
+    let orderIngredients = [];
     for (let i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i].checked) {
             let ingredientPanel = checkboxes[i].parentElement.parentElement;
@@ -36,11 +36,11 @@ function buildOrder() {
             student_email: getCookie("email"),
             ingredients: orderIngredients,
             which_lunch: selectedLunch.val(),
-            date: new Date()
+            date: new Date().toLocaleString()
         };
         populateOrderModal(orderDetails);
     }
-    else{
+    else {
         createOrderButton.attr("data-toggle", null);
         createOrderButton.attr("data-target", null);
     }
@@ -52,7 +52,7 @@ function isValidOrder(selected_ingredients) {
         alert(`Error: you must select more than one ingredient.`);
         return false;
     }
-    if (!selectedLunch.val()) {
+    if (selectedLunch && !selectedLunch.val()) {
         alert(`Error: you must select a lunch.`);
         return false;
     }

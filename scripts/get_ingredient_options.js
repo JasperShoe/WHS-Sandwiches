@@ -2,7 +2,7 @@ $(document).ready(function () {
     let ingredientTypePromise = getIngredientTypeData();
     ingredientTypePromise.success(function () {
         let ingredientPromise = getIngredientData();
-        ingredientPromise.success(expand())
+        ingredientPromise.success(configureAccordions())
     });
 
 
@@ -49,7 +49,7 @@ function getIngredientData() {
     });
 }
 
-function expand() {
+function configureAccordions() {
 
 
     // Loop through each of the accordions on the doc
@@ -70,11 +70,10 @@ function expand() {
                     panel.style.maxHeight = panel.scrollHeight + "px"; // This opens the panel.
                 }
 
-                // Keep going to the next element to open it until we hit the next accordion (which will be a button).
-                // If we hit a button, terminate the while loop by setting the panel to null.
+                // Keep going to the next element to open it until we hit something that's not an ingredient panel
                 if (panel.nextElementSibling === null)
                     panel = null;
-                else if (panel.nextElementSibling.nodeName.toLowerCase() === "button")
+                else if (panel.nextElementSibling.className !== "panel")
                     panel = null;
                 else
                     panel = panel.nextElementSibling;

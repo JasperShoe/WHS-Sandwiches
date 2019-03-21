@@ -9,7 +9,7 @@
     <link href="../styles/main.css" rel="stylesheet" type="text/css">
     <link href="../styles/navbar.css" rel="stylesheet" type="text/css">
     <link href="../styles/checkboxes.css" rel="stylesheet" type="text/css">
-    <link href="../styles/collapsible.css" rel="stylesheet" type="text/css">
+    <link href="../styles/accordion.css" rel="stylesheet" type="text/css">
 
     <!--logo-->
     <link href="../images/logo.png" rel="shortcut icon">
@@ -32,6 +32,7 @@
     <script src="../scripts/get_ingredient_options.js"></script>
     <script src="../scripts/create_order.js"></script>
     <script src="../scripts/get_orders.js"></script>
+    <script src="../scripts/alerts.js"></script>
 
     <!--Google sign-in-->
     <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
@@ -52,8 +53,8 @@
 
     <div class="middlecol">
         <div class="alerts">
-            <!--<span class="closebtn" onclick="closeAlert(this.parentElement)">&times;</span>-->
-            <!--Order Saved as Favorite.-->
+            <div class="alert"><span class="closebtn" onclick="closeAlert(this.parentElement)">&times;</span><div class="alert-msg"></div></div>
+
         </div>
         <div id="orders_div"></div>
     </div>
