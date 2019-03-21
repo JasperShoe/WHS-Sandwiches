@@ -16,6 +16,7 @@
     width: 25%; /*Each link in the navbar will take up 1/4 of the width*/
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
+    max-height: 88px;
 }
 
 .navbar a:hover {
