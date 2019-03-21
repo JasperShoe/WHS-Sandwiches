@@ -1,3 +1,4 @@
+let windowLocation;
 function getCookie(name) {
     let v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
     return v ? v[2] : null;
@@ -22,17 +23,23 @@ function start() {
         });
         auth2.currentUser.listen(userChanged);
         auth2.then(function () {
-            if (!auth2.isSignedIn.get() && (window.location.pathname === "/WHS-Sandwiches/pages/login.html"
-                || window.location.pathname === "/WHS-Sandwiches/pages/customize.html")) {
-                auth2.grantOfflineAccess().catch(notSignedIn).then(signInCallback);
+            if (window.location.pathname === "/WHS-Sandwiches/pages/login.html") {
+                if (auth2.isSignedIn.get() && getCookie('authCode') !== null) {
+                    window.location.replace(document.referrer);
+                }
+                else {
+                    auth2.grantOfflineAccess().catch(notSignedIn).then(signInCallback);
+                }
+
             }
-            else if (auth2.isSignedIn.get() && window.location.pathname === "/WHS-Sandwiches/pages/login.html") {
-                window.location.href = "customize.html";
-            }
+
         });
 
 
     });
+}
+function saveLocation(location){
+    windowLocation = location;
 }
 
 let userChanged = function (user) {
@@ -47,8 +54,8 @@ function notSignedIn() {
 function signInCallback(authResult) {
     if (authResult['code']) {
         setCookie("authCode", authResult['code'], 7);
-        window.location.href = "customize.html";
-
+        // window.location.pathname = windowLocation;
+        window.location.replace(document.referrer);
         // Send the code to the server
         $.ajax({
             type: 'POST',
@@ -71,10 +78,7 @@ function signInCallback(authResult) {
 }
 
 function signOut() {
-    if (window.location.pathname === "/WHS-Sandwiches/pages/customize.html")
-        window.location.href = "main.html";
-    else if (window.location.pathname === "/WHS-Sandwiches/pages/favorites.html")
-        window.location.reload();
+    window.location.href = "main.html";
     deleteCookie("authCode");
     deleteCookie("email");
     let auth2 = gapi.auth2.getAuthInstance();
