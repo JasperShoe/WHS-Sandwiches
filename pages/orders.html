@@ -2,14 +2,19 @@
 <html lang="en">
 
 <head>
-    <title> WHS Sandwiches </title>
+    <title> WaySub </title>
     <meta charset="UTF-8">
 
     <!--stylesheets-->
-    <link href="../styles/main.css" rel="stylesheet" type="text/css">
+    <link href="../styles/card.css" rel="stylesheet" type="text/css">
+    <link href="../styles/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../styles/core.css" rel="stylesheet" type="text/css">
     <link href="../styles/navbar.css" rel="stylesheet" type="text/css">
     <link href="../styles/checkboxes.css" rel="stylesheet" type="text/css">
     <link href="../styles/accordion.css" rel="stylesheet" type="text/css">
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+    <link href="../styles/main.css" rel="stylesheet" type="text/css">
+
 
     <!--logo-->
     <link href="../images/logo.png" rel="shortcut icon">
@@ -56,7 +61,43 @@
             <div class="alert"><span class="closebtn" onclick="closeAlert(this.parentElement)">&times;</span><div class="alert-msg"></div></div>
 
         </div>
-        <div id="orders_div"></div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td><button class="btn-sm btn-primary" onclick=""> Order</button><button class="btn-sm btn-primary" id = "favoriteButton" onclick="moveToFavorites(this.parentElement.id)"> Save as Favorite</button></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div id="orders_div">
+
+        </div>
     </div>
 
     <div class="sidecol">

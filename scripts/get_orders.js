@@ -14,7 +14,7 @@ $(document).ready(function () {
                 for (let j = 0; j < orderHistory[i].ingredients.length; j++) {
                     arr.push(orderHistory[i].ingredients[j].name)
                 }
-                order_div.append('<div class="oldOrder"><p>' + new Date(orderHistory[i].date).toLocaleString() + '</p><div class="ingredients">' + arr + '</div><div class="buttons"><button class = "previousOrderButton" onclick=""> Order</button><button id = "favoriteButton" onclick="moveToFavorites(this.parentElement.id)"> Save as Favorite</button></div></div>');
+                order_div.append('<div class="oldOrder"><p>' + new Date(orderHistory[i].date).toLocaleString() + '</p><div class="ingredients">' + arr + '</div><div class="buttons"><button class="btn btn-primary" onclick=""> Order</button><button class="btn btn-primary" id = "favoriteButton" onclick="moveToFavorites(this.parentElement.id)"> Save as Favorite</button></div></div>');
                 let buttons = $(".buttons");
                 buttons.last().attr("id", orderHistory[i]._id)
             }

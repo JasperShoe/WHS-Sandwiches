@@ -1,0 +1,99 @@
+body {
+    font-family: 'Crimson Text', serif;
+    margin: 0;
+}
+
+.title {
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    color: #f9a114;
+}
+
+.title a {
+    font-size: 30pt;
+    margin-bottom: 0;
+    letter-spacing: 5px;
+    text-decoration: none;
+    color: #f9a114;
+    padding-top: 5px;
+}
+
+.title p {
+    font-style: italic;
+    margin-top: 0;
+}
+
+.info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.info p, li {
+    line-height: 1.5;
+    font-size: 14pt;
+}
+
+.sidecol {
+    flex: 10%; /* Sets the width of the side bars */
+    background-color: #f1f1f1;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.middlecol {
+    flex: 80%; /* Set the width of the main column */
+    background-color: white;
+    padding: 20px; /* 20px on top, bottom, left, and right */
+    margin-bottom: 53px;
+}
+
+.middlecol h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.middlecol h3 {
+    margin: 0;
+}
+
+.alert {
+    border-radius: 5px;
+    padding: 20px;
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    margin-bottom: 8px;
+    display: none;
+    opacity: 1;
+    transition: opacity 0.6s;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: rgb(181, 218, 182);
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+.footer {
+    text-align: center;
+    background: #ddd;
+    font-size: 8px;
+    padding: 10px;
+}
+#favorites_div h3 {
+    text-align: center;
+}
+
