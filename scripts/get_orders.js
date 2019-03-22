@@ -22,6 +22,23 @@ $(document).ready(function () {
     });
 
 });
+function getOrderData() {
+    let data = [["a", "b", "c"]];
+    return data;
+    // let promise = $.get(orderUrl, {student_email: getCookie("email"), daysOfOrders: 1, sort: {date: -1}}, function (orderHistory) {
+    //     for (let i = 0; i < orderHistory.length; i++) {
+    //         let arr = [];
+    //         for (let j = 0; j < orderHistory[i].ingredients.length; j++) {
+    //             arr.push(orderHistory[i].ingredients[j].name)
+    //         }
+    //         data.push([new Date(orderHistory[i].date).toLocaleString(), arr.toString(), orderHistory[i].which_lunch.toString()])
+    //
+    //     }
+    // });
+    // promise.success(function () {
+    //     return data;
+    // })
+}
 
 function moveToFavorites(id) {
 
