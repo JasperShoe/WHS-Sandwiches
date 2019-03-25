@@ -31,7 +31,7 @@ function getFavorites(){
 function configureFavoriteNameEditor() {
     let editableTitle = document.getElementById("favoriteName");
 
-    // If the user clicks enter when editing the title, then it will stop editing.
+    // If the user presses enter when editing the title, then it will stop editing.
     editableTitle.addEventListener('keypress', function (e) {
         let key = e.which || e.keyCode;
         if (key === 13) {

@@ -1,4 +1,4 @@
-let windowLocation;
+//todo: only allow sign in from Wayland student domain.
 function getCookie(name) {
     let v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
     return v ? v[2] : null;
@@ -19,10 +19,12 @@ function start() {
     gapi.load('auth2', function () {
         auth2 = gapi.auth2.init({
             client_id: '137343299835-5vtibq9c072o11ullqob6d7snqes1530.apps.googleusercontent.com',
+            ux_mode: 'redirect',
+            hosted_domain: "student.wayland.k12.ma.us",
             fetch_basic_profile: true
         });
-        auth2.currentUser.listen(userChanged);
         auth2.then(function () {
+            auth2.currentUser.listen(userChanged);
             if (window.location.pathname === "/WHS-Sandwiches/pages/login.html") {
                 if (auth2.isSignedIn.get() && getCookie('authCode') !== null) {
                     window.location.replace(document.referrer);
@@ -30,7 +32,6 @@ function start() {
                 else {
                     auth2.grantOfflineAccess().catch(notSignedIn).then(signInCallback);
                 }
-
             }
 
         });
@@ -38,12 +39,12 @@ function start() {
 
     });
 }
-function saveLocation(location){
-    windowLocation = location;
-}
 
 let userChanged = function (user) {
-    setCookie("email", user.getBasicProfile().getEmail(), 7);
+    if (user){
+        setCookie("email", user.getBasicProfile().getEmail(), 7);
+        console.log(user.getHostedDomain());
+    }
 };
 
 function notSignedIn() {
@@ -52,37 +53,31 @@ function notSignedIn() {
 
 
 function signInCallback(authResult) {
-    if (authResult['code']) {
-        setCookie("authCode", authResult['code'], 7);
-        // window.location.pathname = windowLocation;
-        window.location.replace(document.referrer);
-        // Send the code to the server
-        $.ajax({
-            type: 'POST',
-            url: 'http://example.com/storeauthcode',
-            // Always include an `X-Requested-With` header in every AJAX request,
-            // to protect against CSRF attacks.
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest'
-            },
-            contentType: 'application/octet-stream; charset=utf-8',
-            success: function (result) {
-                // Handle or verify the server response.
-            },
-            processData: false,
-            data: authResult['code']
-        });
-    } else {
-        // There was an error.
-    }
+    // auth2.currentUser.listen(userChanged);
+    setTimeout(function () {
+        if (authResult['code']) {
+            if (auth2.currentUser.get().getHostedDomain() === "student.wayland.k12.ma.us") {
+                setCookie("authCode", authResult['code'], 7);
+                window.location.replace(document.referrer);
+            }
+            else{
+                alert(`Please sign in with your student email`)
+            }
+        }
+        else {
+            alert("There was an error signing in.");
+        }
+    }, 1000);
+
 }
 
 function signOut() {
-    window.location.href = "main.html";
-    deleteCookie("authCode");
-    deleteCookie("email");
     let auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
+        window.location.href = "main.html";
+        deleteCookie("authCode");
+        deleteCookie("email");
+        auth2.currentUser.listen(userChanged);
         console.log('User signed out.');
     });
 }

@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <title> WaySub </title>
     <meta charset="UTF-8">
 
     <!--stylesheets-->
-    <link href="../styles/core.css" rel="stylesheet" type="text/css">
-    <link href="../styles/navbar.css" rel="stylesheet" type="text/css">
-    <link href="../styles/checkboxes.css" rel="stylesheet" type="text/css">
-    <link href="../styles/accordion.css" rel="stylesheet" type="text/css">
+    <link href="../styles/main.css" rel="stylesheet" type="text/css">
+    <!--<link href="../styles/navbar.css" rel="stylesheet" type="text/css">-->
+    <link href="../styles/newnavbar.css" rel="stylesheet" type="text/css">
+    <!--<link href="../styles/checkboxes.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="../styles/accordion.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="../styles/order_tables.css" rel="stylesheet" type="text/css">-->
+
 
     <!--logo-->
     <link href="../images/logo.png" rel="shortcut icon">
@@ -21,6 +25,8 @@
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 
     <!--javascript files-->
@@ -28,40 +34,80 @@
     <!--Google sign-in-->
     <script src="../scripts/google_signin.js"></script>
     <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
-
+    <script>
+        $(document).ready(function(){
+            let signInButton = $('#login-button');
+            let signOutButton = $('#logout-button');
+            if (getCookie("authCode")) {
+                signInButton.css("display", "none");
+                signOutButton.css("display", "block")
+            }
+            else {
+                signInButton.css("display", "block");
+                signOutButton.css("display", "none")
+            }
+        });
+    </script>
 </head>
 
 <body>
-<div class ="header">
+<div class="header">
     <div class="title">
         <br>
-        <a href= "main.html"> WaySub </a>
+        <a href="main.html"> WaySub </a>
         <p> Easy On-The-Go Ordering </p>
+        <br>
     </div>
-    <a href="#" onclick="signOut();">Sign Out</a>
-    <a href="login.html">Sign In</a>
-    <div class="navbar">
-        <a href="customize.html"> CREATE YOUR SANDWICH </a>
-        <a href="favorites.html"> YOUR FAVORITES </a>
-        <a href="orders.html"> ORDER HISTORY </a>
-        <a href="https://www.wayland.k12.ma.us/UserFiles/Servers/Server_1036352/File/Food%20Services/february19mainevent.pdf" target="_blank">
-            LUNCH MENU
-        </a>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="main.html">About WaySub</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="customize.html">Create Your Sandwich</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="favorites.html">Your Favorites</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="orders.html">Order History</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.wayland.k12.ma.us/administration/food_services/lunch_menu">Lunch Menu</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto" id="log-in-out">
+                <li class="nav-item"><a class="nav-link" id="logout-button" href="#" onclick="signOut()">Sign Out</a></li>
+                <li class="nav-item"><a class="nav-link" id="login-button" href="../pages/login.html">Sign in</a></li>
+            </ul>
+        </div>
+    </nav>
 </div>
+
+
+<!--</div>-->
 <div class="info">
     <div class="sidecol">
-        <img src="../images/graytexture.png" alt = "">
+        <img src="../images/graytexture.png" alt="">
     </div>
 
     <div class="middlecol">
-        <div class="alert" id="confirmation"></div>
+        <div class="alerts">
+            <div class="alert"><span class="closebtn" onclick="closeAlert(this.parentElement)">&times;</span>
+                <div class="alert-msg"></div>
+            </div>
+        </div>
         <h2> Welcome to WaySub! </h2>
 
         <h3> About WaySub </h3>
 
         <p> Tired of having to wait in that lengthy line every day just to get a sandwich?
-            Wait no longer; this website allows you to order your sandwich beforehand and pick it up at lunch at no extra cost.
+            Wait no longer; this website allows you to order your sandwich beforehand and pick it up at lunch at no
+            extra cost.
             Simply pick your favorite ingredients, save your sandwiches for future orders, and enjoy.
         </p>
 
@@ -74,23 +120,26 @@
                 main lunch menu in the "Lunch Menu" tab.
             </li>
             <li>
-                Once you've added your ingredients, specify which lunch you will pick up sandwich at and click "Submit Order".
+                Once you've added your ingredients, specify which lunch you will pick up sandwich at and click "Submit
+                Order".
                 Afterwards, you can save the order as a favorite by clicking "Save As Favorite".
             </li>
             <li>
-                At lunch, your sandwich will be labeled with your name. Pick up your sandwich and type in your lunch code.
+                At lunch, your sandwich will be labeled with your name. Pick up your sandwich and type in your lunch
+                code.
             </li>
         </ol>
     </div>
 
     <div class="sidecol">
-        <img src="../images/graytexture.png" alt = "">
+        <img src="../images/graytexture.png" alt="">
     </div>
 </div>
-
-<div class="footer">
-    <h2> Made by Rafael Chaves, Jasper Hsu, and Michael Chen </h2>
-</div>
+<footer class="page-footer font-small blue">
+    <div class="text-center py-3">
+        <a> Made by Rafael Chaves, Jasper Hsu, and Michael Chen </a>
+    </div>
+</footer>
 
 </body>
 

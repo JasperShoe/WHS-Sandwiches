@@ -14,6 +14,9 @@ function showAlert(msg){
     else if (window.location.pathname === "/WHS-Sandwiches/pages/orders.html") {
         alert_text.text(`Order Saved as favorite.`)
     }
+    else if (window.location.pathname === "/WHS-Sandwiches/pages/main.html") {
+        alert_text.text(`Please sign in with your student email to use WaySub`)
+    }
 
 }
 function closeAlert(div){

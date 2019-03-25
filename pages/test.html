@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title> WaySub </title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>WaySub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <!--stylesheets-->
+    <link href="../styles/main.css" rel="stylesheet" type="text/css">
+    <!--<link href="../styles/newnavbar.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="../styles/checkboxes.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="../styles/accordion.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="../styles/order_tables.css" rel="stylesheet" type="text/css">-->
+    <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">-->
+    <!--<link href="../styles/customize.css" rel="stylesheet" type="text/css">-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
     <!--logo-->
     <link href="../images/logo.png" rel="shortcut icon">
 
@@ -15,92 +24,125 @@
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300" rel="stylesheet">
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
     <script>
         $(document).ready(function() {
-            $(".header").load("main.html .header");
+            $(".header").load("main.html .header", function () {
+                let signInButton = $('#login-button');
+                let signOutButton = $('#logout-button');
+                if (getCookie("authCode")) {
+                    signInButton.css("display", "none");
+                    signOutButton.css("display", "block")
+                }
+                else {
+                    signInButton.css("display", "block");
+                    signOutButton.css("display", "none")
+                }
+            });
             $(".footer").load("main.html .footer");
         });
     </script>
 
     <!--javascript files-->
+    <script src="../scripts/bootstrap.min.js"></script>
     <script src="../scripts/get_ingredient_options.js"></script>
-    <script src="../scripts/create_order.js"></script>
-    <script src="../scripts/get_orders.js"></script>
+    <script src="../scripts/order_favorite.js"></script>
     <script src="../scripts/alerts.js"></script>
-    <script src="../scripts/get_orders.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
     <!--Google sign-in-->
-    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
-
     <script src="../scripts/google_signin.js"></script>
-
-
-
-
+    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+    <script src="../scripts/submit_order.js"></script>
+    <script src="../scripts/create_order.js"></script>
+    <script src="../scripts/clearOrders.js"></script>
     <script>
-        let dataSet2 = getOrderData();
-        var dataSet = [
-            [ "Tiger Nixon", "System Architect", "Edinburgh", "5421", "2011/04/25", "$320,800" ],
-            [ "Garrett Winters", "Accountant", "Tokyo", "8422", "2011/07/25", "$170,750" ],
-            [ "Ashton Cox", "Junior Technical Author", "San Francisco", "1562", "2009/01/12", "$86,000" ],
-            [ "Cedric Kelly", "Senior Javascript Developer", "Edinburgh", "6224", "2012/03/29", "$433,060" ],
-            [ "Airi Satou", "Accountant", "Tokyo", "5407", "2008/11/28", "$162,700" ],
-            [ "Brielle Williamson", "Integration Specialist", "New York", "4804", "2012/12/02", "$372,000" ],
-            [ "Herrod Chandler", "Sales Assistant", "San Francisco", "9608", "2012/08/06", "$137,500" ],
-            [ "Rhona Davidson", "Integration Specialist", "Tokyo", "6200", "2010/10/14", "$327,900" ],
-            [ "Colleen Hurst", "Javascript Developer", "San Francisco", "2360", "2009/09/15", "$205,500" ],
-            [ "Sonya Frost", "Software Engineer", "Edinburgh", "1667", "2008/12/13", "$103,600" ],
-            [ "Jena Gaines", "Office Manager", "London", "3814", "2008/12/19", "$90,560" ],
-            [ "Quinn Flynn", "Support Lead", "Edinburgh", "9497", "2013/03/03", "$342,000" ],
-            [ "Charde Marshall", "Regional Director", "San Francisco", "6741", "2008/10/16", "$470,600" ],
-            [ "Haley Kennedy", "Senior Marketing Designer", "London", "3597", "2012/12/18", "$313,500" ],
-            [ "Tatyana Fitzpatrick", "Regional Director", "London", "1965", "2010/03/17", "$385,750" ],
-            [ "Michael Silva", "Marketing Designer", "London", "1581", "2012/11/27", "$198,500" ],
-            [ "Paul Byrd", "Chief Financial Officer (CFO)", "New York", "3059", "2010/06/09", "$725,000" ],
-            [ "Gloria Little", "Systems Administrator", "New York", "1721", "2009/04/10", "$237,500" ],
-            [ "Bradley Greer", "Software Engineer", "London", "2558", "2012/10/13", "$132,000" ],
-            [ "Dai Rios", "Personnel Lead", "Edinburgh", "2290", "2012/09/26", "$217,500" ],
-            [ "Jenette Caldwell", "Development Lead", "New York", "1937", "2011/09/03", "$345,000" ],
-            [ "Yuri Berry", "Chief Marketing Officer (CMO)", "New York", "6154", "2009/06/25", "$675,000" ],
-            [ "Caesar Vance", "Pre-Sales Support", "New York", "8330", "2011/12/12", "$106,450" ],
-            [ "Doris Wilder", "Sales Assistant", "Sidney", "3023", "2010/09/20", "$85,600" ],
-            [ "Angelica Ramos", "Chief Executive Officer (CEO)", "London", "5797", "2009/10/09", "$1,200,000" ],
-            [ "Gavin Joyce", "Developer", "Edinburgh", "8822", "2010/12/22", "$92,575" ],
-            [ "Jennifer Chang", "Regional Director", "Singapore", "9239", "2010/11/14", "$357,650" ],
-            [ "Brenden Wagner", "Software Engineer", "San Francisco", "1314", "2011/06/07", "$206,850" ],
-            [ "Fiona Green", "Chief Operating Officer (COO)", "San Francisco", "2947", "2010/03/11", "$850,000" ],
-            [ "Shou Itou", "Regional Marketing", "Tokyo", "8899", "2011/08/14", "$163,000" ],
-            [ "Michelle House", "Integration Specialist", "Sidney", "2769", "2011/06/02", "$95,400" ],
-            [ "Suki Burks", "Developer", "London", "6832", "2009/10/22", "$114,500" ],
-            [ "Prescott Bartlett", "Technical Author", "London", "3606", "2011/05/07", "$145,000" ],
-            [ "Gavin Cortez", "Team Leader", "San Francisco", "2860", "2008/10/26", "$235,500" ],
-            [ "Martena Mccray", "Post-Sales support", "Edinburgh", "8240", "2011/03/09", "$324,050" ],
-            [ "Unity Butler", "Marketing Designer", "San Francisco", "5384", "2009/12/09", "$85,675" ]
-        ];
-
-        $(document).ready(function() {
-
-            $('#example').DataTable( {
-                data: dataSet2,
-                columns: [
-                    { title: "Name" },
-                    { title: "Position" },
-                    { title: "Office" }
-                    // { title: "Extn." },
-                    // { title: "Start date" },
-                    // { title: "Salary" }
-                ]
-            } );
-        } );
+        if (getCookie('authCode') === null) {
+            window.location.href = "login.html";
+        }
     </script>
 </head>
 <body>
-<table id="example" class="display" width="100%"></table>
 
+<div class="header"></div>
+
+<div class="info">
+    <div class="sidecol">
+        <img alt="" src="../images/graytexture.png">
+    </div>
+
+    <div class="middlecol">
+        <div class="alerts">
+            <div class="alert"><span class="closebtn" onclick="closeAlert(this.parentElement)">&times;</span>
+                <div class="alert-msg"></div>
+            </div>
+        </div>
+        <header>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <!-- Slide One - Set the background image for this slide in the line below -->
+                    <div class="carousel-item active">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3 class="display-4">First Slide</h3>
+                            <p class="lead">This is a description for the first slide.</p>
+                        </div>
+                    </div>
+                    <!-- Slide Two - Set the background image for this slide in the line below -->
+                    <div class="carousel-item" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1920x1080')">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3 class="display-4">Second Slide</h3>
+                            <p class="lead">This is a description for the second slide.</p>
+                        </div>
+                    </div>
+                    <!-- Slide Three - Set the background image for this slide in the line below -->
+                    <div class="carousel-item" style="background-image: url('https://source.unsplash.com/O7fzqFEfLlo/1920x1080')">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3 class="display-4">Third Slide</h3>
+                            <p class="lead">This is a description for the third slide.</p>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <section class="py-5">
+            <div class="container">
+                <h1 class="font-weight-light">Half Page Image Slider</h1>
+                <p class="lead">The background images for the slider are set directly in the HTML using inline CSS. The images in this snippet are from <a href="https://unsplash.com">Unsplash</a>!</p>
+            </div>
+        </section>
+
+
+
+
+
+
+    </div>
+
+    <div class="sidecol">
+        <img alt="" src="../images/graytexture.png">
+    </div>
+</div>
+
+
+<div class="footer"></div>
 </body>
 </html>

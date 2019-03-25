@@ -3,12 +3,13 @@
 <head>
     <title> WaySub </title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--stylesheets-->
     <link href="../styles/card.css" rel="stylesheet" type="text/css">
-    <link href="../styles/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="../styles/core.css" rel="stylesheet" type="text/css">
-    <link href="../styles/navbar.css" rel="stylesheet" type="text/css">
+    <link href="../styles/customize.css" rel="stylesheet" type="text/css">
+    <link href="../styles/main.css" rel="stylesheet" type="text/css">
+    <link href="../styles/newnavbar.css" rel="stylesheet" type="text/css">
     <link href="../styles/checkboxes.css" rel="stylesheet" type="text/css">
     <link href="../styles/accordion.css" rel="stylesheet" type="text/css">
 
@@ -24,7 +25,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            $(".header").load("main.html .header");
+            $(".header").load("main.html .header", function () {
+                let signInButton = $('#login-button');
+                let signOutButton = $('#logout-button');
+                if (getCookie("authCode")) {
+                    signInButton.css("display", "none");
+                    signOutButton.css("display", "block")
+                }
+                else {
+                    signInButton.css("display", "block");
+                    signOutButton.css("display", "none")
+                }
+            });
             $(".footer").load("main.html .footer");
         });
     </script>
@@ -44,9 +56,7 @@
     <script src="../scripts/google_signin.js"></script>
     <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
     <script>
-        // console.log(getCookie('authCode'));
         if (getCookie('authCode') === null){
-            saveLocation(window.location.pathname);
             window.location.href = "login.html";
         }
     </script>

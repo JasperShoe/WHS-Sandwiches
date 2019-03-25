@@ -32,7 +32,7 @@ hr {
 
 }
 
-.active:after {
+.accordion.active:after {
     content: "\2212";
 }
 

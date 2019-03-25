@@ -1,27 +1,28 @@
 let finalOrder;
-
 function clearModalsOnClick() {
     const order_summary = $('#order_summary_modal');
-    const make_favorite = $('#make_favorite_modal');
+    const name_input = $('#favoriteName');
     const close = document.getElementsByClassName("close-button");
     for (let i = 0; i < close.length; i++) {
         close[i].onclick = function () {
             order_summary.empty();
-            make_favorite.empty();
+            name_input.val("");
+            getLastOrderDate();
         };
     }
 
 }
 function populateOrderModal(order_details) {
     const order_summary = $('#order_summary_modal');
-
-    order_summary.append(`<p> email: ${order_details.student_email} </p>`);
-    order_summary.append(`<ul> ingredients: </ul>`);
+    order_summary.append(`<tr><td><i class="fa fa-envelope" aria-hidden="true"></i></td><td><h3>email: ${order_details.student_email} </h3></td></tr>`);
+    let arr = [];
     for (let i = 0; i < order_details.ingredients.length; i++) {
-        order_summary.append(`<li>${order_details.ingredients[i].name}</li>`);
+        arr.push(order_details.ingredients[i].name);
     }
-    order_summary.append(`<p> date: ${order_details.date} </p>`);
-    order_summary.append(`<p> lunch: ${order_details.which_lunch} </p>`);
+    order_summary.append(`<tr><td><i class="fas fa-utensils"></i></td><td><h3>ingredients: ${arr}</h3></td></tr>`);
+    order_summary.append(`<tr><td><i class="far fa-calendar"></i></td><td><h3> order date: ${order_details.order_date.toLocaleString()} </h3></td></tr>`);
+    order_summary.append(`<tr><td><i class="far fa-calendar-check"></td><td><h3> pickup date: ${order_details.pickup_date.toLocaleDateString()} </h3></td></tr>`);
+    order_summary.append(`<tr><td><i class="fa fa-list-ol" aria-hidden="true"></td><td><h3> lunch: ${order_details.which_lunch} </h3></td></tr>`);
 
     clearModalsOnClick();
     finalOrder = order_details;
@@ -33,7 +34,7 @@ function postOrder() {
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(finalOrder),
-        dataType: 'json',
+        dataType: 'json'
     });
     $(window).scrollTop(0);
     const checkboxes = document.getElementsByClassName("ingredientcheckbox");
@@ -45,12 +46,13 @@ function postOrder() {
 function nameFavoriteOrder() {
     const saveFavoriteButton = $('#save_favorite_button');
     saveFavoriteButton.attr("data-dismiss", null);
-    const make_favorite = $('#make_favorite_modal');
-    make_favorite.append(`<div class="favoriteSaver"><input id="favoriteName" type="text" maxlength="15" placeholder="Name this Favorite"></div>`);
+    // const make_favorite = $('#make_favorite_modal');
+    // make_favorite.append(`<input class="customInput" id="favoriteName" type="text" maxlength="15" placeholder="Name this Favorite">`);
 }
 
 
 function saveFavoriteOrder(){
+    getLastOrderDate();
     const saveFavoriteButton = $('#save_favorite_button');
     let favName = document.getElementById("favoriteName").value;
     if (favName){
@@ -71,9 +73,9 @@ function saveFavoriteOrder(){
             }
         });
         const order_summary = $('#order_summary_modal');
-        const make_favorite = $('#make_favorite_modal');
         order_summary.empty();
-        make_favorite.empty();
+        const name_input = $('#favoriteName');
+        name_input.val("");
     }
     else {
         alert("Please enter name for this favorite.")

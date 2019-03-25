@@ -7,14 +7,13 @@
 
 
     <!--stylesheets-->
-    <link href="../styles/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="../styles/core.css" rel="stylesheet" type="text/css">
-    <link href="../styles/navbar.css" rel="stylesheet" type="text/css">
+    <link href="../styles/main.css" rel="stylesheet" type="text/css">
+    <link href="../styles/newnavbar.css" rel="stylesheet" type="text/css">
     <link href="../styles/checkboxes.css" rel="stylesheet" type="text/css">
     <link href="../styles/accordion.css" rel="stylesheet" type="text/css">
-
-
-
+    <link href="../styles/order_tables.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link href="../styles/customize.css" rel="stylesheet" type="text/css">
 
 
     <!--logo-->
@@ -24,13 +23,24 @@
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300" rel="stylesheet">
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <script>
         $(document).ready(function() {
-            $(".header").load("main.html .header");
+            $(".header").load("main.html .header", function () {
+                let signInButton = $('#login-button');
+                let signOutButton = $('#logout-button');
+                if (getCookie("authCode")) {
+                    signInButton.css("display", "none");
+                    signOutButton.css("display", "block")
+                }
+                else {
+                    signInButton.css("display", "block");
+                    signOutButton.css("display", "none")
+                }
+            });
             $(".footer").load("main.html .footer");
         });
     </script>
@@ -38,24 +48,25 @@
     <!--javascript files-->
     <script src="../scripts/bootstrap.min.js"></script>
     <script src="../scripts/get_ingredient_options.js"></script>
-    <script src="../scripts/submit_order.js"></script>
-    <script src="../scripts/create_order.js"></script>
     <script src="../scripts/order_favorite.js"></script>
     <script src="../scripts/alerts.js"></script>
 
     <!--Google sign-in-->
     <script src="../scripts/google_signin.js"></script>
     <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+    <script src="../scripts/submit_order.js"></script>
+    <script src="../scripts/create_order.js"></script>
+    <script src="../scripts/clearOrders.js"></script>
     <script>
-        // console.log(getCookie('authCode'));
-        if (getCookie('authCode') === null){
+        if (getCookie('authCode') === null) {
             window.location.href = "login.html";
         }
     </script>
 </head>
 <body>
 
-<div class ="header"></div>
+<div class="header"></div>
+<button onclick="clearOrders()">Delete Orders</button>
 
 <div class="info">
     <div class="sidecol">
@@ -64,20 +75,28 @@
 
     <div class="middlecol">
         <div class="alerts">
-            <div class="alert"><span class="closebtn" onclick="closeAlert(this.parentElement)">&times;</span><div class="alert-msg"></div></div>
+            <div class="alert"><span class="closebtn" onclick="closeAlert(this.parentElement)">&times;</span>
+                <div class="alert-msg"></div>
+            </div>
         </div>
+        <!--<h2 class="test">Select From Favorites</h2>-->
+        <!--<h2 class="test">Or</h2>-->
+        <!--<h2 class="test">Start From Scratch</h2>-->
+
         <h2> Select Your Ingredients</h2>
         <div id="ingredients-list"></div>
         <div class="finalize">
-            <br><h2> Finalize Your Order</h2><br>
-            <div class = "lunchbuttons">
+            <br>
+            <h2> Finalize Your Order</h2><br>
+            <div class="lunchbuttons">
                 <h3>Select Lunch</h3>
                 <input type="radio" name="lunch" value="1"> 1st<br>
                 <input type="radio" name="lunch" value="2"> 2nd<br>
                 <input type="radio" name="lunch" value="3"> 3rd<br>
             </div>
 
-            <button type="button" class="btn btn-primary btn-lg" id="createOrder" data-toggle="modal" data-target="#myModal1" onclick="buildOrder();">
+            <button type="button" class="btn btn-primary btn-lg" id="createOrder" data-toggle="modal"
+                    data-target="#myModal1" onclick="buildOrder();">
                 Submit Order
             </button>
 
@@ -88,23 +107,27 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close close-button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" >Order Summary:</h4>
+                        <button type="button" class="close close-button" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Order Summary:</h4>
                     </div>
                     <div class="modal-body" id="order_summary_modal"></div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default close-button" data-dismiss="modal">Go Back</button>
-                        <button type="button" class="btn btn-default btn-next" onclick="postOrder()">Finalize Order</button>
+                        <button type="button" class="btn btn-default btn-next" onclick="postOrder()">Finalize Order
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close close-button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close close-button" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title">Your Order Has been Submitted!</h4>
                     </div>
                     <div class="modal-body" id="order_submitted_modal">
@@ -112,24 +135,31 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default close-button" data-dismiss="modal">No</button>
-                        <button type="button" class="btn btn-default btn-next" onclick="nameFavoriteOrder()">Yes</button>
+                        <button type="button" class="btn btn-default btn-next" onclick="nameFavoriteOrder()">Yes
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close close-button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close close-button" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">Save Favorite Order</h4>
                     </div>
                     <div class="modal-body" id="make_favorite_modal">
+                        <input class="customInput" id="favoriteName" type="text" maxlength="15"
+                               placeholder="Name this Favorite">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default btn-prev">Go Back</button>
-                        <button type="button" class="btn btn-default" id="save_favorite_button" data-dismiss="modal" onclick="saveFavoriteOrder()">Save</button>
+                        <button type="button" class="btn btn-default" id="save_favorite_button" data-dismiss="modal"
+                                onclick="saveFavoriteOrder()">Save
+                        </button>
                     </div>
                 </div>
             </div>
@@ -137,18 +167,18 @@
 
 
         <script>
-            $("div[id^='myModal']").each(function(){
+            $("div[id^='myModal']").each(function () {
 
                 var currentModal = $(this);
 
                 //click next
-                currentModal.find('.btn-next').click(function(){
+                currentModal.find('.btn-next').click(function () {
                     currentModal.modal('hide');
                     currentModal.closest("div[id^='myModal']").nextAll("div[id^='myModal']").first().modal('show');
                 });
 
                 //click prev
-                currentModal.find('.btn-prev').click(function(){
+                currentModal.find('.btn-prev').click(function () {
                     currentModal.modal('hide');
                     currentModal.closest("div[id^='myModal']").prevAll("div[id^='myModal']").first().modal('show');
                 });
@@ -159,10 +189,10 @@
 
         <!--<button id = "orderBtn" onclick="buildOrder();"> Submit Order</button>-->
         <!--<div id="orderPopup" class="popup">-->
-            <!--<div class="popup-content">-->
-                <!--<span class="close">&times;</span>-->
-                <!--<div id = "order_summary"></div>-->
-            <!--</div>-->
+        <!--<div class="popup-content">-->
+        <!--<span class="close">&times;</span>-->
+        <!--<div id = "order_summary"></div>-->
+        <!--</div>-->
         <!--</div>-->
 
 

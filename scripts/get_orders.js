@@ -1,57 +1,59 @@
-const orderUrl = "http://localhost:3000/orders/"
-
-//todo: scenario - students orders a sandwich today for consumption tomorrow
 //todo: scenario - how to prevent / deal with orders with ingredients that become out of stock after they are ordered
-
+//todo: create UI for lunch ladies - similar to the orders tab.
+let orders;
+let perPage;
 $(document).ready(function () {
-    $.get(orderUrl, {student_email: getCookie("email"), daysOfOrders: 1, sort: {date: -1}}, function (orderHistory) {
+    let orderPromise = $.get("http://localhost:3000/orders/", {
+        student_email: getCookie("email"),
+        daysOfOrders: 1,
+        sort: {order_date: -1}
+    });
+    orderPromise.success(function (orderHistory) {
+        orders = orderHistory;
         let order_div = $('#orders_div');
-        if (orderHistory.length === 0) {
+        if (orders.length === 0) {
             order_div.append('<h3>You have not placed any orders yet.</h3>');
         } else {
-            for (let i = 0; i < orderHistory.length; i++) {
-                let arr = [];
-                for (let j = 0; j < orderHistory[i].ingredients.length; j++) {
-                    arr.push(orderHistory[i].ingredients[j].name)
-                }
-                order_div.append('<div class="oldOrder"><p>' + new Date(orderHistory[i].date).toLocaleString() + '</p><div class="ingredients">' + arr + '</div><div class="buttons"><button class="btn btn-primary" onclick=""> Order</button><button class="btn btn-primary" id = "favoriteButton" onclick="moveToFavorites(this.parentElement.id)"> Save as Favorite</button></div></div>');
-                let buttons = $(".buttons");
-                buttons.last().attr("id", orderHistory[i]._id)
-            }
+            configurePageCountSelector();
+            getSpecifiedNumberOfOrders(5);
+            getOrderPage(1);
         }
+
     });
 
 });
-function getOrderData() {
-    let data = [["a", "b", "c"]];
-    return data;
-    // let promise = $.get(orderUrl, {student_email: getCookie("email"), daysOfOrders: 1, sort: {date: -1}}, function (orderHistory) {
-    //     for (let i = 0; i < orderHistory.length; i++) {
-    //         let arr = [];
-    //         for (let j = 0; j < orderHistory[i].ingredients.length; j++) {
-    //             arr.push(orderHistory[i].ingredients[j].name)
-    //         }
-    //         data.push([new Date(orderHistory[i].date).toLocaleString(), arr.toString(), orderHistory[i].which_lunch.toString()])
-    //
-    //     }
-    // });
-    // promise.success(function () {
-    //     return data;
-    // })
+
+function getSpecifiedNumberOfOrders(ordersPerPage) {
+    perPage = ordersPerPage;
+    const pagination = $('.pagination');
+    let numPages = orders.length / perPage;
+    pagination.empty();
+    for (let i = 0; i < numPages; i++) {
+        pagination.append(`<li class="page-item"><a class="page-link" href="#" onclick="getOrderPage(this.text)">${i + 1}</a></li>`)
+    }
+
 }
 
-function moveToFavorites(id) {
+function getOrderPage(pageNumber) {
+    const table_body = $('#table-body');
+    let start = (pageNumber - 1) * perPage;
+    table_body.empty();
+    for (let i = start; i < start + perPage; i++) {
+        if (orders[i]) {
+            let arr = [];
+            for (let j = 0; j < orders[i].ingredients.length; j++) {
+                arr.push(orders[i].ingredients[j].name)
+            }
+            table_body.append(`<tr><th scope="row">${new Date(orders[i].order_date).toLocaleString()}</th><td>${new Date(orders[i].pickup_date).toLocaleDateString()}</td><td class="ingredients-td">${arr}</td><td>${orders[i].which_lunch}</td></tr>`)
+        }
+    }
+}
 
-
-    showAlert();
-    // $.ajax({
-    //     url: orderUrl + id,
-    //     method: 'PUT',
-    //     data: {
-    //         is_favorite: true
-    //     },
-    //     success:
-    //
-    // });
-
+function configurePageCountSelector() {
+    let a = document.getElementById("mySelectBox");
+    a.addEventListener("change", function () {
+        let selected_option = $('#mySelectBox option:selected');
+        getSpecifiedNumberOfOrders(selected_option.val());
+        getOrderPage(1);
+    });
 }
