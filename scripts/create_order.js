@@ -6,7 +6,8 @@ $(document).ready(function () {
 let lastOrdersPickupDate;
 function getLastOrderDate(){
     let ordersPromise = $.get("http://localhost:3000/orders/", {
-        student_email: getCookie("email"),
+        // student_email: getCookie("email"),
+        student_email: "rafael_chaves@student.wayland.k12.ma.us",
         sort: {order_date: -1}
     });
     ordersPromise.success(function (orders) {
@@ -50,8 +51,10 @@ function buildOrder() {
     }
     let currentDate = new Date();
     let pickupDate = new Date(currentDate);
-    if (currentDate.getHours() > 8) {
-        pickupDate.setDate(currentDate.getDate() + 1)
+    console.log(pickupDate);
+    currentDate.getHours();
+    if (currentDate.getHours() >= 8) {
+        pickupDate.setDate(currentDate.getDate() + 1);
     }
     if (isValidOrder(orderIngredients) && !alreadyOrderedToday(pickupDate)) {
         createOrderButton.attr("data-toggle", "modal");

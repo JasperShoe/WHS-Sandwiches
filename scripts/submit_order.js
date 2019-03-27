@@ -1,19 +1,8 @@
 let finalOrder;
-function clearModalsOnClick() {
-    const order_summary = $('#order_summary_modal');
-    const name_input = $('#favoriteName');
-    const close = document.getElementsByClassName("close-button");
-    for (let i = 0; i < close.length; i++) {
-        close[i].onclick = function () {
-            order_summary.empty();
-            name_input.val("");
-            getLastOrderDate();
-        };
-    }
 
-}
 function populateOrderModal(order_details) {
     const order_summary = $('#order_summary_modal');
+    order_summary.empty();
     order_summary.append(`<tr><td><i class="fa fa-envelope" aria-hidden="true"></i></td><td><h3>email: ${order_details.student_email} </h3></td></tr>`);
     let arr = [];
     for (let i = 0; i < order_details.ingredients.length; i++) {
@@ -112,4 +101,17 @@ function collapseAll() {
         }
 
     }
+}
+function clearModalsOnClick() {
+    const order_summary = $('#order_summary_modal');
+    const name_input = $('#favoriteName');
+    const close = document.getElementsByClassName("close-button");
+    for (let i = 0; i < close.length; i++) {
+        close[i].onclick = function () {
+            order_summary.empty();
+            name_input.val("");
+            getLastOrderDate();
+        };
+    }
+
 }

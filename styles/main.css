@@ -147,3 +147,10 @@ div#order_summary_modal {
     -o-background-size: cover;
     background-size: cover;
 }
+.modal-backdrop
+{
+    opacity:0.5 !important;
+}
+a.nav-link {
+    cursor: pointer;
+}

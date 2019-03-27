@@ -29,7 +29,18 @@
     <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
     <script src="../scripts/google_signin.js"></script>
 
-
+    <script>
+        $('#login-button').click(function() {
+            if (window.location.pathname === "/WHS-Sandwiches/pages/login.html") {
+                if (auth2.isSignedIn.get() && getCookie('authCode') !== null) {
+                    window.location.replace(document.referrer);
+                }
+                else {
+                    auth2.grantOfflineAccess().then(signInCallback);
+                }
+            }
+        });
+    </script>
 
 </head>
 <body>

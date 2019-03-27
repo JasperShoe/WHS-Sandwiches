@@ -1,4 +1,6 @@
-//todo: only allow sign in from Wayland student domain.
+var auth2; // The Sign-In object.
+var googleUser; // The current user.
+
 function getCookie(name) {
     let v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
     return v ? v[2] : null;
@@ -14,70 +16,98 @@ function deleteCookie(name) {
     setCookie(name, '', -1);
 }
 
-// Initializes the sign-in client. Called when page is loaded.
-function start() {
-    gapi.load('auth2', function () {
-        auth2 = gapi.auth2.init({
-            client_id: '137343299835-5vtibq9c072o11ullqob6d7snqes1530.apps.googleusercontent.com',
-            ux_mode: 'redirect',
-            hosted_domain: "student.wayland.k12.ma.us",
-            fetch_basic_profile: true
-        });
-        auth2.then(function () {
-            auth2.currentUser.listen(userChanged);
-            if (window.location.pathname === "/WHS-Sandwiches/pages/login.html") {
-                if (auth2.isSignedIn.get() && getCookie('authCode') !== null) {
-                    window.location.replace(document.referrer);
-                }
-                else {
-                    auth2.grantOfflineAccess().catch(notSignedIn).then(signInCallback);
-                }
-            }
+/**
+ * Calls startAuth after Sign in V2 finishes setting up.
+ */
+var start = function() {
+    gapi.load('auth2', initSigninV2);
+};
 
-        });
-
-
+/**
+ * Initializes Signin v2 and sets up listeners.
+ */
+var initSigninV2 = function() {
+    auth2 = gapi.auth2.init({
+        client_id: '137343299835-5vtibq9c072o11ullqob6d7snqes1530.apps.googleusercontent.com',
+        scope: 'profile',
     });
-}
 
-let userChanged = function (user) {
-    if (user){
-        setCookie("email", user.getBasicProfile().getEmail(), 7);
-        console.log(user.getHostedDomain());
+
+    // Listen for changes to current user.
+    auth2.currentUser.listen(userChanged);
+
+    // Sign in the user if they are currently signed in.
+    if (auth2.isSignedIn.get() === true) {
+        auth2.signIn();
+    }
+    // Start with the current live values.
+    refreshValues();
+};
+
+/**
+ * Listener method for when the user changes.
+ *
+ * @param {GoogleUser} user the updated user.
+ */
+var userChanged = function (user) {
+    googleUser = user;
+    var id_token = googleUser.getAuthResponse().id_token;
+    if (id_token) {
+        if (googleUser.getHostedDomain() === "student.wayland.k12.ma.us") {
+            $('#login-button').css("display", "none");
+            $('#logout-button').css("display", "block");
+            setCookie("idToken", id_token, 7);
+            setCookie("email", googleUser.getBasicProfile().getEmail());
+        }
+        else{
+            logOut();
+            alert('Please use your student email to sign in')
+        }
+
+    }
+
+};
+
+/**
+ * Retrieves the current user and signed in states from the GoogleAuth
+ * object.
+ */
+var refreshValues = function() {
+    if (auth2){
+        googleUser = auth2.currentUser.get();
     }
 };
 
-function notSignedIn() {
-    window.location.href = "main.html";
-}
-
-
-function signInCallback(authResult) {
-    // auth2.currentUser.listen(userChanged);
-    setTimeout(function () {
-        if (authResult['code']) {
-            if (auth2.currentUser.get().getHostedDomain() === "student.wayland.k12.ma.us") {
-                setCookie("authCode", authResult['code'], 7);
-                window.location.replace(document.referrer);
-            }
-            else{
-                alert(`Please sign in with your student email`)
-            }
+function goToPage(url) {
+    auth2.currentUser.listen(userChanged);
+    if (googleUser.isSignedIn()) {
+        if (googleUser.getHostedDomain() === "student.wayland.k12.ma.us") {
+            window.location.href = url;
         }
         else {
-            alert("There was an error signing in.");
+            alert('Please use your student email to sign in')
         }
-    }, 1000);
+    }
+    else {
+        alert('Error: you are not signed in');
 
+    }
+}
+function logIn() {
+    auth2.signIn();
 }
 
-function signOut() {
+function logOut() {
     let auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
-        window.location.href = "main.html";
-        deleteCookie("authCode");
+        deleteCookie("idToken");
         deleteCookie("email");
-        auth2.currentUser.listen(userChanged);
+        $('#login-button').css("display", "block");
+        $('#logout-button').css("display", "none");
         console.log('User signed out.');
+        if (window.location.pathname !== "/WHS-Sandwiches/pages/main.html"){
+            window.location.href = "main.html";
+
+        }
     });
 }
