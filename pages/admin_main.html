@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/Article">
+
+
+<head>
+    <title> WaySub </title>
+    <meta charset="UTF-8">
+
+    <!--stylesheets-->
+    <link href="../styles/main.css" rel="stylesheet" type="text/css">
+    <link href="../styles/newnavbar.css" rel="stylesheet" type="text/css">
+
+
+    <!--logo-->
+    <link href="../images/logo.png" rel="shortcut icon">
+
+    <!-- importing google's fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+    <!--javascript files-->
+
+    <!--Google sign-in-->
+    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+    <script src="../scripts/google_signin.js"></script>
+    <script>
+        $(document).ready(function () {
+            let signInButton = $('#login-button');
+            let signOutButton = $('#logout-button');
+            if (getCookie("idToken")) {
+                signInButton.css("display", "none");
+                signOutButton.css("display", "block")
+            } else {
+                signInButton.css("display", "block");
+                signOutButton.css("display", "none")
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="main.html">WaySub Admin</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <a class="nav-link" onclick="goToPage('admin_view_orders.html')">View Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="goToPage('favorites.html')">Set Availability</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto" id="log-in-out">
+                <li class="nav-item"><a class="nav-link" id="logout-button" href="#" onclick="logOut()">Sign Out</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" id="login-button" onclick="logIn()">Sign in</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+
+<!--</div>-->
+<div class="info">
+    <div class="sidecol">
+        <img src="../images/graytexture.png" alt="">
+    </div>
+
+    <div class="middlecol">
+        <div class="alerts">
+            <div class="alert"><span class="closebtn" onclick="closeAlert(this.parentElement)">&times;</span>
+                <div class="alert-msg"></div>
+            </div>
+        </div>
+        <h2> WaySub Admin Page </h2>
+
+    </div>
+
+    <div class="sidecol">
+        <img src="../images/graytexture.png" alt="">
+    </div>
+</div>
+<footer class="page-footer font-small blue">
+    <div class="text-center py-3">
+        <a> Made by Rafael Chaves, Jasper Hsu, and Michael Chen </a>
+    </div>
+</footer>
+<script>
+
+    $('#login-button').click(function () {
+        auth2.signIn();
+    });
+</script>
+
+</body>
+
+</html>

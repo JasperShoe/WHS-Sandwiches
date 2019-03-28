@@ -154,3 +154,15 @@ div#order_summary_modal {
 a.nav-link {
     cursor: pointer;
 }
+.pointer {
+    cursor: pointer;
+}
+.custom-select {
+    display: inline-flex;
+}
+select#mySelectBox {
+    margin: -10px 6px 10px;
+}
+.align-center {
+    text-align: center;
+}

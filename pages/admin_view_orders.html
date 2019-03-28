@@ -29,14 +29,19 @@
     <script src="../scripts/get_ingredient_options.js"></script>
     <script src="../scripts/create_order.js"></script>
     <script src="../scripts/alerts.js"></script>
+    <script src="../scripts/sorttable.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
 
     <!--Google sign-in-->
     <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
     <script src="../scripts/google_signin.js"></script>
 
-    <script src="../scripts/get_orders.js"></script>
+    <script src="../scripts/admin_get_orders.js"></script>
+
+
+
 
     <script>
         if (!getCookie('idToken')) {
@@ -44,11 +49,11 @@
             window.location.href = "main.html";
         }
         $(document).ready(function() {
-            $(".header").load("main.html .header", function () {
+            $(".header").load("admin_main.html .header", function () {
                 $('#login-button').css("display", "none");
                 $('#logout-button').css("display", "block")
             });
-            $(".footer").load("main.html .footer");
+            $(".footer").load("admin_main.html .footer");
         });
     </script>
 
@@ -79,14 +84,15 @@
             </select>
             items per page
         </div>
-
-        <table class="table">
+        <table class="table sortable">
             <thead class="thead-light">
-            <tr>
+            <tr class="pointer">
+                <th scope="col">Email</th>
                 <th scope="col">Order Date</th>
                 <th scope="col">Pick-Up Date</th>
                 <th scope="col">Ingredients</th>
                 <th scope="col">Lunch</th>
+                <th scope="col">Completed?</th>
             </tr>
             </thead>
             <tbody id="table-body">

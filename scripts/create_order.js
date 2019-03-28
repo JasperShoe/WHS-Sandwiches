@@ -56,7 +56,8 @@ function buildOrder() {
     if (currentDate.getHours() >= 8) {
         pickupDate.setDate(currentDate.getDate() + 1);
     }
-    if (isValidOrder(orderIngredients) && !alreadyOrderedToday(pickupDate)) {
+    // if (isValidOrder(orderIngredients) && !alreadyOrderedToday(pickupDate)) {
+    if (isValidOrder(orderIngredients)) {
         createOrderButton.attr("data-toggle", "modal");
         createOrderButton.attr("data-target", "#myModal1");
         orderDetails = {
