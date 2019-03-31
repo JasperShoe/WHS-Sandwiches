@@ -166,3 +166,6 @@ select#mySelectBox {
 .align-center {
     text-align: center;
 }
+.sidecol {
+    height: -webkit-fill-available;
+}

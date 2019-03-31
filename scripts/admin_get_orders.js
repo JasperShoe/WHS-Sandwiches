@@ -7,10 +7,7 @@ $(document).ready(function () {
     });
     orderPromise.success(function (orderHistory) {
         orders = orderHistory;
-        let order_div = $('#orders_div');
-        if (orders.length === 0) {
-            order_div.append('<h3>You have not placed any orders yet.</h3>');
-        } else {
+        if (orders.length !== 0) {
             configurePageCountSelector();
             getSpecifiedNumberOfOrders(5);
             getOrderPage(1);
@@ -32,9 +29,11 @@ function getSpecifiedNumberOfOrders(ordersPerPage) {
 }
 
 function getOrderPage(pageNumber) {
-    const table_body = $('#table-body');
+    const incomplete_orders = $('#incomplete-order-table');
+    const complete_orders = $('#complete-order-table');
     let start = (pageNumber - 1) * perPage;
-    table_body.empty();
+    incomplete_orders.empty();
+    complete_orders.empty();
     for (let i = start; i < start + perPage; i++) {
         if (orders[i]) {
             let ingredientNames = [];
@@ -56,14 +55,23 @@ function getOrderPage(pageNumber) {
                 default:
                     lunch = `${orders[i].which_lunch}`
             }
-            table_body.append(`<tr><th scope="row">${shortenedEmail}</th><td>${new Date(orders[i].order_date).toLocaleString()}</td><td>${new Date(orders[i].pickup_date).toLocaleDateString()}</td><td class="ingredients-td">${ingredientNames}</td><td class="align-center">${lunch}</td><td class="align-center"><input type="checkbox" name="orderChecker"></td></tr>`)
+            let table_row = `<tr class="order-view" data-order-id="${orders[i]._id}"><th scope="row">${shortenedEmail}</th><td>${new Date(orders[i].order_date).toLocaleString()}</td><td>${new Date(orders[i].pickup_date).toLocaleDateString()}</td><td class="ingredients-td">${ingredientNames}</td><td class="align-center">${lunch}</td><td class="align-center order-checkbox"><input type="checkbox" class="orderChecker" name="checkbox" onclick="getChecked(this.parentElement.parentElement, this)"></td></tr>`;
+            if (orders[i].is_completed) {
+                complete_orders.append(table_row);
+                $(`[data-order-id=${orders[i]._id}]`).find('.orderChecker').prop("checked", true)
+            }
+            else {
+                incomplete_orders.append(table_row);
+            }
+
+
         }
     }
 }
 
 function configurePageCountSelector() {
-    let a = document.getElementById("mySelectBox");
-    a.addEventListener("change", function () {
+    let selectBox = document.getElementById("mySelectBox");
+    selectBox.addEventListener("change", function () {
         let selected_option = $('#mySelectBox option:selected');
         getSpecifiedNumberOfOrders(selected_option.val());
         getOrderPage(1);
