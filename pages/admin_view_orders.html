@@ -39,7 +39,6 @@
     <script src="../scripts/google_signin.js"></script>
 
     <script src="../scripts/admin_get_orders.js"></script>
-    <script src="../scripts/change_order_status.js"></script>
 
 
 
@@ -65,10 +64,6 @@
 <div class ="header"></div>
 
 <div class="info">
-    <!--<div class="sidecol">-->
-        <!--<img src="../images/graytexture.png" alt = "">-->
-    <!--</div>-->
-
     <div class="middlecol">
         <div class="alerts">
             <div class="alert"><span class="closebtn" onclick="closeAlert(this.parentElement)">&times;</span><div class="alert-msg"></div></div>
@@ -77,7 +72,7 @@
         <h2>To-do Orders</h2>
         <div class="custom-select" style="width:250px;">
             Display
-            <select class="form-control" id="mySelectBox">
+            <select class="form-control selectBox" id="todoSelectBox">
                 <option value="5">5</option>
                 <option value="10">10</option>
                 <option value="25">25</option>
@@ -101,14 +96,14 @@
 
 
         <nav aria-label="Order page navigation">
-            <ul class="pagination"></ul>
+            <ul class="pagination" id="todo-orders-pagination"></ul>
         </nav>
 
         <h2>Completed Orders</h2>
 
         <div class="custom-select" style="width:250px;">
             Display
-            <select class="form-control" id="mySelectBox">
+            <select class="form-control selectBox" id="completedSelectBox">
                 <option value="5">5</option>
                 <option value="10">10</option>
                 <option value="25">25</option>
@@ -127,18 +122,14 @@
                 <th scope="col">Completed?</th>
             </tr>
             </thead>
-            <tbody id="complete-order-table">
+            <tbody id="completed-order-table">
             </tbody>
         </table>
         <nav aria-label="Order page navigation">
-            <ul class="pagination"></ul>
+            <ul class="pagination" id="completed-orders-pagination"></ul>
         </nav>
     </div>
 
-
-    <!--<div class="sidecol">-->
-        <!--<img src="../images/graytexture.png" alt = "">-->
-    <!--</div>-->
 </div>
 
 </body>

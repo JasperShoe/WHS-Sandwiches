@@ -160,7 +160,7 @@ a.nav-link {
 .custom-select {
     display: inline-flex;
 }
-select#mySelectBox {
+select.selectBox {
     margin: -10px 6px 10px;
 }
 .align-center {
