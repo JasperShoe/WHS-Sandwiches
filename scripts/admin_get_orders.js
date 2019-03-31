@@ -1,15 +1,10 @@
-let perPage, todoTableBody, completedTableBody, todoPagination, completedPagination, todoOrders, completedOrders;
+let perPage, todoOrders, completedOrders;
 
 $(document).ready(function () {
     setupTables();
 });
 
 function setupTables() {
-
-    todoTableBody = $('#incomplete-order-table');
-    completedTableBody = $('#completed-order-table');
-    todoPagination = $('#todo-orders-pagination');
-    completedPagination = $('#completed-orders-pagination');
     let orderPromise = $.get("http://localhost:3000/orders/", {
         daysOfOrders: 1,
         sort: {order_date: -1}
@@ -24,61 +19,72 @@ function setupTables() {
                 todoOrders.push(orderHistory[i])
             }
         }
-        configurePageCountSelectors();
+        configureTodoTable();
+        configureCompletedTable();
+        setupListeners();
     });
 
 }
+let theseOrders, thisPagination, thisTableBody, isCompletedOrderTable;
+function configureTodoTable() {
+    isCompletedOrderTable = false;
+    theseOrders = todoOrders;
+    thisPagination = $('#todo-orders-pagination');
+    thisTableBody = $('#incomplete-order-table');
+    createPaginationMenu($('#todoSelectBox option:selected').val());
+    getOrdersOnPage(1);
+}
 
-function createTodoPages(ordersPerPage) {
-    perPage = ordersPerPage;
-    let numPages = todoOrders.length / perPage;
-    todoPagination.empty();
-    for (let i = 0; i < numPages; i++) {
-        todoPagination.append(`<li class="page-item"><a class="page-link" href="#" onclick="getTodoOrderPage(this.text)">${i + 1}</a></li>`)
-    }
+function configureCompletedTable() {
+    isCompletedOrderTable = true;
+    theseOrders = completedOrders;
+    thisPagination = $('#completed-orders-pagination');
+    thisTableBody = $('#completed-order-table');
+    createPaginationMenu($('#completedSelectBox option:selected').val());
+    getOrdersOnPage(1);
 
 }
 
-function createCompletedPages(ordersPerPage) {
+function createPaginationMenu(ordersPerPage) {
     perPage = ordersPerPage;
-    let numPages = completedOrders.length / perPage;
-    completedPagination.empty();
+    let numPages = theseOrders.length / perPage;
+    thisPagination.empty();
     for (let i = 0; i < numPages; i++) {
-        completedPagination.append(`<li class="page-item"><a class="page-link" href="#" onclick="getCompletedOrderPage(this.text)">${i + 1}</a></li>`)
+        thisPagination.append(`<li class="page-item"><a class="page-link" href="#" onclick="getOrdersOnPage(this.text)">${i + 1}</a></li>`)
     }
-
 }
 
-function getTodoOrderPage(pageNumber) {
+function getOrdersOnPage(pageNumber) {
     let start = (pageNumber - 1) * perPage;
-    todoTableBody.empty();
+    thisTableBody.empty();
     for (let i = start; i < start + perPage; i++) {
-        if (todoOrders[i] && !todoOrders[i].is_completed) {
+        if (theseOrders[i]) {
             let ingredientNames = [];
-            for (let j = 0; j < todoOrders[i].ingredients.length; j++) {
-                ingredientNames.push(todoOrders[i].ingredients[j].name)
+            for (let j = 0; j < theseOrders[i].ingredients.length; j++) {
+                ingredientNames.push(theseOrders[i].ingredients[j].name)
             }
-            let table_row = `<tr class="order-view" data-order-id="${todoOrders[i]._id}"><th scope="row">${todoOrders[i].student_email.split('@')[0]}</th><td>${new Date(todoOrders[i].order_date).toLocaleString()}</td><td>${new Date(todoOrders[i].pickup_date).toLocaleDateString()}</td><td class="ingredients-td">${ingredientNames}</td><td class="align-center">${lunchToString(todoOrders[i].which_lunch)}</td><td class="align-center order-checkbox"><input type="checkbox" class="orderChecker" name="checkbox" onclick="updateOrderStatus(this.parentElement.parentElement, this)"></td></tr>`;
-            todoTableBody.append(table_row);
+            let table_row = `<tr class="order-view" data-order-id="${theseOrders[i]._id}"><th scope="row">${theseOrders[i].student_email.split('@')[0]}</th><td>${new Date(theseOrders[i].order_date).toLocaleString()}</td><td>${new Date(theseOrders[i].pickup_date).toLocaleDateString()}</td><td class="ingredients-td">${ingredientNames}</td><td class="align-center">${toOrdinalNumber(theseOrders[i].which_lunch)}</td><td class="align-center order-checkbox"><input type="checkbox" class="orderChecker" name="checkbox" onclick="updateOrderStatus(this.parentElement.parentElement, this)"></td></tr>`;
+            thisTableBody.append(table_row);
+            if (isCompletedOrderTable)
+                $(`[data-order-id=${completedOrders[i]._id}]`).find('.orderChecker').prop("checked", true)
         }
     }
 }
-
-function getCompletedOrderPage(pageNumber) {
-    let start = (pageNumber - 1) * perPage;
-    completedTableBody.empty();
-    for (let i = start; i < start + perPage; i++) {
-        if (completedOrders[i] && completedOrders[i].is_completed) {
-            let ingredientNames = [];
-            for (let j = 0; j < completedOrders[i].ingredients.length; j++) {
-                ingredientNames.push(completedOrders[i].ingredients[j].name)
-            }
-            let table_row = `<tr class="order-view" data-order-id="${completedOrders[i]._id}"><th scope="row">${completedOrders[i].student_email.split('@')[0]}</th><td>${new Date(completedOrders[i].order_date).toLocaleString()}</td><td>${new Date(completedOrders[i].pickup_date).toLocaleDateString()}</td><td class="ingredients-td">${ingredientNames}</td><td class="align-center">${lunchToString(completedOrders[i].which_lunch)}</td><td class="align-center order-checkbox"><input type="checkbox" class="orderChecker" name="checkbox" onclick="updateOrderStatus(this.parentElement.parentElement, this)"></td></tr>`;
-            completedTableBody.append(table_row);
-            $(`[data-order-id=${completedOrders[i]._id}]`).find('.orderChecker').prop("checked", true)
-
-        }
-    }
+function setupListeners() {
+    let todoSelectBox = document.getElementById("todoSelectBox");
+    let completedSelectBox = document.getElementById("completedSelectBox");
+    todoSelectBox.addEventListener("change", function () {
+        configureTodoTable();
+        let selected_option = $('#todoSelectBox option:selected');
+        createPaginationMenu(selected_option.val());
+        getOrdersOnPage(1);
+    });
+    completedSelectBox.addEventListener("change", function () {
+        configureCompletedTable();
+        let selected_option = $('#completedSelectBox option:selected');
+        createPaginationMenu(selected_option.val());
+        getOrdersOnPage(1);
+    });
 }
 
 function updateOrderStatus(tableRow, checkbox) {
@@ -90,42 +96,18 @@ function updateOrderStatus(tableRow, checkbox) {
         },
         success: function () {
             setupTables();
-            configurePageCountSelectors();
         }
     });
 }
 
-function configurePageCountSelectors() {
-    createTodoPages(5);
-    createCompletedPages(5);
-    getTodoOrderPage(1);
-    getCompletedOrderPage(1);
-    let todoSelectBox = document.getElementById("todoSelectBox");
-    let completedSelectBox = document.getElementById("completedSelectBox");
-    todoSelectBox.addEventListener("change", function () {
-        let selected_option = $('#todoSelectBox option:selected');
-        createTodoPages(selected_option.val());
-        getTodoOrderPage(1);
-    });
-    completedSelectBox.addEventListener("change", function () {
-        let selected_option = $('#completedSelectBox option:selected');
-        createCompletedPages(selected_option.val());
-        getCompletedOrderPage(1);
-    });
-}
 
-function lunchToString(lunchVal) {
-    let lunchString;
+function toOrdinalNumber(lunchVal) {
     switch (lunchVal) {
         case 1:
-            lunchString = `${lunchVal}st`;
-            break;
+            return `${lunchVal}st`;
         case 2:
-            lunchString = `${lunchVal}nd`;
-            break;
+            return `${lunchVal}nd`;
         case 3:
-            lunchString = `${lunchVal}rd`;
-            break;
+            return `${lunchVal}rd`;
     }
-    return lunchString;
 }
