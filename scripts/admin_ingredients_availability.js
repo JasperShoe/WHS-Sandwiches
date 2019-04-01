@@ -4,7 +4,7 @@ $(document).ready(function () {
     });
     ingredientPromise.success(function (ingredients) {
         for (let i = 0; i < ingredients.length; i++) {
-            $('.list-group').append(`<li class="list-group-item">${ingredients[i].name}<div class="material-switch pull-right"><input id="someSwitchOptionDanger" name="someSwitchOption001" type="checkbox"/><label for="someSwitchOptionDanger" class="label-danger"></label></div></li>`)
+            // $('.list-group').append(`<li class="list-group-item">${ingredients[i].name}<div class="material-switch pull-right"><input id="someSwitchOptionDanger" name="someSwitchOption001" type="checkbox"/><label for="someSwitchOptionDanger" class="label-danger"></label></div></li>`)
         }
 
     });

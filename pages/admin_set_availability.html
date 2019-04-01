@@ -7,18 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--stylesheets-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">-->
     <link href="../styles/card.css" rel="stylesheet" type="text/css">
     <link href="../styles/customize.css" rel="stylesheet" type="text/css">
     <link href="../styles/main.css" rel="stylesheet" type="text/css">
     <link href="../styles/checkboxes.css" rel="stylesheet" type="text/css">
     <link href="../styles/accordion.css" rel="stylesheet" type="text/css">
     <link href="../styles/order_tables.css" rel="stylesheet" type="text/css">
+    <link href="../styles/newnavbar.css" rel="stylesheet" type="text/css">
     <!-- importing google's fonts -->
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <!--logo-->
     <link href="../images/logo.png" rel="shortcut icon">
-
 
 
     <!-- JQuery -->
@@ -29,8 +29,9 @@
     <script src="../scripts/alerts.js"></script>
     <script src="../scripts/admin_ingredients_availability.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>-->
 
 
     <!--Google sign-in-->
@@ -38,13 +39,12 @@
     <script src="../scripts/google_signin.js"></script>
 
 
-
     <script>
         if (!getCookie('idToken')) {
             alert('Error: you are not signed in');
             window.location.href = "main.html";
         }
-        $(document).ready(function() {
+        $(document).ready(function () {
             $(".header").load("admin_main.html .header", function () {
                 $('#login-button').css("display", "none");
                 $('#logout-button').css("display", "block")
@@ -53,113 +53,75 @@
         });
     </script>
     <style>
-        .material-switch > input[type="checkbox"] {
+        .onoffswitch {
+            position: relative; width: 50px;
+            -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+        }
+        .onoffswitch-checkbox {
             display: none;
         }
-
-        .material-switch > label {
-            cursor: pointer;
-            height: 0px;
-            position: relative;
-            width: 40px;
+        .onoffswitch-label {
+            display: block; overflow: hidden; cursor: pointer;
+            height: 26px; padding: 0; line-height: 26px;
+            border: 2px solid #E3E3E3; border-radius: 26px;
+            background-color: #FFFFFF;
+            transition: background-color 0.3s ease-in;
         }
-
-        .material-switch > label::before {
-            background: rgb(0, 0, 0);
-            box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
-            border-radius: 8px;
-            content: '';
-            height: 16px;
-            margin-top: -8px;
-            position:absolute;
-            opacity: 0.3;
-            transition: all 0.4s ease-in-out;
-            width: 40px;
+        .onoffswitch-label:before {
+            content: "";
+            display: block; width: 26px; margin: 0px;
+            background: #FFFFFF;
+            position: absolute; top: 0; bottom: 0;
+            right: 22px;
+            border: 2px solid #E3E3E3; border-radius: 26px;
+            transition: all 0.3s ease-in 0s;
         }
-        .material-switch > label::after {
-            background: rgb(255, 255, 255);
-            border-radius: 16px;
-            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-            content: '';
-            height: 24px;
-            left: -4px;
-            margin-top: -8px;
-            position: absolute;
-            top: -4px;
-            transition: all 0.3s ease-in-out;
-            width: 24px;
+        .onoffswitch-checkbox:checked + .onoffswitch-label {
+            background-color: #FF9B05;
         }
-        .material-switch > input[type="checkbox"]:checked + label::before {
-            background: inherit;
-            opacity: 0.5;
+        .onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+            border-color: #FF9B05;
         }
-        .material-switch > input[type="checkbox"]:checked + label::after {
-            background: inherit;
-            left: 20px;
-        }
-        .label-danger {
-            background-color: #d9534f;
+        .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+            right: 0px;
         }
     </style>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
 
-        #myInput {
-            /*background-image: url('/css/searchicon.png');*/
-            background-position: 10px 12px;
-            background-repeat: no-repeat;
-            width: 100%;
-            font-size: 16px;
-            padding: 12px 20px 12px 40px;
-            border: 1px solid #ddd;
-            margin-bottom: 12px;
-        }
-
-        #myUL {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        #myUL li a {
-            border: 1px solid #ddd;
-            margin-top: -1px; /* Prevent double borders */
-            background-color: #f6f6f6;
-            padding: 12px;
-            text-decoration: none;
-            font-size: 18px;
-            color: black;
-            display: block
-        }
-
-        #myUL li a:hover:not(.header) {
-            background-color: #eee;
-        }
-    </style>
 
 
 </head>
 
 <body>
 
-<div class ="header"></div>
+<div class="header"></div>
 
 <div class="info">
     <div class="sidecol" style="background-color: white">
     </div>
     <div class="middlecol">
         <div class="alerts">
-            <div class="alert"><span class="closebtn" onclick="closeAlert(this.parentElement)">&times;</span><div class="alert-msg"></div></div>
+            <div class="alert"><span class="closebtn" onclick="closeAlert(this.parentElement)">&times;</span>
+                <div class="alert-msg"></div>
+            </div>
         </div>
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for an ingredient">
 
-        <ul class="list-group" id="myUL"></ul>
+        <ul class="list-group" id="myUL">
+            <li class="list-group-item">Ingredient
+                <div class="onoffswitch">
+                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                    <label class="onoffswitch-label" for="myonoffswitch"></label>
+                </div>
+            </li>
+            <!-- Default switch -->
+
+
+        </ul>
+
 
         <script>
             function myFunction() {
-                var input, filter, ul, li, i, txtValue;
+                let input, filter, ul, li, i, txtValue;
                 input = document.getElementById("myInput");
                 filter = input.value.toUpperCase();
                 ul = document.getElementById("myUL");
@@ -174,8 +136,6 @@
                 }
             }
         </script>
-
-
 
 
     </div>
