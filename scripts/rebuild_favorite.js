@@ -37,11 +37,6 @@ function getIngredientData() {
                     let panel = accordionWithID.next();
                     panel.attr("data-ingredient-id", ingredientID);
                     panel.attr("data-ingredient-type-id", thisIngredientTypeID);
-                    if (!ingredients_json[j].is_available) {
-                        let ingredientWithID = $(`[data-ingredient-id=${ingredients_json[j]._id}]`);
-                        ingredientWithID.find('.ingredientcheckbox').attr("disabled", "disabled");
-                        ingredientWithID.find('.checkcontainer').append(`<strong>item unavailable</strong>`);
-                    }
                 }
             }
             accordionWithID.after('<hr>');
@@ -82,4 +77,3 @@ function configureAccordions() {
         });
     }
 }
-

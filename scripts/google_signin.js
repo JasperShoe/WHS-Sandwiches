@@ -1,5 +1,5 @@
-var auth2; // The Sign-In object.
-var googleUser; // The current user.
+let auth2; // The Sign-In object.
+let googleUser; // The current user.
 
 function getCookie(name) {
     let v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
@@ -49,9 +49,9 @@ var initSigninV2 = function() {
  *
  * @param {GoogleUser} user the updated user.
  */
-var userChanged = function (user) {
+let userChanged = function (user) {
     googleUser = user;
-    var id_token = googleUser.getAuthResponse().id_token;
+    let id_token = googleUser.getAuthResponse().id_token;
     if (id_token) {
         if (googleUser.getHostedDomain() === "student.wayland.k12.ma.us") {
             $('#login-button').css("display", "none");
@@ -59,9 +59,17 @@ var userChanged = function (user) {
             setCookie("idToken", id_token, 7);
             setCookie("email", googleUser.getBasicProfile().getEmail());
         }
+        else if (googleUser.getBasicProfile().getEmail() === "waysubad@gmail.com") {
+            $('#login-button').css("display", "none");
+            $('#logout-button').css("display", "block");
+            setCookie("idToken", id_token, 7);
+            setCookie("email", googleUser.getBasicProfile().getEmail());
+            if (window.location.pathname === "/WHS-Sandwiches/pages/main.html"){
+                window.location.href = "admin_main.html"
+            }
+        }
         else{
             logOut();
-            alert('Please use your student email to sign in')
         }
 
     }
@@ -81,7 +89,7 @@ var refreshValues = function() {
 function goToPage(url) {
     auth2.currentUser.listen(userChanged);
     if (googleUser.isSignedIn()) {
-        if (googleUser.getHostedDomain() === "student.wayland.k12.ma.us") {
+        if (googleUser.getHostedDomain() === "student.wayland.k12.ma.us" || getCookie("email") === "waysubad@gmail.com") {
             window.location.href = url;
         }
         else {
@@ -107,7 +115,6 @@ function logOut() {
         console.log('User signed out.');
         if (window.location.pathname !== "/WHS-Sandwiches/pages/main.html"){
             window.location.href = "main.html";
-
         }
     });
 }

@@ -34,10 +34,11 @@
         $(document).ready(function () {
             let signInButton = $('#login-button');
             let signOutButton = $('#logout-button');
-            if (getCookie("idToken")) {
+            if (getCookie("idToken") && getCookie("email") === "waysubad@gmail.com") {
                 signInButton.css("display", "none");
                 signOutButton.css("display", "block")
             } else {
+                window.location.href = "main.html";
                 signInButton.css("display", "block");
                 signOutButton.css("display", "none")
             }
@@ -93,11 +94,14 @@
         <img src="../images/graytexture.png" alt="">
     </div>
 </div>
-<footer class="page-footer font-small blue">
-    <div class="text-center py-3">
-        <a> Made by Rafael Chaves, Jasper Hsu, and Michael Chen </a>
-    </div>
-</footer>
+<div class="footer">
+    <footer class="page-footer font-small blue">
+        <div class="text-center py-3">
+            <a> Made by Rafael Chaves, Jasper Hsu, and Michael Chen </a>
+        </div>
+    </footer>
+</div>
+
 <script>
 
     $('#login-button').click(function () {

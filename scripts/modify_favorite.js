@@ -73,7 +73,7 @@ function confirmFavoriteSave() {
             // Once the favorite order is successfully updated, change the html on the page with the new favorite order info.
             success: function (updated_favorite_order) {
                 getFavorites();
-                showAlert(updated_favorite_order.favorite_name)
+                showAlert(`"${updated_favorite_order.favorite_name}" has been updated.`);
             }
         });
     } else if (!newFavoriteName) {

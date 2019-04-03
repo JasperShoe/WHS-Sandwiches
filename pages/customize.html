@@ -8,6 +8,7 @@
 
     <!--stylesheets-->
     <link href="../styles/main.css" rel="stylesheet" type="text/css">
+    <link href="../styles/card.css" rel="stylesheet" type="text/css">
     <link href="../styles/newnavbar.css" rel="stylesheet" type="text/css">
     <link href="../styles/checkboxes.css" rel="stylesheet" type="text/css">
     <link href="../styles/accordion.css" rel="stylesheet" type="text/css">
@@ -28,11 +29,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <!--javascript files-->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <!--<script src="../scripts/bootstrap.min.js"></script>-->
+    <script src="../scripts/modalfix.min.js"></script>
     <script src="../scripts/get_ingredient_options.js"></script>
+    <script src="../scripts/bootstrap.min.js"></script>
     <script src="../scripts/order_favorite.js"></script>
     <script src="../scripts/alerts.js"></script>
+    <script src="../scripts/get_favorites_selector.js"></script>
 
     <!--Google sign-in-->
     <script src="../scripts/google_signin.js"></script>
@@ -45,7 +47,7 @@
             alert('Error: you are not signed in');
             window.location.href = "main.html";
         }
-        $(document).ready(function() {
+        $(document).ready(function () {
             $(".header").load("main.html .header", function () {
                 $('#login-button').css("display", "none");
                 $('#logout-button').css("display", "block")
@@ -70,16 +72,31 @@
                 <div class="alert-msg"></div>
             </div>
         </div>
-        <button onclick="clearOrders()">Delete Orders</button>
-        <!--<h2 class="test">Select From Favorites</h2>-->
-        <!--<h2 class="test">Or</h2>-->
-        <!--<h2 class="test">Start From Scratch</h2>-->
+        <!--<button onclick="clearOrders()">Delete Orders</button>-->
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" id="orderFromCustomize" onclick="showCustomizer(true)">Start From Scratch</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="orderFromFavorite" onclick="showCustomizer(false)">Select From Favorites</a>
+            </li>
+        </ul>
 
-        <h2> Select Your Ingredients</h2>
-        <div id="ingredients-list"></div>
+        <div id="customizer">
+            <h2> Select Your Ingredients</h2>
+            <div id="ingredients-list"></div>
+        </div>
+
+        <div id="favorite-chooser" style="display: none">
+            <h2> Select Favorite</h2>
+            <br>
+            <select class="form-control" id="favoriteSelector"></select>
+        </div>
+
         <div class="finalize">
             <br>
-            <h2> Finalize Your Order</h2><br>
+            <h2> Finalize Your Order</h2>
+            <br>
             <div class="lunchbuttons">
                 <h3>Select Lunch</h3>
                 <input type="radio" name="lunch" value="1"> 1st<br>
@@ -105,9 +122,13 @@
                     </div>
                     <div class="modal-body" id="order_summary_modal"></div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default close-button" data-dismiss="modal">Go Back</button>
-                        <button type="button" class="btn btn-default btn-next" onclick="postOrder()">Finalize Order
+                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                id="favoriteFinalizeButton" onclick="postOrder()">Finalize Order
                         </button>
+                        <button type="button" class="btn btn-default btn-next" id="customizeFinalizeButton"
+                                onclick="postOrder()">Finalize Order
+                        </button>
+                        <button type="button" class="btn btn-default close-button" data-dismiss="modal">Go Back</button>
                     </div>
                 </div>
             </div>
@@ -126,9 +147,9 @@
                         Would you like to save this order as a favorite?
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default close-button" data-dismiss="modal">No</button>
                         <button type="button" class="btn btn-default btn-next" onclick="nameFavoriteOrder()">Yes
                         </button>
+                        <button type="button" class="btn btn-default close-button" data-dismiss="modal">No</button>
                     </div>
                 </div>
             </div>
@@ -148,10 +169,10 @@
                                placeholder="Name this Favorite">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default btn-prev">Go Back</button>
                         <button type="button" class="btn btn-default" id="save_favorite_button" data-dismiss="modal"
                                 onclick="saveFavoriteOrder()">Save
                         </button>
+                        <button type="button" class="btn btn-default btn-prev">Go Back</button>
                     </div>
                 </div>
             </div>
@@ -161,13 +182,13 @@
         <script>
             $("div[id^='myModal']").each(function () {
 
-                var currentModal = $(this);
-
+                let currentModal = $(this);
                 //click next
                 currentModal.find('.btn-next').click(function () {
                     currentModal.modal('hide');
                     currentModal.closest("div[id^='myModal']").nextAll("div[id^='myModal']").first().modal('show');
                 });
+
 
                 //click prev
                 currentModal.find('.btn-prev').click(function () {
@@ -176,17 +197,7 @@
                 });
 
             });
-
         </script>
-
-        <!--<button id = "orderBtn" onclick="buildOrder();"> Submit Order</button>-->
-        <!--<div id="orderPopup" class="popup">-->
-        <!--<div class="popup-content">-->
-        <!--<span class="close">&times;</span>-->
-        <!--<div id = "order_summary"></div>-->
-        <!--</div>-->
-        <!--</div>-->
-
 
     </div>
 

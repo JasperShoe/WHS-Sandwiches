@@ -7,16 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--stylesheets-->
-    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">-->
-    <link href="../styles/card.css" rel="stylesheet" type="text/css">
-    <link href="../styles/customize.css" rel="stylesheet" type="text/css">
     <link href="../styles/main.css" rel="stylesheet" type="text/css">
-    <link href="../styles/checkboxes.css" rel="stylesheet" type="text/css">
-    <link href="../styles/accordion.css" rel="stylesheet" type="text/css">
-    <link href="../styles/order_tables.css" rel="stylesheet" type="text/css">
     <link href="../styles/newnavbar.css" rel="stylesheet" type="text/css">
-    <!-- importing google's fonts -->
+    <link href="../styles/switches.css" rel="stylesheet" type="text/css">
+
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+
     <!--logo-->
     <link href="../images/logo.png" rel="shortcut icon">
 
@@ -26,12 +22,8 @@
 
 
     <!--javascript files-->
-    <script src="../scripts/alerts.js"></script>
     <script src="../scripts/admin_ingredients_availability.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 
     <!--Google sign-in-->
@@ -40,11 +32,10 @@
 
 
     <script>
-        if (!getCookie('idToken')) {
-            alert('Error: you are not signed in');
-            window.location.href = "main.html";
-        }
         $(document).ready(function () {
+            if (!getCookie('idToken') || getCookie("email") !== "waysubad@gmail.com") {
+                window.location.href = "main.html";
+            }
             $(".header").load("admin_main.html .header", function () {
                 $('#login-button').css("display", "none");
                 $('#logout-button').css("display", "block")
@@ -52,40 +43,6 @@
             $(".footer").load("admin_main.html .footer");
         });
     </script>
-    <style>
-        .onoffswitch {
-            position: relative; width: 50px;
-            -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
-        }
-        .onoffswitch-checkbox {
-            display: none;
-        }
-        .onoffswitch-label {
-            display: block; overflow: hidden; cursor: pointer;
-            height: 26px; padding: 0; line-height: 26px;
-            border: 2px solid #E3E3E3; border-radius: 26px;
-            background-color: #FFFFFF;
-            transition: background-color 0.3s ease-in;
-        }
-        .onoffswitch-label:before {
-            content: "";
-            display: block; width: 26px; margin: 0px;
-            background: #FFFFFF;
-            position: absolute; top: 0; bottom: 0;
-            right: 22px;
-            border: 2px solid #E3E3E3; border-radius: 26px;
-            transition: all 0.3s ease-in 0s;
-        }
-        .onoffswitch-checkbox:checked + .onoffswitch-label {
-            background-color: #FF9B05;
-        }
-        .onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
-            border-color: #FF9B05;
-        }
-        .onoffswitch-checkbox:checked + .onoffswitch-label:before {
-            right: 0px;
-        }
-    </style>
 
 
 
@@ -104,34 +61,25 @@
                 <div class="alert-msg"></div>
             </div>
         </div>
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for an ingredient">
+        <div class="modal-body" id="make_favorite_modal">
+            <input class="customInput" onkeyup="searchForIngredient()" id="ingredientSearch" type="text" placeholder="Search For An Ingredient">
+        </div>
 
-        <ul class="list-group" id="myUL">
-            <li class="list-group-item">Ingredient
-                <div class="onoffswitch">
-                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-                    <label class="onoffswitch-label" for="myonoffswitch"></label>
-                </div>
-            </li>
-            <!-- Default switch -->
-
-
-        </ul>
-
+        <div id="ingredient-row"></div>
 
         <script>
-            function myFunction() {
-                let input, filter, ul, li, i, txtValue;
-                input = document.getElementById("myInput");
+            function searchForIngredient() {
+                let input, filter, row, ingredient_text, i, txtValue;
+                input = document.getElementById("ingredientSearch");
                 filter = input.value.toUpperCase();
-                ul = document.getElementById("myUL");
-                li = ul.getElementsByTagName("li");
-                for (i = 0; i < li.length; i++) {
-                    txtValue = li[i].textContent || li[i].innerText;
+                row = document.getElementById("ingredient-row");
+                ingredient_text = row.getElementsByTagName("p");
+                for (i = 0; i < ingredient_text.length; i++) {
+                    txtValue = ingredient_text[i].textContent || ingredient_text[i].innerText;
                     if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        li[i].style.display = "";
+                        ingredient_text[i].parentElement.style.display = "";
                     } else {
-                        li[i].style.display = "none";
+                        ingredient_text[i].parentElement.style.display = "none";
                     }
                 }
             }
@@ -142,6 +90,7 @@
     <div class="sidecol" style="background-color: white">
     </div>
 </div>
+<div class="footer"></div>
 
 </body>
 

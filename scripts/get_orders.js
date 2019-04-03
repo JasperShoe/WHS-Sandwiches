@@ -1,5 +1,3 @@
-//todo: scenario - how to prevent / deal with orders with ingredients that become out of stock after they are ordered
-//todo: create UI for lunch ladies - similar to the orders tab.
 let orders;
 let perPage;
 $(document).ready(function () {

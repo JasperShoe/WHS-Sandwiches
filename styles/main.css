@@ -168,8 +168,22 @@ select.selectBox {
 }
 li.list-group-item {
     display: flex;
-    /*padding-top: 20px;*/
 }
-/*.form-group {*/
-    /*margin-left: 55rem;*/
-/*}*/
+strong {
+    color:red;
+    font-weight: normal !important;
+    margin-left: 5px
+}
+ul.nav.nav-tabs {
+    margin-bottom: 10px !important;
+}
+select#favoriteSelector {
+    width: 100%;
+}
+
+hr {
+    box-sizing: inherit !important;
+}
+.nav {
+    flex-wrap: nowrap !important;
+}

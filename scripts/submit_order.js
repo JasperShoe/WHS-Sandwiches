@@ -23,8 +23,12 @@ function postOrder() {
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(finalOrder),
+        success: function(){
+            getLastOrderDate();
+        },
         dataType: 'json'
     });
+    showAlert(`Your order has been submitted.`)
     $(window).scrollTop(0);
     const checkboxes = document.getElementsByClassName("ingredientcheckbox");
     const selectedLunch = $("input[name='lunch']:checked");
@@ -35,8 +39,6 @@ function postOrder() {
 function nameFavoriteOrder() {
     const saveFavoriteButton = $('#save_favorite_button');
     saveFavoriteButton.attr("data-dismiss", null);
-    // const make_favorite = $('#make_favorite_modal');
-    // make_favorite.append(`<input class="customInput" id="favoriteName" type="text" maxlength="15" placeholder="Name this Favorite">`);
 }
 
 
@@ -58,7 +60,7 @@ function saveFavoriteOrder(){
             data: JSON.stringify(favOrder),
             dataType: 'json',
             success: function (new_favorite_order){
-                showAlert(new_favorite_order.favorite_name);
+                showAlert(`"${new_favorite_order.favorite_name}" has been saved to your favorites.`);
             }
         });
         const order_summary = $('#order_summary_modal');

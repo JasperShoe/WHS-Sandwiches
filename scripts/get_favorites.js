@@ -18,8 +18,8 @@ function getFavorites(){
                 for (let j = 0; j < favoriteOrders[i].ingredients.length; j++) {
                     ingredientNames.push(favoriteOrders[i].ingredients[j].name)
                 }
-
-                favorites_div.append(`<div class="card"><h3 class="card-header">"${favoriteOrders[i].favorite_name}"</h3><div class="card-body"><h3 class="card-title">Ingredients:</h3><p class="card-text">${ingredientNames}</p><button class="btn btn-primary" onclick="orderFavorite(this.parentElement.getAttribute('data-favorite-order-id'))">Order</button><button class="btn btn-primary" data-toggle="modal" data-target="#myModal1" onclick="identifyFavorite(this.parentElement.getAttribute('data-favorite-order-id'))">Edit Favorite</button><button class="btn btn-primary" onclick="deleteFavorite(this.parentElement.getAttribute('data-favorite-order-id'))">Delete Favorite</button></div></div>`);
+                // <button class="btn btn-primary" onclick="orderFavorite(this.parentElement.getAttribute('data-favorite-order-id'))">Order</button>
+                favorites_div.append(`<div class="card"><h3 class="card-header">"${favoriteOrders[i].favorite_name}"</h3><div class="card-body"><h3 class="card-title">Ingredients:</h3><p class="card-text">${ingredientNames}</p><button class="btn btn-primary" data-toggle="modal" data-target="#myModal1" onclick="identifyFavorite(this.parentElement.getAttribute('data-favorite-order-id'))">Edit Favorite</button><button class="btn btn-primary" onclick="deleteFavorite(this.parentElement.getAttribute('data-favorite-order-id'))">Delete Favorite</button></div></div>`);
                 let favoriteCard = $(".card-body");
                 favoriteCard.last().attr("data-favorite-order-id", favoriteOrders[i]._id);
             }
