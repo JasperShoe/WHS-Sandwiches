@@ -1,4 +1,4 @@
-const favoriteOrdersURL = "http://localhost:3000/favorite_orders/";
+const favoriteOrdersURL = "https://s5bezpvqp6.execute-api.us-east-1.amazonaws.com/dev/favorite_orders/";
 let newFavoriteName, thisOrderID;
 
 // Gets the favorite order that the user clicked on from the database.
@@ -7,7 +7,7 @@ function identifyFavorite(favoriteOrderID) {
     const saveFavoriteButton = $('#save_favorite_button');
     saveFavoriteButton.attr("data-dismiss", null);
     $(".ingredientcheckbox").prop("checked", false);
-    let favoriteOrderPromise = $.get("http://localhost:3000/favorite_orders/" + favoriteOrderID);
+    let favoriteOrderPromise = $.get("https://s5bezpvqp6.execute-api.us-east-1.amazonaws.com/dev/favorite_orders/" + favoriteOrderID);
     favoriteOrderPromise.success(function (favoriteOrder) {
         modalTitle.innerText = favoriteOrder.favorite_name;
         newFavoriteName = favoriteOrder.favorite_name;

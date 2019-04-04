@@ -4,7 +4,7 @@ $(document).ready(function () {
 });
 let lastOrdersPickupDate;
 function getLastOrderDate(){
-    let ordersPromise = $.get("http://localhost:3000/orders/", {
+    let ordersPromise = $.get("https://s5bezpvqp6.execute-api.us-east-1.amazonaws.com/dev/orders/", {
         student_email: getCookie("email"),
         sort: {order_date: -1}
     });
@@ -16,13 +16,13 @@ function getLastOrderDate(){
 }
 
 let ingredient_types_json, ingredients_json, favorites_json;
-$.get('http://localhost:3000/ingredient_types/', function (json) {
+$.get(get_api_url() + 'ingredient_types/', function (json) {
     ingredient_types_json = json;
 });
-$.get('http://localhost:3000/ingredients/', function (json) {
+$.get(get_api_url() + 'ingredients/', function (json) {
     ingredients_json = json;
 });
-$.get('http://localhost:3000/favorite_orders/', function (json) {
+$.get(get_api_url() + 'favorite_orders/', function (json) {
     favorites_json = json;
 });
 

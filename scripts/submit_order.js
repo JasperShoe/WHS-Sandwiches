@@ -19,7 +19,7 @@ function populateOrderModal(order_details) {
 
 function postOrder() {
     $.ajax({
-        url: "http://localhost:3000/orders/",
+        url: "https://s5bezpvqp6.execute-api.us-east-1.amazonaws.com/dev/orders/",
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(finalOrder),
@@ -54,7 +54,7 @@ function saveFavoriteOrder(){
             favorite_name: favName
         };
         $.ajax({
-            url: "http://localhost:3000/favorite_orders/",
+            url: "https://s5bezpvqp6.execute-api.us-east-1.amazonaws.com/dev/favorite_orders/",
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(favOrder),

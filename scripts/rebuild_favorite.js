@@ -8,7 +8,7 @@ $(document).ready(function () {
 
 });
 function getIngredientTypeData() {
-    return $.getJSON('http://localhost:3000/ingredient_types', function (ingredient_types_json) {
+    return $.getJSON(get_api_url() + 'ingredient_types', function (ingredient_types_json) {
         const ingredientOptions = $('#ingredients-list');
         for (let i = 0; i < ingredient_types_json.length; i++) {
             if (ingredient_types_json[i].minimum === ingredient_types_json[i].maximum) {
@@ -24,7 +24,7 @@ function getIngredientTypeData() {
 }
 
 function getIngredientData() {
-    return $.getJSON('http://localhost:3000/ingredients', {sort: {name: -1}}, function (ingredients_json) {
+    return $.getJSON(get_api_url() + 'ingredients', {sort: {name: -1}}, function (ingredients_json) {
         let ingredientTypeAccordions = document.getElementsByClassName('accordion');
         for (let i = 0; i < ingredientTypeAccordions.length; i++) {
             let thisIngredientTypeID = ingredientTypeAccordions[i].getAttribute("data-ingredient-type-id");

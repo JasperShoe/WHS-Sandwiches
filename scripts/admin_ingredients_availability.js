@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    let ingredientPromise = $.get("http://localhost:3000/ingredients/", {
+    let ingredientPromise = $.get("https://s5bezpvqp6.execute-api.us-east-1.amazonaws.com/dev/ingredients/", {
         sort: {ingredient_type_id: 1, name: 1}
     });
     ingredientPromise.success(function (ingredients) {
@@ -23,7 +23,7 @@ function setupCheckBoxListeners() {
     for (let i = 0; i < checkboxes.length; i++) {
         checkboxes[i].addEventListener( 'change', function() {
             $.ajax({
-                url: 'http://localhost:3000/ingredients/' + this.parentElement.getAttribute('data-ingredient-id'),
+                url: get_api_url() + 'ingredients/' + this.parentElement.getAttribute('data-ingredient-id'),
                 method: 'PUT',
                 data: {
                     is_available: !this.checked

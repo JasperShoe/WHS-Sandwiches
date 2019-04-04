@@ -5,7 +5,7 @@ $(document).ready(function () {
 });
 
 function setupTables() {
-    let orderPromise = $.get("http://localhost:3000/orders/", {
+    let orderPromise = $.get("https://s5bezpvqp6.execute-api.us-east-1.amazonaws.com/dev/orders/", {
         daysOfOrders: 1,
         sort: {order_date: -1}
     });
@@ -89,7 +89,7 @@ function setupListeners() {
 
 function updateOrderStatus(tableRow, checkbox) {
     $.ajax({
-        url: 'http://localhost:3000/orders/' + tableRow.getAttribute('data-order-id'),
+        url: get_api_url() + 'orders/' + tableRow.getAttribute('data-order-id'),
         method: 'PUT',
         data: {
             is_completed: checkbox.checked
