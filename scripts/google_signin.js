@@ -46,7 +46,6 @@ var initSigninV2 = function() {
 
 /**
  * Listener method for when the user changes.
- *
  * @param {GoogleUser} user the updated user.
  */
 let userChanged = function (user) {
@@ -64,7 +63,7 @@ let userChanged = function (user) {
             $('#logout-button').css("display", "block");
             setCookie("idToken", id_token, 7);
             setCookie("email", googleUser.getBasicProfile().getEmail());
-            if (window.location.pathname === "/WHS-Sandwiches/pages/main.html"){
+            if (window.location.pathname === "/WHS-Sandwiches/main.html"){
                 window.location.href = "admin_main.html"
             }
         }
@@ -107,13 +106,14 @@ function logIn() {
 
 function logOut() {
     let auth2 = gapi.auth2.getAuthInstance();
+    auth2.disconnect();
     auth2.signOut().then(function () {
         deleteCookie("idToken");
         deleteCookie("email");
         $('#login-button').css("display", "block");
         $('#logout-button').css("display", "none");
         console.log('User signed out.');
-        if (window.location.pathname !== "/WHS-Sandwiches/pages/main.html"){
+        if (window.location.pathname !== "/WHS-Sandwiches/main.html"){
             window.location.href = "main.html";
         }
     });
