@@ -26,28 +26,11 @@
 
 
     <!--javascript files-->
-    <script src="scripts/set_api_url.js"></script>
-
-    <!--Google sign-in-->
+    <script src="scripts/main_validate.js"></script>
+    <script src="scripts/get_api_url.js"></script>
     <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
     <script src="scripts/google_signin.js"></script>
-    <script>
-        $(document).ready(function () {
-            let signInButton = $('#login-button');
-            let signOutButton = $('#logout-button');
-            if (getCookie("idToken")) {
-                if(getCookie('email') === 'waysubad@gmail.com'){
-                    window.location.href = "admin_main.html";
-                }
-                signInButton.css("display", "none");
-                signOutButton.css("display", "block")
-            } else {
-                signInButton.css("display", "block");
-                signOutButton.css("display", "none")
-            }
 
-        });
-    </script>
 
 </head>
 
@@ -99,6 +82,9 @@
     </div>
 
     <div class="middlecol">
+        <strong>*Note that this website is currently under a 3 week trial. During this trial, orders will only be able to be placed for Monday, Tuesday, and Wednesday. In addition, a maximum of 25 total sandwich orders will be allowed each day.</strong>
+        <br>
+        <br>
         <div class="alerts">
             <div class="alert"><span class="closebtn" onclick="closeAlert(this.parentElement)">&times;</span>
                 <div class="alert-msg"></div>
@@ -117,26 +103,30 @@
         <h3> How to Use </h3>
 
         <ol>
-            <li>Ordering a Sandwich:
+            <li>Ordering:
                 <ul><p style="font-weight: bold"> Your order will only go through if:</p>
-                    <li>You are signed in with your student email.</li>
-                    <li>You have ordered at least two ingredients (one of which must be a bread).</li>
-                    <li>You have selected ingredients that are available.</li>
-                    <li>You have indicated which lunch you will be picking it up.</li>
-                    <li>You have not yet ordered for the next pickup day</li>
+                    <li style="margin-left: 60px">You are signed in with your student email.</li>
+                    <li style="margin-left: 60px">You have ordered at least two ingredients (one of which must be a bread).</li>
+                    <li style="margin-left: 60px">You have selected ingredients that are available.</li>
+                    <li style="margin-left: 60px">You have indicated which lunch you will be picking it up.</li>
+                    <li style="margin-left: 60px">You have not yet ordered for the next pickup day</li>
                 </ul>
 
             DISCLAIMER: If you order an ingredient that becomes out of stock during preparation, it will be replaced by a similar ingredient.
             </li>
             <br>
             <li>
-                Favorite Orders: After you order a sandwich, you will have the option to save it as a favorite for quick future ordering. You can modify or delete your favorite orders in the favorites tab.
+                Pickup:
+                <br>
+                The daily deadline to order a sandwich is 8 am. If you order a sandwich after that time, it will go through to the next pickup day.
+                At lunch, find the sandwich with your name on it in the designated fridge and type in your lunch code to pay for it.
+                Please note that if you do not pick up your sandwich, your account will still be charged.
             </li>
             <br>
             <li>
-                Pickup:
-                The daily deadline to order a sandwich is 9 am. If you order a sandwich after that time, it will go through to the next pickup day.
-                At lunch, find the sandwich with your name and pay for it as you normally would.
+                Favorite Orders:
+                <br>
+                After you order a sandwich, you will have the option to save it as a favorite for quick future ordering. You can modify or delete your favorite orders in the favorites tab.
             </li>
         </ol>
     </div>

@@ -1,4 +1,4 @@
-const favoriteOrdersURL = "https://s5bezpvqp6.execute-api.us-east-1.amazonaws.com/dev/favorite_orders/";
+const favoriteOrdersURL = get_api_url() + "favorite_orders";
 let newFavoriteName, thisOrderID;
 
 // Gets the favorite order that the user clicked on from the database.
@@ -7,7 +7,7 @@ function identifyFavorite(favoriteOrderID) {
     const saveFavoriteButton = $('#save_favorite_button');
     saveFavoriteButton.attr("data-dismiss", null);
     $(".ingredientcheckbox").prop("checked", false);
-    let favoriteOrderPromise = $.get("https://s5bezpvqp6.execute-api.us-east-1.amazonaws.com/dev/favorite_orders/" + favoriteOrderID);
+    let favoriteOrderPromise = $.get(get_api_url() + "favorite_orders/" + favoriteOrderID);
     favoriteOrderPromise.success(function (favoriteOrder) {
         modalTitle.innerText = favoriteOrder.favorite_name;
         newFavoriteName = favoriteOrder.favorite_name;
@@ -64,7 +64,7 @@ function confirmFavoriteSave() {
     if (newFavoriteName && isValidOrder(favoriteOrderIngredients)) {
         saveFavoriteButton.attr("data-dismiss", "modal");
         $.ajax({
-            url: favoriteOrdersURL + thisOrderID,
+            url: get_api_url() + "favorite_orders/" + thisOrderID,
             method: 'PUT',
             data: {
                 ingredients: favoriteOrderIngredients,
@@ -83,7 +83,7 @@ function confirmFavoriteSave() {
 
 function deleteFavorite(favoriteOrderID){
     $.ajax({
-        url: favoriteOrdersURL + favoriteOrderID,
+        url: get_api_url() + "favorite_orders/" + favoriteOrderID,
         type: 'DELETE',
         success: function() {
             setTimeout(function() {

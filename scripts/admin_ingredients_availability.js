@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    let ingredientPromise = $.get("https://s5bezpvqp6.execute-api.us-east-1.amazonaws.com/dev/ingredients/", {
+    let ingredientPromise = $.get(get_api_url() + "ingredients", {
         sort: {ingredient_type_id: 1, name: 1}
     });
     ingredientPromise.success(function (ingredients) {

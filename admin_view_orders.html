@@ -26,12 +26,13 @@
 
 
     <!--javascript files-->
-    <script src="scripts/set_api_url.js"></script>
+    <script src="scripts/get_api_url.js"></script>
     <script src="scripts/get_ingredient_options.js"></script>
     <script src="scripts/create_order.js"></script>
     <script src="scripts/alerts.js"></script>
     <script src="scripts/sorttable.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="scripts/admin_v.js"></script>
 
 
 
@@ -44,18 +45,6 @@
 
 
 
-    <script>
-        if (!getCookie('idToken') || getCookie("email") !== "waysubad@gmail.com") {
-            window.location.href = "main.html";
-        }
-        $(document).ready(function() {
-            $(".header").load("admin_main.html .header", function () {
-                $('#login-button').css("display", "none");
-                $('#logout-button').css("display", "block")
-            });
-            $(".footer").load("admin_main.html .footer");
-        });
-    </script>
 
 </head>
 

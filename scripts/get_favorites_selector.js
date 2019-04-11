@@ -4,7 +4,7 @@ $(document).ready(function () {
 
 // When the page loads, push all of the user's favorite orders onto the page.
 function getFavoritesSelector(){
-    let favoritesPromise = $.get("https://s5bezpvqp6.execute-api.us-east-1.amazonaws.com/dev/favorite_orders/", {student_email: getCookie("email"), sort: {favorite_name: 1}});
+    let favoritesPromise = $.get(get_api_url() + "favorite_orders", {student_email: getCookie("email"), sort: {favorite_name: 1}});
     favoritesPromise.success(function (favoriteOrders) {
         let favorites_div = $('#favoriteSelector');
         favorites_div.empty();

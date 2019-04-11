@@ -1,10 +1,11 @@
 $(document).ready(function () {
     getLastOrderDate();
-
+    getOrdersLength();
 });
 let lastOrdersPickupDate;
+let dailyOrderCount;
 function getLastOrderDate(){
-    let ordersPromise = $.get("https://s5bezpvqp6.execute-api.us-east-1.amazonaws.com/dev/orders/", {
+    let ordersPromise = $.get(get_api_url() + "orders", {
         student_email: getCookie("email"),
         sort: {order_date: -1}
     });
@@ -15,23 +16,52 @@ function getLastOrderDate(){
     })
 }
 
+function getOrdersLength(){
+    let ordersPromise = $.get(get_api_url() + "orders", {
+        pickup_date: getNextPickupDate(),
+        sort: {order_date: -1}
+    });
+    ordersPromise.success(function (newest_orders) {
+        dailyOrderCount = newest_orders.length;
+    })
+}
+
 let ingredient_types_json, ingredients_json, favorites_json;
-$.get(get_api_url() + 'ingredient_types/', function (json) {
+$.get(get_api_url() + 'ingredient_types', function (json) {
     ingredient_types_json = json;
 });
-$.get(get_api_url() + 'ingredients/', function (json) {
+$.get(get_api_url() + 'ingredients', function (json) {
     ingredients_json = json;
 });
-$.get(get_api_url() + 'favorite_orders/', function (json) {
+$.get(get_api_url() + 'favorite_orders', function (json) {
     favorites_json = json;
 });
 
 
 let orderDetails, selectedLunch;
 
+function getNextPickupDate() {
+    let currentDate = new Date();
+    let pickupDate = new Date(currentDate);
+    if (currentDate.getHours() >= 8) {
+        pickupDate.setDate(currentDate.getDate() + 1);
+    }
+    switch (pickupDate.getDay()) {
+        case 0: {
+            pickupDate.setDate(pickupDate.getDate() + 1);
+            break;
+        }
+        case 4:
+        case 5:
+        case 6:{
+            pickupDate.setDate(pickupDate.getDate() + (8 - pickupDate.getDay()));
+        }
+    }
+    return pickupDate;
+
+}
+
 function buildOrder() {
-    // const alert = $(".alert-msg");
-    // alert.text("");
     let customizer_div = $('#customizer');
     let favoriter_div = $('#favorite-chooser');
     const checkboxes = document.getElementsByClassName("ingredientcheckbox");
@@ -60,14 +90,9 @@ function buildOrder() {
     }
     selectedLunch = $("input[name='lunch']:checked");
     let currentDate = new Date();
-    let pickupDate = new Date(currentDate);
     let createOrderButton = $('#createOrder');
-    currentDate.getHours();
-    if (currentDate.getHours() >= 9) {
-        pickupDate.setDate(currentDate.getDate() + 1);
-    }
-
-    if (ingredientsAreAvailable(orderIngredients) && isValidOrder(orderIngredients) && !alreadyOrderedToday(pickupDate)) {
+    // if (ingredientsAreAvailable(orderIngredients) && isValidOrder(orderIngredients) && !alreadyOrderedToday(pickupDate) && underOrderCapacity()) {
+    if (ingredientsAreAvailable(orderIngredients) && isValidOrder(orderIngredients) && underOrderCapacity()) {
         createOrderButton.attr("data-toggle", "modal");
         createOrderButton.attr("data-target", "#myModal1");
         orderDetails = {
@@ -75,7 +100,7 @@ function buildOrder() {
             ingredients: orderIngredients,
             which_lunch: selectedLunch.val(),
             order_date: currentDate,
-            pickup_date: pickupDate
+            pickup_date: getNextPickupDate()
         };
         populateOrderModal(orderDetails);
     } else {
@@ -116,6 +141,17 @@ function alreadyOrderedToday(pick_up_date) {
         return false;
     }
 
+}
+
+function underOrderCapacity() {
+    console.log(dailyOrderCount);
+    if (dailyOrderCount < 25) {
+        return true;
+    }
+    else {
+        alert(`We have already received the maximum number of orders for ${getNextPickupDate().toLocaleDateString()}`);
+        return false;
+    }
 }
 
 
