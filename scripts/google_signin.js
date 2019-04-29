@@ -88,11 +88,15 @@ var refreshValues = function() {
 function goToPage(url) {
     auth2.currentUser.listen(userChanged);
     if (googleUser.isSignedIn()) {
-        if (googleUser.getHostedDomain() === "student.wayland.k12.ma.us" || getCookie("email") === "waysubad@gmail.com") {
-            window.location.href = url;
-        }
-        else {
-            alert('Please use your student email to sign in')
+        if(!readTextFile("/WHS-Sandwiches/blacklist").includes(googleUser.getBasicProfile().getEmail().toLowerCase())) {
+            if (googleUser.getHostedDomain() === "student.wayland.k12.ma.us" || getCookie("email") === "waysubad@gmail.com") {
+                window.location.href = url;
+            } else {
+                alert('Please use your student email to sign in')
+            }
+        } else {
+            alert('You are blacklisted');
+            window.location.href = "https://blcklst.com"
         }
     }
     else {
@@ -117,4 +121,22 @@ function logOut() {
             window.location.href = "main.html";
         }
     });
+}
+
+function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+            }
+        }
+    }
+    rawFile.send(null);
+    return rawFile.responseText;
 }
