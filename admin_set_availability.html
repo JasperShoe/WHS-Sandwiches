@@ -23,27 +23,15 @@
 
     <!--javascript files-->
     <script src="scripts/admin_ingredients_availability.js"></script>
-    <script src="scripts/set_api_url.js"></script>
+    <script src="scripts/get_api_url.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
+    <script src="scripts/admin_v.js"></script>
 
     <!--Google sign-in-->
     <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
     <script src="scripts/google_signin.js"></script>
 
 
-    <script>
-        $(document).ready(function () {
-            if (!getCookie('idToken') || getCookie("email") !== "waysubad@gmail.com") {
-                window.location.href = "main.html";
-            }
-            $(".header").load("admin_main.html .header", function () {
-                $('#login-button').css("display", "none");
-                $('#logout-button').css("display", "block")
-            });
-            $(".footer").load("admin_main.html .footer");
-        });
-    </script>
 
 
 

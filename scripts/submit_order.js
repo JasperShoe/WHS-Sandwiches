@@ -12,19 +12,20 @@ function populateOrderModal(order_details) {
     order_summary.append(`<tr><td><i class="far fa-calendar"></i></td><td><h3> order date: ${order_details.order_date.toLocaleString()} </h3></td></tr>`);
     order_summary.append(`<tr><td><i class="far fa-calendar-check"></td><td><h3> pickup date: ${order_details.pickup_date.toLocaleDateString()} </h3></td></tr>`);
     order_summary.append(`<tr><td><i class="fa fa-list-ol" aria-hidden="true"></td><td><h3> lunch: ${order_details.which_lunch} </h3></td></tr>`);
-
+    order_summary.append(`<tr><td></td><td><h3 style="color: red;font-size: 1em;margin-left: -20px">Please note that if you submit an order and do not pick it up at lunch, <br> your lunch account will still be charged.</h3></td></tr>`);
     clearModalsOnClick();
     finalOrder = order_details;
 }
 
 function postOrder() {
     $.ajax({
-        url: "https://s5bezpvqp6.execute-api.us-east-1.amazonaws.com/dev/orders/",
+        url: get_api_url() + "orders",
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(finalOrder),
         success: function(){
             getLastOrderDate();
+            getOrdersLength();
         },
         dataType: 'json'
     });
@@ -54,7 +55,7 @@ function saveFavoriteOrder(){
             favorite_name: favName
         };
         $.ajax({
-            url: "https://s5bezpvqp6.execute-api.us-east-1.amazonaws.com/dev/favorite_orders/",
+            url: get_api_url() + "favorite_orders/",
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(favOrder),
@@ -113,6 +114,7 @@ function clearModalsOnClick() {
             order_summary.empty();
             name_input.val("");
             getLastOrderDate();
+            getOrdersLength();
         };
     }
 

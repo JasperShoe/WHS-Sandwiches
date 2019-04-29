@@ -26,25 +26,13 @@
 
 
     <!--javascript files-->
-    <script src="scripts/set_api_url.js"></script>
+    <script src="scripts/get_api_url.js"></script>
+    <script src="scripts/admin_main_v.js"></script>
 
     <!--Google sign-in-->
     <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
     <script src="scripts/google_signin.js"></script>
-    <script>
-        $(document).ready(function () {
-            let signInButton = $('#login-button');
-            let signOutButton = $('#logout-button');
-            if (getCookie("idToken") && getCookie("email") === "waysubad@gmail.com") {
-                signInButton.css("display", "none");
-                signOutButton.css("display", "block")
-            } else {
-                window.location.href = "main.html";
-                signInButton.css("display", "block");
-                signOutButton.css("display", "none")
-            }
-        });
-    </script>
+
 
 </head>
 

@@ -26,10 +26,11 @@
 
 
     <!--javascript files-->
-    <script src="scripts/set_api_url.js"></script>
+    <script src="scripts/get_api_url.js"></script>
     <script src="scripts/get_ingredient_options.js"></script>
     <script src="scripts/create_order.js"></script>
     <script src="scripts/alerts.js"></script>
+    <script src="scripts/validate.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
@@ -39,22 +40,6 @@
 
     <script src="scripts/get_orders.js"></script>
 
-    <script>
-        if (!getCookie('idToken')) {
-            alert('Error: you are not signed in');
-            window.location.href = "main.html";
-        }
-        else if(getCookie('email') === 'waysubad@gmail.com'){
-            window.location.href = "admin_main.html";
-        }
-        $(document).ready(function() {
-            $(".header").load("main.html .header", function () {
-                $('#login-button').css("display", "none");
-                $('#logout-button').css("display", "block")
-            });
-            $(".footer").load("main.html .footer");
-        });
-    </script>
 
 </head>
 

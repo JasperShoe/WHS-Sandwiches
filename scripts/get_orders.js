@@ -1,7 +1,7 @@
 let orders;
 let perPage;
 $(document).ready(function () {
-    let orderPromise = $.get("https://s5bezpvqp6.execute-api.us-east-1.amazonaws.com/dev/orders/", {
+    let orderPromise = $.get(get_api_url() + "orders", {
         student_email: getCookie("email"),
         daysOfOrders: 1,
         sort: {order_date: -1}
