@@ -63,7 +63,8 @@ let userChanged = function (user) {
             $('#logout-button').css("display", "block");
             setCookie("idToken", id_token, 7);
             setCookie("email", googleUser.getBasicProfile().getEmail());
-            if (window.location.pathname === "/WHS-Sandwiches/main.html"){
+            let currentPath = window.location.pathname;
+            if (currentPath === "/main.html" || currentPath === "/"){
                 window.location.href = "admin_main.html"
             }
         }
@@ -117,7 +118,8 @@ function logOut() {
         $('#login-button').css("display", "block");
         $('#logout-button').css("display", "none");
         console.log('User signed out.');
-        if (window.location.pathname !== "/WHS-Sandwiches/main.html"){
+        let currentPath = window.location.pathname;
+        if (currentPath !== "/main.html" || currentPath !== "/"){
             window.location.href = "main.html";
         }
     });

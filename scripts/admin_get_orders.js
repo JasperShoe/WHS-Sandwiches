@@ -7,8 +7,10 @@ $(document).ready(function () {
 });
 
 function setupTables() {
+    console.log(getNextPickupDate());
     let orderPromise = $.get(get_api_url() + "orders", {
-        daysOfOrders: 1,
+        pickup_date: new Date(),
+        // daysOfOrders: 1,
         sort: {order_date: -1}
     });
     orderPromise.success(function (orderHistory) {
@@ -28,12 +30,12 @@ function setupTables() {
 
 }
 function configureTodoTable() {
-    createTodoPaginationMenu($('#todoSelectBox option:selected').val());
+    createTodoPaginationMenu(parseInt($('#todoSelectBox option:selected').val()));
     getTodoOrdersOnPage(lastTodoPage);
 }
 
 function configureCompletedTable() {
-    createCompletedPaginationMenu($('#completedSelectBox option:selected').val());
+    createCompletedPaginationMenu(parseInt($('#completedSelectBox option:selected').val()));
     getCompletedOrdersOnPage(lastCompletedPage);
 
 }
@@ -106,13 +108,13 @@ function setupListeners() {
     todoSelectBox.addEventListener("change", function () {
         configureTodoTable();
         let selected_option = $('#todoSelectBox option:selected');
-        createTodoPaginationMenu(selected_option.val());
+        createTodoPaginationMenu(parseInt(selected_option.val()));
         getTodoOrdersOnPage(lastTodoPage);
     });
     completedSelectBox.addEventListener("change", function () {
         configureCompletedTable();
         let selected_option = $('#completedSelectBox option:selected');
-        createCompletedPaginationMenu(selected_option.val());
+        createCompletedPaginationMenu(parseInt(selected_option.val()));
         getCompletedOrdersOnPage(lastCompletedPage);
     });
 }

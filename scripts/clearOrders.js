@@ -4,7 +4,7 @@ function clearOrders(){
         for (let i = 0; i < orders.length; i++) {
             let orderID = orders[i]._id;
             $.ajax({
-                url: get_api_url() + "orders" + orderID,
+                url: get_api_url() + "orders/" + orderID,
                 type: 'DELETE',
                 success: function () {
                     console.log("Order Successfully Deleted")

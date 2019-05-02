@@ -23,6 +23,7 @@ function getOrdersLength(){
     });
     ordersPromise.success(function (newest_orders) {
         dailyOrderCount = newest_orders.length;
+        console.log(dailyOrderCount);
     })
 }
 
@@ -57,6 +58,7 @@ function getNextPickupDate() {
             pickupDate.setDate(pickupDate.getDate() + (8 - pickupDate.getDay()));
         }
     }
+    console.log(pickupDate);
     return pickupDate;
 
 }
@@ -91,8 +93,8 @@ function buildOrder() {
     selectedLunch = $("input[name='lunch']:checked");
     let currentDate = new Date();
     let createOrderButton = $('#createOrder');
-    // if (ingredientsAreAvailable(orderIngredients) && isValidOrder(orderIngredients) && !alreadyOrderedToday(pickupDate) && underOrderCapacity()) {
-    if (ingredientsAreAvailable(orderIngredients) && isValidOrder(orderIngredients) && underOrderCapacity()) {
+    if (ingredientsAreAvailable(orderIngredients) && isValidOrder(orderIngredients) && !alreadyOrderedToday(getNextPickupDate()) && underOrderCapacity()) {
+    // if (ingredientsAreAvailable(orderIngredients) && isValidOrder(orderIngredients) && underOrderCapacity()) {
         createOrderButton.attr("data-toggle", "modal");
         createOrderButton.attr("data-target", "#myModal1");
         orderDetails = {
