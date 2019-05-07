@@ -62,6 +62,23 @@ function getNextPickupDate() {
     return pickupDate;
 
 }
+function getPreviousPickupDate() {
+    let currentDate = new Date();
+    let pickupDate = new Date(currentDate);
+    pickupDate.setDate(currentDate.getDate() - 1);
+    switch (pickupDate.getDay()) {
+        case 0: {
+            pickupDate.setDate(pickupDate.getDate() - 2);
+            break;
+        }
+        case 4: // -1
+        case 5: // -2
+        case 6:{ // -3
+            pickupDate.setDate(pickupDate.getDate() - (pickupDate.getDay() - 3));
+        }
+    }
+    return pickupDate;
+}
 
 function buildOrder() {
     let customizer_div = $('#customizer');

@@ -3,14 +3,14 @@ let todoOrders, completedOrders, todoPerPage, completedPerPage, lastTodoPage, la
 $(document).ready(function () {
     lastTodoPage = 1;
     lastCompletedPage = 1;
+    setupDateSelectBox();
     setupTables();
 });
 
 function setupTables() {
-    console.log(getNextPickupDate());
+    console.log("selected value: " + $('#dateSelectBox option:selected').val())
     let orderPromise = $.get(get_api_url() + "orders", {
-        pickup_date: new Date(),
-        // daysOfOrders: 1,
+        pickup_date: $('#dateSelectBox option:selected').val(),
         sort: {order_date: -1}
     });
     orderPromise.success(function (orderHistory) {
@@ -23,12 +23,27 @@ function setupTables() {
                 todoOrders.push(orderHistory[i])
             }
         }
+
         configureTodoTable();
         configureCompletedTable();
         setupListeners();
     });
 
 }
+
+function setupDateSelectBox() {
+    let today = new Date();
+    let dateSelectBox = $('#dateSelectBox') ;
+    dateSelectBox.append(`<option value="${getPreviousPickupDate()}">${getPreviousPickupDate().toLocaleDateString()}</option>`)
+    dateSelectBox.append(`<option value="${today}">${today.toLocaleDateString()}</option>`)
+    dateSelectBox.append(`<option value="${getNextPickupDate()}">${getNextPickupDate().toLocaleDateString()}</option>`);
+    $(`#dateSelectBox option[value="${today}"]`).prop('selected', true);
+    dateSelectBox = document.getElementById("dateSelectBox")
+    dateSelectBox.addEventListener("change", function () {
+        setupTables();
+    });
+}
+
 function configureTodoTable() {
     createTodoPaginationMenu(parseInt($('#todoSelectBox option:selected').val()));
     getTodoOrdersOnPage(lastTodoPage);
