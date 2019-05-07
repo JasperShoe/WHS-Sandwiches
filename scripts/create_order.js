@@ -23,7 +23,6 @@ function getOrdersLength(){
     });
     ordersPromise.success(function (newest_orders) {
         dailyOrderCount = newest_orders.length;
-        console.log(dailyOrderCount);
     })
 }
 
@@ -58,26 +57,8 @@ function getNextPickupDate() {
             pickupDate.setDate(pickupDate.getDate() + (8 - pickupDate.getDay()));
         }
     }
-    console.log(pickupDate);
     return pickupDate;
 
-}
-function getPreviousPickupDate() {
-    let currentDate = new Date();
-    let pickupDate = new Date(currentDate);
-    pickupDate.setDate(currentDate.getDate() - 1);
-    switch (pickupDate.getDay()) {
-        case 0: {
-            pickupDate.setDate(pickupDate.getDate() - 2);
-            break;
-        }
-        case 4: // -1
-        case 5: // -2
-        case 6:{ // -3
-            pickupDate.setDate(pickupDate.getDate() - (pickupDate.getDay() - 3));
-        }
-    }
-    return pickupDate;
 }
 
 function buildOrder() {

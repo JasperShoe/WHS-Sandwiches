@@ -8,7 +8,6 @@ $(document).ready(function () {
 });
 
 function setupTables() {
-    console.log("selected value: " + $('#dateSelectBox option:selected').val())
     let orderPromise = $.get(get_api_url() + "orders", {
         pickup_date: $('#dateSelectBox option:selected').val(),
         sort: {order_date: -1}
@@ -34,14 +33,49 @@ function setupTables() {
 function setupDateSelectBox() {
     let today = new Date();
     let dateSelectBox = $('#dateSelectBox') ;
-    dateSelectBox.append(`<option value="${getPreviousPickupDate()}">${getPreviousPickupDate().toLocaleDateString()}</option>`)
+    dateSelectBox.append(`<option value="${getPreviousPickupDateFrom(today)}">${getPreviousPickupDateFrom(today).toLocaleDateString()}</option>`)
     dateSelectBox.append(`<option value="${today}">${today.toLocaleDateString()}</option>`)
-    dateSelectBox.append(`<option value="${getNextPickupDate()}">${getNextPickupDate().toLocaleDateString()}</option>`);
+    dateSelectBox.append(`<option value="${getNextPickupDateFrom(today)}">${getNextPickupDateFrom(today).toLocaleDateString()}</option>`);
     $(`#dateSelectBox option[value="${today}"]`).prop('selected', true);
     dateSelectBox = document.getElementById("dateSelectBox")
     dateSelectBox.addEventListener("change", function () {
         setupTables();
     });
+}
+
+function getNextPickupDateFrom(date) {
+    let pickupDate = new Date(date);
+    pickupDate.setDate(date.getDate() + 1);
+
+    switch (pickupDate.getDay()) {
+        case 0: {
+            pickupDate.setDate(pickupDate.getDate() + 1);
+            break;
+        }
+        case 4:
+        case 5:
+        case 6:{
+            pickupDate.setDate(pickupDate.getDate() + (8 - pickupDate.getDay()));
+        }
+    }
+    return pickupDate;
+
+}
+function getPreviousPickupDateFrom(date) {
+    let pickupDate = new Date(date);
+    pickupDate.setDate(date.getDate() - 1);
+    switch (pickupDate.getDay()) {
+        case 0: {
+            pickupDate.setDate(pickupDate.getDate() - 2);
+            break;
+        }
+        case 4: // -1
+        case 5: // -2
+        case 6:{ // -3
+            pickupDate.setDate(pickupDate.getDate() - (pickupDate.getDay() - 3));
+        }
+    }
+    return pickupDate;
 }
 
 function configureTodoTable() {
