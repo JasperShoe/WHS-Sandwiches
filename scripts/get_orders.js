@@ -8,9 +8,8 @@ $(document).ready(function () {
     });
     orderPromise.success(function (orderHistory) {
         orders = orderHistory;
-        let order_div = $('#orders_div');
         if (orders.length === 0) {
-            order_div.append('<h3>You have not placed any orders yet.</h3>');
+            $('#orders_div').html('<h3>You have not placed any orders yet.</h3>');
         } else {
             configurePageCountSelector();
             getSpecifiedNumberOfOrders(5);

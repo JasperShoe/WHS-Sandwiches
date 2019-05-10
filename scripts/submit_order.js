@@ -84,17 +84,14 @@ function clearChecklist(checks, radio) {
 }
 
 function collapseAll() {
-    const acc = document.getElementsByClassName('accordion'); // Get the five accordion elements.
+    const acc = document.getElementsByClassName('accordion');
     for (let i = 0; i < acc.length; i++) {
         acc[i].classList.remove("active");
         let panel = acc[i].nextElementSibling;
-        while (panel) { // While the next element exists
-            if (panel.style.maxHeight) { // If the panel has a maxHeight (meaning it's open), then close it
+        while (panel) {
+            if (panel.style.maxHeight) {
                 panel.style.maxHeight = null;
             }
-
-            // Keep going to the next element to open it until we hit the next accordion (which will be a button).
-            // If we hit a button, terminate the while loop by setting the panel to null.
             if (panel.nextElementSibling === null)
                 panel = null;
             else if (panel.nextElementSibling.nodeName.toLowerCase() === "button")

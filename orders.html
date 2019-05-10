@@ -10,7 +10,7 @@
     <link href="styles/card.css" rel="stylesheet" type="text/css">
     <link href="styles/customize.css" rel="stylesheet" type="text/css">
     <link href="styles/main.css" rel="stylesheet" type="text/css">
-    <link href="styles/newnavbar.css" rel="stylesheet" type="text/css">
+    <link href="styles/navbar.css" rel="stylesheet" type="text/css">
     <link href="styles/checkboxes.css" rel="stylesheet" type="text/css">
     <link href="styles/accordion.css" rel="stylesheet" type="text/css">
     <link href="styles/order_tables.css" rel="stylesheet" type="text/css">
@@ -18,7 +18,6 @@
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <!--logo-->
     <link href="images/logo.png" rel="shortcut icon">
-
 
 
     <!-- JQuery -->
@@ -39,57 +38,60 @@
     <script src="scripts/google_signin.js"></script>
 
     <script src="scripts/get_orders.js"></script>
+    <script src="scripts/get_pickup_dates.js"></script>
 
 
 </head>
 
 <body>
 
-<div class ="header"></div>
+<div class="header"></div>
 
 <div class="info">
     <div class="sidecol">
-        <img src="images/graytexture.png" alt = "">
+        <img src="images/graytexture.png" alt="">
     </div>
 
     <div class="middlecol">
         <div class="alerts">
-            <div class="alert"><span class="closebtn" onclick="closeAlert(this.parentElement)">&times;</span><div class="alert-msg"></div></div>
+            <div class="alert"><span class="closebtn" onclick="closeAlert(this.parentElement)">&times;</span>
+                <div class="alert-msg"></div>
+            </div>
 
         </div>
         <div id="orders_div">
+            <div class="custom-select" style="width:250px;">
+                Display
+                <select class="form-control selectBox" id="mySelectBox">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                </select>
+                items per page
+            </div>
+
+            <table class="table">
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col">Order Date</th>
+                    <th scope="col">Pick-Up Date</th>
+                    <th scope="col">Ingredients</th>
+                    <th scope="col">Lunch</th>
+                </tr>
+                </thead>
+                <tbody id="table-body">
+                </tbody>
+            </table>
+
+
+            <nav aria-label="Order page navigation">
+                <ul class="pagination"></ul>
+            </nav>
         </div>
-        <div class="custom-select" style="width:250px;">
-            Display
-            <select class="form-control selectBox" id="mySelectBox">
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="25">25</option>
-            </select>
-            items per page
-        </div>
-
-        <table class="table">
-            <thead class="thead-light">
-            <tr>
-                <th scope="col">Order Date</th>
-                <th scope="col">Pick-Up Date</th>
-                <th scope="col">Ingredients</th>
-                <th scope="col">Lunch</th>
-            </tr>
-            </thead>
-            <tbody id="table-body">
-            </tbody>
-        </table>
-
-
-        <nav aria-label="Order page navigation">
-            <ul class="pagination"></ul>
-        </nav>
     </div>
 
     <div class="sidecol">
-        <img src="images/graytexture.png" alt = "">
+        <img src="images/graytexture.png" alt="">
     </div>
 </div>
 <div class="footer"></div>
