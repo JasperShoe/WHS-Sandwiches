@@ -1,2 +1,6 @@
 node_modules
-scripts/order_testing.js
+.serverless
+*.scss
+navbar.css
+blacklist
+serverless.yml

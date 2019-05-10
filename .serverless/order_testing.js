@@ -1,6 +1,6 @@
 $(document).ready(function () {
     if (location.hostname === "localhost") {
-        $('.middlecol').prepend(`<button onclick="clearOrders()">clear</button><button onclick="fillOrderCapacity()">Fill</button><button onclick="placeRandomOrders(30)">Place 30</button>`)
+        $('.middlecol').prepend(`<button onclick="clearOrders()">Clear All Orders</button><button onclick="fillOrderCapacity()">Fill Capacity</button><button onclick="placeRandomOrders(30)">Place Random Orders</button>`)
     }
 });
 
