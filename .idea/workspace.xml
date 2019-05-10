@@ -1,0 +1,1105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="49f5b1fb-d84f-466a-9425-02e5088fb982" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="true" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="true" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/styles/newnavbar.scss">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/serverless.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/orders.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="999">
+              <caret line="95" column="6" lean-forward="true" selection-start-line="95" selection-start-column="6" selection-end-line="95" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+              <folding>
+                <element signature="n#style#0;n#p#0;n#ul#0;n#li#0;n#ol#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#0;n#ul#0;n#li#0;n#ol#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#1;n#ul#0;n#li#0;n#ol#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#2;n#ul#0;n#li#0;n#ol#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#3;n#ul#0;n#li#0;n#ol#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#4;n#ul#0;n#li#0;n#ol#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/favorites.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="201">
+              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin_main.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="80" column="54" selection-start-line="80" selection-start-column="54" selection-end-line="80" selection-end-column="54" />
+              <folding>
+                <element signature="n#style#0;n#p#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blacklist">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/styles/order_tables.css.map">
+          <provider editor-type-id="sourcemapFileViewerProvider" />
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/styles/switches.css">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>todoselec</find>
+      <find>footer</find>
+      <find>val</find>
+      <find>button</find>
+      <find>modal</find>
+      <find>alert</find>
+      <find>please use your</find>
+      <find>rafaelvch</find>
+      <find>http://localhost:3000</find>
+      <find>'https://s5bezpvqp6.execute-api.us-east-1.amazonaws.com/dev/</find>
+      <find>get_api_url +</find>
+      <find>pages/</find>
+      <find>insta</find>
+      <find>nav</find>
+      <find>valid</find>
+      <find>execute-api.us-east-1</find>
+      <find>&quot;https://s5bezpvqp6.execute-api.us-east-1.amazonaws.com/dev/</find>
+      <find>$.get</find>
+      <find>favoriteOrdersURL</find>
+      <find>getlast</find>
+      <find>checker</find>
+      <find>check</find>
+      <find>perpage</find>
+      <find>completedper</find>
+      <find>selectbox</find>
+      <find>console.lo</find>
+      <find>option</find>
+      <find>#orders_div</find>
+      <find>pathname</find>
+      <find>py-3</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>https://s5bezpvqp6.execute-api.us-east-1.amazonaws.com/dev</replace>
+      <replace>get_api_url + '</replace>
+      <replace>get_api_url() +</replace>
+      <replace>get_api_url() + &quot;</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/scripts/bootstrap.min.js" />
+        <option value="$PROJECT_DIR$/pages/bootstrap.min.js" />
+        <option value="$PROJECT_DIR$/scripts/modalfix.js" />
+        <option value="$PROJECT_DIR$/scripts/fixed_modal.min.js" />
+        <option value="$PROJECT_DIR$/scripts/rebuild_favorite.js" />
+        <option value="$PROJECT_DIR$/scripts/alerts.js" />
+        <option value="$PROJECT_DIR$/scripts/set_api_url.js" />
+        <option value="$PROJECT_DIR$/scripts/get_ingredient_options.js" />
+        <option value="$PROJECT_DIR$/pages/admin_main.html" />
+        <option value="$PROJECT_DIR$/pages/admin_set_availability.html" />
+        <option value="$PROJECT_DIR$/pages/admin_view_orders.html" />
+        <option value="$PROJECT_DIR$/pages/main.html" />
+        <option value="$PROJECT_DIR$/pages/favorites.html" />
+        <option value="$PROJECT_DIR$/pages/orders.html" />
+        <option value="$PROJECT_DIR$/pages/customize.html" />
+        <option value="$PROJECT_DIR$/pages/error.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/deploy.sh" />
+        <option value="$PROJECT_DIR$/scripts/purify.js" />
+        <option value="$PROJECT_DIR$/purify.js" />
+        <option value="$PROJECT_DIR$/scripts/validate.js" />
+        <option value="$PROJECT_DIR$/scripts/mainvalidate.js" />
+        <option value="$PROJECT_DIR$/scripts/get_api_url.js" />
+        <option value="$PROJECT_DIR$/scripts/admin_ingredients_availability.js" />
+        <option value="$PROJECT_DIR$/scripts/modify_favorite.js" />
+        <option value="$PROJECT_DIR$/scripts/modalfix.min.js" />
+        <option value="$PROJECT_DIR$/scripts/admin_v.js" />
+        <option value="$PROJECT_DIR$/admin_set_availability.html" />
+        <option value="$PROJECT_DIR$/scripts/admin_main_v.js" />
+        <option value="$PROJECT_DIR$/maintest.html" />
+        <option value="$PROJECT_DIR$/admin_main.html" />
+        <option value="$PROJECT_DIR$/scripts/google_signin.js" />
+        <option value="$PROJECT_DIR$/scripts/clearOrders.js" />
+        <option value="$PROJECT_DIR$/scripts/get_pickup_dates.js" />
+        <option value="$PROJECT_DIR$/scripts/create_order.js" />
+        <option value="$PROJECT_DIR$/admin_view_orders.html" />
+        <option value="$PROJECT_DIR$/scripts/admin_get_orders.js" />
+        <option value="$PROJECT_DIR$/orders.html" />
+        <option value="$PROJECT_DIR$/scripts/get_orders.js" />
+        <option value="$PROJECT_DIR$/main.html" />
+        <option value="$PROJECT_DIR$/scripts/order_testing.js" />
+        <option value="$PROJECT_DIR$/scripts/complete_orders.js" />
+        <option value="$PROJECT_DIR$/customize.html" />
+        <option value="$PROJECT_DIR$/scripts/get_favorites_selector.js" />
+        <option value="$PROJECT_DIR$/styles/main.css" />
+        <option value="$PROJECT_DIR$/scripts/get_favorites.js" />
+        <option value="$PROJECT_DIR$/scripts/submit_order.js" />
+        <option value="$PROJECT_DIR$/styles/navbar.css" />
+        <option value="$PROJECT_DIR$/serverless.yml" />
+        <option value="$PROJECT_DIR$/favorites.html" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="23" />
+    <option name="width" value="975" />
+    <option name="height" value="821" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="WHS-Sandwiches" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="WHS-Sandwiches" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="WHS-Sandwiches" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name=".serverless" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="WHS-Sandwiches" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="scripts" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="WHS-Sandwiches" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="styles" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="jsx.switch.disabled" value="true" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Confirmation" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/scripts" />
+      <recent name="$PROJECT_DIR$/.serverless" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/pages" />
+      <recent name="$PROJECT_DIR$/images" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.orders.html">
+    <configuration name="admin_view_orders.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/WHS-Sandwiches/admin_view_orders.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="customize.html" type="JavascriptDebugType" nameIsGenerated="true" uri="http://localhost:63342/WHS-Sandwiches/customize.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="main.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/WHS-Sandwiches/main.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="maintest.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/WHS-Sandwiches/maintest.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="orders.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/WHS-Sandwiches/orders.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="admin_get_orders.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/scripts/admin_get_orders.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.customize.html" />
+      <item itemvalue="JavaScript Debug.main.html" />
+      <item itemvalue="JavaScript Debug.admin_view_orders.html" />
+      <item itemvalue="JavaScript Debug.orders.html" />
+      <item itemvalue="JavaScript Debug.maintest.html" />
+      <item itemvalue="Node.js.admin_get_orders.js" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.orders.html" />
+        <item itemvalue="JavaScript Debug.main.html" />
+        <item itemvalue="JavaScript Debug.admin_view_orders.html" />
+        <item itemvalue="Node.js.admin_get_orders.js" />
+        <item itemvalue="JavaScript Debug.maintest.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="49f5b1fb-d84f-466a-9425-02e5088fb982" name="Default Changelist" comment="" />
+      <created>1544186730942</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1544186730942</updated>
+      <workItem from="1544186733680" duration="2399000" />
+      <workItem from="1544538804123" duration="313000" />
+      <workItem from="1544707302071" duration="544000" />
+      <workItem from="1544729631024" duration="238000" />
+      <workItem from="1545059024861" duration="184000" />
+      <workItem from="1546434815935" duration="650000" />
+      <workItem from="1546435773006" duration="2258000" />
+      <workItem from="1546518728314" duration="4413000" />
+      <workItem from="1546612322134" duration="255000" />
+      <workItem from="1546626489065" duration="210000" />
+      <workItem from="1546873023258" duration="1353000" />
+      <workItem from="1546890512249" duration="103000" />
+      <workItem from="1546954290916" duration="3278000" />
+      <workItem from="1547217490455" duration="2788000" />
+      <workItem from="1547472809436" duration="1215000" />
+      <workItem from="1547735986674" duration="181000" />
+      <workItem from="1547736308464" duration="2054000" />
+      <workItem from="1548821634424" duration="2100000" />
+      <workItem from="1548862910703" duration="7489000" />
+      <workItem from="1549463256243" duration="13221000" />
+      <workItem from="1550066126046" duration="2381000" />
+      <workItem from="1550157231711" duration="927000" />
+      <workItem from="1550158895036" duration="976000" />
+      <workItem from="1550165867736" duration="1957000" />
+      <workItem from="1550239532687" duration="2605000" />
+      <workItem from="1551185731190" duration="150000" />
+      <workItem from="1551888011839" duration="4481000" />
+      <workItem from="1551897507713" duration="376000" />
+      <workItem from="1551897888419" duration="30868000" />
+      <workItem from="1552023757784" duration="110107000" />
+      <workItem from="1553292981024" duration="377000" />
+      <workItem from="1553297958994" duration="40830000" />
+      <workItem from="1553575745376" duration="14972000" />
+      <workItem from="1554073473797" duration="86000" />
+      <workItem from="1554073564563" duration="55000" />
+      <workItem from="1554073635208" duration="33943000" />
+      <workItem from="1554408375857" duration="8857000" />
+      <workItem from="1554694230697" duration="17553000" />
+      <workItem from="1555891626556" duration="1608000" />
+      <workItem from="1556506433976" duration="5440000" />
+      <workItem from="1557371981071" duration="1286000" />
+      <workItem from="1557378717710" duration="15368000" />
+    </task>
+    <task id="LOCAL-00001" summary="test">
+      <created>1551897861901</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1551897861901</updated>
+    </task>
+    <task id="LOCAL-00002" summary="customization and favorites">
+      <created>1551909474021</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1551909474021</updated>
+    </task>
+    <task id="LOCAL-00003" summary="jquery + styling">
+      <created>1551937200022</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1551937200022</updated>
+    </task>
+    <task id="LOCAL-00004" summary="css">
+      <created>1552023777052</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1552023777052</updated>
+    </task>
+    <task id="LOCAL-00005" summary="organization + made directory for javascript files">
+      <created>1552412058146</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1552412058146</updated>
+    </task>
+    <task id="LOCAL-00006" summary="sign-in, organization, css">
+      <created>1552425755772</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1552425755772</updated>
+    </task>
+    <task id="LOCAL-00007" summary="test">
+      <created>1552425783270</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1552425783270</updated>
+    </task>
+    <task id="LOCAL-00008" summary="google sign in authentication + preventing header reload">
+      <created>1552451313507</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1552451313507</updated>
+    </task>
+    <task id="LOCAL-00009" summary="login intermediate">
+      <created>1552451913337</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1552451913337</updated>
+    </task>
+    <task id="LOCAL-00010" summary="css">
+      <created>1552872297858</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1552872297858</updated>
+    </task>
+    <task id="LOCAL-00011" summary="page layout changes">
+      <created>1552872914026</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1552872914026</updated>
+    </task>
+    <task id="LOCAL-00012" summary="more ordering/adding favorite stuff + cleaning up javascript">
+      <created>1552873059036</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1552873059036</updated>
+    </task>
+    <task id="LOCAL-00013" summary="css">
+      <created>1553253238096</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1553253238096</updated>
+    </task>
+    <task id="LOCAL-00014" summary="test">
+      <created>1553266519375</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1553266519375</updated>
+    </task>
+    <task id="LOCAL-00015" summary="css changes and order table">
+      <created>1553489557646</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1553489557646</updated>
+    </task>
+    <task id="LOCAL-00016" summary="admin order tables">
+      <created>1554068761893</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1554068761893</updated>
+    </task>
+    <task id="LOCAL-00017" summary="admin order tables">
+      <created>1554076630250</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1554076630251</updated>
+    </task>
+    <task id="LOCAL-00018" summary="ingredient availability page">
+      <created>1554095230875</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1554095230875</updated>
+    </task>
+    <task id="LOCAL-00019" summary="finishing touches">
+      <created>1554274582626</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1554274582626</updated>
+    </task>
+    <task id="LOCAL-00020" summary="deployment">
+      <created>1554437089863</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1554437089863</updated>
+    </task>
+    <task id="LOCAL-00021" summary="deployment">
+      <created>1554438120084</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1554438120084</updated>
+    </task>
+    <task id="LOCAL-00022" summary="order cap, pickup date changes, disclaimers">
+      <created>1555019528353</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1555019528353</updated>
+    </task>
+    <task id="LOCAL-00023" summary="adjustments to css and get orders function">
+      <created>1556840161478</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1556840161478</updated>
+    </task>
+    <task id="LOCAL-00024" summary="order viewing">
+      <created>1557200930047</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1557200930047</updated>
+    </task>
+    <task id="LOCAL-00025" summary="order viewing">
+      <created>1557202492244</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1557202492244</updated>
+    </task>
+    <task id="LOCAL-00026" summary="more testing + order viewing fixes">
+      <created>1557446424633</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1557446424633</updated>
+    </task>
+    <task id="LOCAL-00027" summary="cleaning up js/css files">
+      <created>1557454533174</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1557454533174</updated>
+    </task>
+    <task id="LOCAL-00028" summary="changes to gitignore">
+      <created>1557454548112</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1557454548112</updated>
+    </task>
+    <task id="LOCAL-00029" summary="changes to gitignore">
+      <created>1557454593263</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1557454593263</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Node Modules">
+      <created>1550158980972</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1550158980972</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Header styling">
+      <created>1550172086590</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1550172086590</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Customization Screen and CSS organization">
+      <created>1551895316371</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1551895316371</updated>
+    </task>
+    <task id="LOCAL-00033" summary="test">
+      <created>1551896172097</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1551896172097</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="281665000" />
+  </component>
+  <component name="TodoView" selected-index="2">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="true" />
+      <flatten-packages value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1440" height="821" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21459228" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49677882" weight="0.32647464" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" weight="0.32825485" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49642345" weight="0.38781163" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49928468" weight="0.32686982" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4996421" weight="0.32462174" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49391553" visible="true" weight="0.38134432" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5032212" side_tool="true" weight="0.32686982" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49928468" visible="true" weight="0.32907802" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.3297568" />
+      <window_info anchor="right" id="Mongo Explorer" order="4" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28540772" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" weight="0.32891566" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49928468" weight="0.32907802" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32891566" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49427754" weight="0.38439715" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50572246" side_tool="true" weight="0.38439715" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49928468" visible="true" weight="0.32907802" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.3297568" />
+      <window_info anchor="right" id="Mongo Explorer" order="4" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Info on main screen" />
+    <MESSAGE value="Node Modules" />
+    <MESSAGE value="Header styling" />
+    <MESSAGE value="Customization Screen and CSS organization" />
+    <MESSAGE value="customization and favorites" />
+    <MESSAGE value="jquery + styling" />
+    <MESSAGE value="organization + made directory for javascript files" />
+    <MESSAGE value="sign-in, organization, css" />
+    <MESSAGE value="google sign in authentication + preventing header reload" />
+    <MESSAGE value="login intermediate" />
+    <MESSAGE value="page layout changes" />
+    <MESSAGE value="more ordering/adding favorite stuff + cleaning up javascript" />
+    <MESSAGE value="css" />
+    <MESSAGE value="test" />
+    <MESSAGE value="css changes and order table" />
+    <MESSAGE value="admin order tables" />
+    <MESSAGE value="ingredient availability page" />
+    <MESSAGE value="finishing touches" />
+    <MESSAGE value="deployment" />
+    <MESSAGE value="order cap, pickup date changes, disclaimers" />
+    <MESSAGE value="adjustments to css and get orders function" />
+    <MESSAGE value="order viewing" />
+    <MESSAGE value="more testing + order viewing fixes" />
+    <MESSAGE value="cleaning up js/css files" />
+    <MESSAGE value="changes to gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes to gitignore" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/styles/order_tables.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maintest.html" />
+    <entry file="file://$PROJECT_DIR$/scripts/modals.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/order_favorite.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/rebuild_favorite.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-573" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/purify.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_set_availability.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_view_orders.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-503">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+          <folding>
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.serverless/cloudformation-template-create-stack.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.serverless/order_testing.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="209" selection-start-line="2" selection-start-column="209" selection-end-line="2" selection-end-column="209" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/alerts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="61" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/admin_get_orders.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" column="61" selection-start-line="45" selection-start-column="61" selection-end-line="45" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/create_order.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/google_signin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="120" column="50" selection-start-line="120" selection-start-column="42" selection-end-line="120" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/sorttable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customize.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="37" column="38" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/get_favorites_selector.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="24" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/modify_favorite.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1185">
+          <caret line="79" column="39" lean-forward="true" selection-start-line="79" selection-start-column="39" selection-end-line="79" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/get_api_url.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/get_favorites.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/get_ingredient_options.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="20" lean-forward="true" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/get_orders.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="20" column="3" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/get_pickup_dates.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="1" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/main_validate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="3" lean-forward="true" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/complete_orders.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/admin_main_v.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/admin_v.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/validate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/admin_ingredients_availability.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-82">
+          <caret line="1" column="62" selection-start-line="1" selection-start-column="62" selection-end-line="1" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/submit_order.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1290">
+          <caret line="86" column="61" selection-start-line="86" selection-start-column="61" selection-end-line="86" selection-end-column="61" />
+          <folding>
+            <element signature="n#style#0;n#h3#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/modalfix.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19245">
+          <caret line="1283" column="3" selection-start-line="1283" selection-start-column="3" selection-end-line="1283" selection-end-column="3" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/accordion.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/card.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-856" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/checkboxes.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-901" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/customize.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4036" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/navbar.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="4619" column="24" selection-start-line="4619" selection-start-column="24" selection-end-line="4619" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="181" column="23" selection-start-line="181" selection-start-column="23" selection-end-line="181" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/switches.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/switch.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1416" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/order_tables.css.map">
+      <provider editor-type-id="sourcemapFileViewerProvider" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/newnavbar.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/navbar.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10751">
+          <caret line="3917" lean-forward="true" selection-start-line="3917" selection-end-line="3917" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="80" column="54" selection-start-line="80" selection-start-column="54" selection-end-line="80" selection-end-column="54" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blacklist">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverless.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/orders.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="999">
+          <caret line="95" column="6" lean-forward="true" selection-start-line="95" selection-start-column="6" selection-end-line="95" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#ul#0;n#li#0;n#ol#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#li#0;n#ol#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#li#0;n#ol#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#2;n#ul#0;n#li#0;n#ol#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#3;n#ul#0;n#li#0;n#ol#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#4;n#ul#0;n#li#0;n#ol#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/favorites.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
