@@ -1,6 +1,6 @@
 node_modules
 .serverless
-*.scss
-navbar.css
+styles/*.scss
+styles/navbar.css
 blacklist
 serverless.yml
