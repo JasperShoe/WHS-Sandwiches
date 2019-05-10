@@ -18,7 +18,7 @@ function getLastOrderDate(){
 
 function getOrdersLength(){
     let ordersPromise = $.get(get_api_url() + "orders", {
-        pickup_date: getNextPickupDate(),
+        pickup_date: getNextPickupDateFrom(new Date()),
         sort: {order_date: -1}
     });
     ordersPromise.success(function (newest_orders) {
@@ -39,27 +39,6 @@ $.get(get_api_url() + 'favorite_orders', function (json) {
 
 
 let orderDetails, selectedLunch;
-
-function getNextPickupDate() {
-    let currentDate = new Date();
-    let pickupDate = new Date(currentDate);
-    if (currentDate.getHours() >= 8) {
-        pickupDate.setDate(currentDate.getDate() + 1);
-    }
-    switch (pickupDate.getDay()) {
-        case 0: {
-            pickupDate.setDate(pickupDate.getDate() + 1);
-            break;
-        }
-        case 4:
-        case 5:
-        case 6:{
-            pickupDate.setDate(pickupDate.getDate() + (8 - pickupDate.getDay()));
-        }
-    }
-    return pickupDate;
-
-}
 
 function buildOrder() {
     let customizer_div = $('#customizer');
@@ -91,8 +70,7 @@ function buildOrder() {
     selectedLunch = $("input[name='lunch']:checked");
     let currentDate = new Date();
     let createOrderButton = $('#createOrder');
-    if (ingredientsAreAvailable(orderIngredients) && isValidOrder(orderIngredients) && !alreadyOrderedToday(getNextPickupDate()) && underOrderCapacity()) {
-    // if (ingredientsAreAvailable(orderIngredients) && isValidOrder(orderIngredients) && underOrderCapacity()) {
+    if (ingredientsAreAvailable(orderIngredients) && isValidOrder(orderIngredients) && !alreadyOrderedToday(getNextPickupDateFrom(new Date())) && underOrderCapacity()) {
         createOrderButton.attr("data-toggle", "modal");
         createOrderButton.attr("data-target", "#myModal1");
         orderDetails = {
@@ -100,7 +78,7 @@ function buildOrder() {
             ingredients: orderIngredients,
             which_lunch: selectedLunch.val(),
             order_date: currentDate,
-            pickup_date: getNextPickupDate()
+            pickup_date: getNextPickupDateFrom(new Date())
         };
         populateOrderModal(orderDetails);
     } else {
@@ -149,7 +127,7 @@ function underOrderCapacity() {
         return true;
     }
     else {
-        alert(`We have already received the maximum number of orders for ${getNextPickupDate().toLocaleDateString()}`);
+        alert(`We have already received the maximum number of orders for ${getNextPickupDateFrom(new Date()).toLocaleDateString()}`);
         return false;
     }
 }
