@@ -1,39 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
-    <title> WaySub </title>
+    <title>WaySub</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-    <!--stylesheets-->
-    <link href="styles/main.css" rel="stylesheet" type="text/css">
-    <link href="styles/navbar.css" rel="stylesheet" type="text/css">
-
-
-    <!--logo-->
     <link href="images/logo.png" rel="shortcut icon">
-
-    <!-- importing google's fonts -->
+    <link href="styles/main.css" rel="stylesheet">
+    <link href="styles/navbar.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
 
-    <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-
-    <!--javascript files-->
-    <script src="scripts/main_validate.js"></script>
-    <script src="scripts/get_api_url.js"></script>
+    <script src="scripts/main.js"></script>
     <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
     <script src="scripts/google_signin.js"></script>
-
-
 </head>
 
 <body>
@@ -84,7 +68,7 @@
     </div>
 
     <div class="middlecol">
-        <strong>*Note that this website is currently under a 3 week trial. During this trial, orders will only be able to be placed for Monday, Tuesday, and Wednesday. In addition, a maximum of 25 total sandwich orders will be allowed each day.</strong>
+        <strong>*Note that this website is currently under a 3 week trial. During this trial, orders will only be able to be placed for pickup on Monday, Tuesday, and Wednesday. In addition, a maximum of 25 total sandwich orders will be allowed each day.</strong>
         <br>
         <br>
         <div class="alerts">
@@ -111,7 +95,7 @@
                     <li style="margin-left: 60px">You have ordered at least two ingredients (one of which must be a bread).</li>
                     <li style="margin-left: 60px">You have selected ingredients that are available.</li>
                     <li style="margin-left: 60px">You have indicated which lunch you will be picking it up.</li>
-                    <li style="margin-left: 60px">You have not yet ordered for the next pickup day</li>
+                    <li style="margin-left: 60px">You have not yet ordered for the next pickup day.</li>
                 </ul>
 
             DISCLAIMER: If you order an ingredient that becomes out of stock during preparation, it will be replaced by a similar ingredient.
@@ -141,6 +125,9 @@
     <footer class="page-footer font-small blue">
         <div class="text-center py-3">
             <a> Made by Rafael Chaves, Jasper Hsu, and Michael Chen </a>
+            <br>
+            <br>
+            <h5>Have suggestions to improve this website? Contact us at <a href = "https://mail.google.com/mail/u/0/?view=cm&fs=1&to=waysubad@gmail.com&su=Suggestion%20For%20WaySub&tf=1" style="text-decoration: underline">waysubad@gmail.com</a></h5>
         </div>
     </footer>
 </div>

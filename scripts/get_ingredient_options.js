@@ -1,7 +1,7 @@
 $(document).ready(function () {
     let ingredientTypePromise = getIngredientTypeData();
     ingredientTypePromise.success(function () {
-        let ingredientPromise = getIngredientData();
+        let ingredientPromise = getIngredientDataOn(getCurrentPath());
         ingredientPromise.success(configureAccordions())
     });
 
@@ -23,7 +23,7 @@ function getIngredientTypeData() {
     });
 }
 
-function getIngredientData() {
+function getIngredientDataOn(page) {
     return $.getJSON(get_api_url() + 'ingredients', {sort: {name: -1}}, function (ingredients_json) {
         let ingredientTypeAccordions = document.getElementsByClassName('accordion');
         for (let i = 0; i < ingredientTypeAccordions.length; i++) {
@@ -37,7 +37,7 @@ function getIngredientData() {
                     let panel = accordionWithID.next();
                     panel.attr("data-ingredient-id", ingredientID);
                     panel.attr("data-ingredient-type-id", thisIngredientTypeID);
-                    if (!ingredients_json[j].is_available) {
+                    if (!ingredients_json[j].is_available && page.includes("customize.html")) {
                         let ingredientWithID = $(`[data-ingredient-id=${ingredients_json[j]._id}]`);
                         ingredientWithID.find('.ingredientcheckbox').attr("disabled", "disabled");
                         ingredientWithID.find('.checkcontainer').append(`<strong>item unavailable</strong>`);

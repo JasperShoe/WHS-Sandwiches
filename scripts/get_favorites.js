@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    getFavoritesOn(window.location.pathname);
+    getFavoritesOn(getCurrentPath());
     configureFavoriteNameEditor();
 });
 
@@ -15,7 +15,7 @@ function getFavoritesOn(page){
         }
         divToModify.empty();
         if (favoriteOrders.length === 0) {
-            divToModify.html('<h3 class="get-favorites-error">You do not have any favorites yet.</h3>');
+            divToModify.parent().html('<h3 class="get-favorites-error">You do not have any favorites yet.</h3>');
         }
         else {
             for (let i = 0; i < favoriteOrders.length; i++) {

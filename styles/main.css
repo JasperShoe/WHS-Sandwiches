@@ -184,3 +184,6 @@ hr {
 .nav {
     flex-wrap: nowrap !important;
 }
+#orders_div h3 {
+    text-align: center;
+}

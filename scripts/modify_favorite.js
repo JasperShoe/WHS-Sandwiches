@@ -1,4 +1,3 @@
-const favoriteOrdersURL = get_api_url() + "favorite_orders";
 let newFavoriteName, thisOrderID;
 
 // Gets the favorite order that the user clicked on from the database.
@@ -72,7 +71,7 @@ function confirmFavoriteSave() {
             },
             // Once the favorite order is successfully updated, change the html on the page with the new favorite order info.
             success: function (updated_favorite_order) {
-                getFavoritesOn();
+                getFavoritesOn(getCurrentPath());
                 showAlert(`"${updated_favorite_order.favorite_name}" has been updated.`);
             }
         });

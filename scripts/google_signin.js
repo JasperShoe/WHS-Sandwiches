@@ -52,18 +52,15 @@ let userChanged = function (user) {
     googleUser = user;
     let id_token = googleUser.getAuthResponse().id_token;
     if (id_token) {
+        showSignOutButton()
         if (googleUser.getHostedDomain() === "student.wayland.k12.ma.us") {
-            $('#login-button').css("display", "none");
-            $('#logout-button').css("display", "block");
             setCookie("idToken", id_token, 7);
             setCookie("email", googleUser.getBasicProfile().getEmail());
         }
         else if (googleUser.getBasicProfile().getEmail() === "waysubad@gmail.com") {
-            $('#login-button').css("display", "none");
-            $('#logout-button').css("display", "block");
             setCookie("idToken", id_token, 7);
             setCookie("email", googleUser.getBasicProfile().getEmail());
-            let currentPath = window.location.pathname;
+            let currentPath = getCurrentPath();
             if (currentPath === "/main.html" || currentPath === "/"){
                 window.location.href = "admin_main.html"
             }
@@ -102,27 +99,36 @@ function goToPage(url) {
     }
     else {
         alert('Error: you are not signed in');
-
     }
 }
 function logIn() {
-    auth2.signIn();
+    if (auth2){
+        auth2.signIn();
+    }
+    else {
+        start();
+    }
 }
 
 function logOut() {
     let auth2 = gapi.auth2.getAuthInstance();
-    auth2.disconnect();
-    auth2.signOut().then(function () {
-        deleteCookie("idToken");
-        deleteCookie("email");
-        $('#login-button').css("display", "block");
-        $('#logout-button').css("display", "none");
-        console.log('User signed out.');
-        let currentPath = window.location.pathname;
-        if (currentPath !== "/main.html" || currentPath !== "/"){
-            window.location.href = "main.html";
-        }
-    });
+    if (auth2) {
+        auth2.disconnect();
+        auth2.signOut().then(signOutCallback());
+    }
+    else
+        signOutCallback();
+
+}
+
+function signOutCallback() {
+    deleteCookie("idToken");
+    deleteCookie("email");
+    showSignInButton();
+    let currentPath = getCurrentPath();
+    if (currentPath !== "/main.html" || currentPath !== "/"){
+        window.location.href = "main.html";
+    }
 }
 
 function readTextFile(file)
@@ -133,12 +139,12 @@ function readTextFile(file)
     {
         if(rawFile.readyState === 4)
         {
-            if(rawFile.status === 200 || rawFile.status == 0)
+            if(rawFile.status === 200 || rawFile.status === 0)
             {
                 var allText = rawFile.responseText;
             }
         }
-    }
+    };
     rawFile.send(null);
     return rawFile.responseText;
 }
