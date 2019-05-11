@@ -1,35 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="49f5b1fb-d84f-466a-9425-02e5088fb982" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/scripts/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_types.json" afterDir="false" />
+    <list default="true" id="49f5b1fb-d84f-466a-9425-02e5088fb982" name="Default Changelist" comment="added main.js">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_main.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_set_availability.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_set_availability.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_view_orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_view_orders.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customize.html" beforeDir="false" afterPath="$PROJECT_DIR$/customize.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/deploy.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/favorites.html" beforeDir="false" afterPath="$PROJECT_DIR$/favorites.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/orders.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/admin_main_v.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/admin_v.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/alerts.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/complete_orders.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/create_order.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/get_api_url.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/get_favorites.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/get_favorites.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/get_ingredient_options.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/get_ingredient_options.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/get_pickup_dates.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/google_signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/google_signin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/main_validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/modify_favorite.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/modify_favorite.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/rebuild_favorite.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/sorttable.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/sort_table.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/submit_order.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/submit_order.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/main.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="true" />
@@ -53,23 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1035">
               <caret line="69" column="1" lean-forward="true" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/modalfix.min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -84,6 +46,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/get_ingredient_options.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="56" lean-forward="true" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user_types.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
@@ -92,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="75">
+              <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -242,7 +213,6 @@
         <option value="$PROJECT_DIR$/scripts/get_favorites_selector.js" />
         <option value="$PROJECT_DIR$/styles/navbar.css" />
         <option value="$PROJECT_DIR$/serverless.yml" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/styles/main.css" />
         <option value="$PROJECT_DIR$/scripts/validate.js" />
         <option value="$PROJECT_DIR$/scripts/admin_v.js" />
@@ -273,6 +243,7 @@
         <option value="$PROJECT_DIR$/scripts/modals.min.js" />
         <option value="$PROJECT_DIR$/user_types.json" />
         <option value="$PROJECT_DIR$/scripts/main.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -443,7 +414,7 @@
       <workItem from="1557371981071" duration="1286000" />
       <workItem from="1557378717710" duration="24226000" />
       <workItem from="1557466272651" duration="6277000" />
-      <workItem from="1557473063350" duration="7754000" />
+      <workItem from="1557473063350" duration="8270000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1551897861901</created>
@@ -648,12 +619,12 @@
       <option name="project" value="LOCAL" />
       <updated>1557454593263</updated>
     </task>
-    <task id="LOCAL-00030" summary="Node Modules">
-      <created>1550158980972</created>
+    <task id="LOCAL-00030" summary="added main.js">
+      <created>1557591545823</created>
       <option name="number" value="00030" />
       <option name="presentableId" value="LOCAL-00030" />
       <option name="project" value="LOCAL" />
-      <updated>1550158980972</updated>
+      <updated>1557591545823</updated>
     </task>
     <task id="LOCAL-00031" summary="Header styling">
       <created>1550172086590</created>
@@ -676,11 +647,11 @@
       <option name="project" value="LOCAL" />
       <updated>1551896172097</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="304554000" />
+    <option name="totallyTimeSpent" value="305070000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -695,9 +666,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="821" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22031474" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22031474" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -709,8 +679,8 @@
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49928468" weight="0.32647464" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4996421" weight="0.32462174" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49391553" weight="0.38134432" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4996421" weight="0.32373112" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49391553" visible="true" weight="0.38134432" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5032212" side_tool="true" weight="0.32686982" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49928468" visible="true" weight="0.32907802" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -787,7 +757,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Info on main screen" />
     <MESSAGE value="Node Modules" />
     <MESSAGE value="Header styling" />
     <MESSAGE value="Customization Screen and CSS organization" />
@@ -812,7 +781,8 @@
     <MESSAGE value="more testing + order viewing fixes" />
     <MESSAGE value="cleaning up js/css files" />
     <MESSAGE value="changes to gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes to gitignore" />
+    <MESSAGE value="added main.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="added main.js" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/scripts/order_favorite.js" />
@@ -952,13 +922,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/get_ingredient_options.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="56" lean-forward="true" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/modify_favorite.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1068" />
@@ -1050,13 +1013,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/favorites.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -1087,16 +1043,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin_set_availability.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1108,6 +1054,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="69" column="1" lean-forward="true" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/google_signin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
@@ -1115,10 +1068,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/main.js">
+    <entry file="file://$PROJECT_DIR$/scripts/get_ingredient_options.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="69" column="1" lean-forward="true" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="1" />
+        <state relative-caret-position="60">
+          <caret line="4" column="56" lean-forward="true" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
         </state>
       </provider>
     </entry>

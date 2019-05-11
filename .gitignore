@@ -3,5 +3,6 @@ node_modules
 .serverless
 styles/*.scss
 styles/navbar.css
+user_types.json
 blacklist
 serverless.yml
