@@ -95,5 +95,3 @@ function deleteFavorite(favoriteOrderID){
     });
 
 }
-
-

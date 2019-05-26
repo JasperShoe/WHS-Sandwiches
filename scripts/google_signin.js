@@ -1,5 +1,5 @@
-let auth2; // The Sign-In object.
-let googleUser; // The current user.
+let auth2;
+let googleUser;
 
 function getCookie(name) {
     let v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
@@ -16,38 +16,21 @@ function deleteCookie(name) {
     setCookie(name, '', -1);
 }
 
-/**
- * Calls startAuth after Sign in V2 finishes setting up.
- */
 var start = function() {
     gapi.load('auth2', initSigninV2);
 };
 
-/**
- * Initializes Signin v2 and sets up listeners.
- */
 var initSigninV2 = function() {
     auth2 = gapi.auth2.init({
         client_id: '137343299835-5vtibq9c072o11ullqob6d7snqes1530.apps.googleusercontent.com',
         scope: 'profile',
     });
-
-
-    // Listen for changes to current user.
     auth2.currentUser.listen(userChanged);
-
-    // Sign in the user if they are currently signed in.
-    if (auth2.isSignedIn.get() === true) {
+    if (auth2.isSignedIn.get() === true)
         auth2.signIn();
-    }
-    // Start with the current live values.
     refreshValues();
 };
 
-/**
- * Listener method for when the user changes.
- * @param {GoogleUser} user the updated user.
- */
 let userChanged = function (user) {
     googleUser = user;
     let id_token = googleUser.getAuthResponse().id_token;
@@ -73,10 +56,6 @@ let userChanged = function (user) {
 
 };
 
-/**
- * Retrieves the current user and signed in states from the GoogleAuth
- * object.
- */
 var refreshValues = function() {
     if (auth2){
         googleUser = auth2.currentUser.get();
