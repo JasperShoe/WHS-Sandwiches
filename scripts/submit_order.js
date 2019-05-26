@@ -1,7 +1,26 @@
 $(document).ready(function () {
     getLastOrderDate();
     getOrdersLength();
+    let nextPickup = getNextPickupDateFrom(new Date());
+    $('#letter-day-reminder').html(`<h3>Select Lunch (${nextPickup.toDateString()} is a ${getLetterDay(nextPickup)})</h3>`)
+    $('#getLunchButton').on("click", function () {
+        getLunch($('#classSelectBox option:selected').val(), $('#quarterSelectBox option:selected').val(), function (selected_lunch) {
+            $(`input[type=radio][value=${selected_lunch}]`).prop("checked",true);
+        })
+    })
+
 });
+
+function getLunch(className, quarter, callback){
+    $.getJSON('lunches.json', function (lunches) {
+        console.log(lunches)
+        let lunch = lunches['Quarter' + quarter][className]
+        console.log(lunch)
+        callback(lunch);
+    })
+
+}
+
 let lastOrdersPickupDate;
 let dailyOrderCount;
 function getLastOrderDate(){
@@ -192,7 +211,7 @@ function populateOrderModal(order_details) {
     order_summary.append(`<tr><td><i class="far fa-calendar"></i></td><td><h3> order date: ${order_details.order_date.toLocaleString()} </h3></td></tr>`);
     order_summary.append(`<tr><td><i class="far fa-calendar-check"></td><td><h3> pickup date: ${order_details.pickup_date.toLocaleDateString()} </h3></td></tr>`);
     order_summary.append(`<tr><td><i class="fa fa-list-ol" aria-hidden="true"></td><td><h3> lunch: ${order_details.which_lunch} </h3></td></tr>`);
-    order_summary.append(`<tr><td></td><td><h3 style="color: red;font-size: 1em;margin-left: -20px">Please note that if you submit an order and do not pick it up at lunch, <br> your lunch account will still be charged.</h3></td></tr>`);
+    order_summary.append(`<tr><td></td><td><h3 style="color: red;font-size: 1em;margin-left: -20px">Please make sure that you still pay for your sandwich. Also note that if you <br> submit an order and do not pick it up at lunch, your lunch account will still be <br>charged.</h3></td></tr>`);
     clearModalsOnClick();
     finalOrder = order_details;
 }

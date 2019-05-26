@@ -1,0 +1,30 @@
+{
+  "Quarter1": {
+    "History": 1,
+    "Math": 2,
+    "Language": 2,
+    "English": 3,
+    "Arts": 3
+  },
+  "Quarter2": {
+    "History": 2,
+    "Math": 1,
+    "Language": 3,
+    "English": 2,
+    "Arts": 3
+  },
+  "Quarter3": {
+    "History": 3,
+    "Math": 2,
+    "Language": 2,
+    "English": 1,
+    "Arts": 3
+  },
+  "Quarter4": {
+    "History": 2,
+    "Math": 3,
+    "Language": 1,
+    "English": 2,
+    "Arts": 3
+  }
+}
