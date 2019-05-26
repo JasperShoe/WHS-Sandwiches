@@ -187,3 +187,10 @@ hr {
 #orders_div h3 {
     text-align: center;
 }
+#cancelButton {
+    background-color: orange;
+    color: white;
+    float: unset;
+    width: 80%;
+    min-width: 120px;
+}
