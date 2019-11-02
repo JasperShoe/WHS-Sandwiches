@@ -7,13 +7,24 @@ $(document).ready(function () {
 
 
 });
+<<<<<<< HEAD
 /** Get ingredient type data create accordions for each. Store ID values in HTML attributes. */
+=======
+>>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
 function getIngredientTypeData() {
     return $.getJSON(get_api_url() + 'ingredient_types', function (ingredient_types_json) {
         const ingredientOptions = $('#ingredients-list');
         for (let i = 0; i < ingredient_types_json.length; i++) {
+<<<<<<< HEAD
             let limit_wording = (ingredient_types_json[i].minimum === ingredient_types_json[i].maximum) ? ingredient_types_json[i].minimum : "up to " + ingredient_types_json[i].maximum;
             ingredientOptions.append(`<button class = "accordion">${ingredient_types_json[i].name} (select ${limit_wording}) </button>`);
+=======
+            if (ingredient_types_json[i].minimum === ingredient_types_json[i].maximum) {
+                ingredientOptions.append('<button class = "accordion">' + ingredient_types_json[i].name + ' (select ' + ingredient_types_json[i].minimum + ') </button>');
+            } else {
+                ingredientOptions.append('<button class = "accordion">' + ingredient_types_json[i].name + ' (select up to ' + ingredient_types_json[i].maximum + ') </button>');
+            }
+>>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
             let ingredientTypeID = ingredient_types_json[i]._id;
             let ingredientTypeButton = $('.accordion');
             ingredientTypeButton.last().attr("data-ingredient-type-id", ingredientTypeID);
@@ -21,7 +32,10 @@ function getIngredientTypeData() {
     });
 }
 
+<<<<<<< HEAD
 /** Get ingredient data and insert each ingredient under the correct ingredient type accordion. Store ID values in HTML attributes. */
+=======
+>>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
 function getIngredientDataOn(page) {
     return $.getJSON(get_api_url() + 'ingredients', {sort: {name: -1}}, function (ingredients_json) {
         let ingredientTypeAccordions = document.getElementsByClassName('accordion');
@@ -49,6 +63,7 @@ function getIngredientDataOn(page) {
     });
 }
 
+<<<<<<< HEAD
 /** Add listeners to the ingredient type accordions so that they will expand when clicked. */
 function configureAccordions() {
 
@@ -63,6 +78,30 @@ function configureAccordions() {
                 } else {
                     panel.style.maxHeight = panel.scrollHeight + "px";
                 }
+=======
+function configureAccordions() {
+
+
+    // Loop through each of the accordions on the doc
+    const acc = document.getElementsByClassName('accordion'); // Get the five accordion elements.
+    for (let i = 0; i < acc.length; i++) {
+
+        // Add a click lister that will execute the inside function whenever the accordion is clicked on.
+        acc[i].addEventListener("click", function () {
+
+
+            // Everything in here will execute whenever an accordion is clicked.
+            this.classList.toggle("active");
+            let panel = this.nextElementSibling;
+            while (panel) { // While the next element exists
+                if (panel.style.maxHeight) { // If the panel has a maxHeight (meaning it's open), then close it
+                    panel.style.maxHeight = null;
+                } else { // If the panel doesn't have a maxHeight, it is closed.
+                    panel.style.maxHeight = panel.scrollHeight + "px"; // This opens the panel.
+                }
+
+                // Keep going to the next element to open it until we hit something that's not an ingredient panel
+>>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
                 if (panel.nextElementSibling === null)
                     panel = null;
                 else if (panel.nextElementSibling.className !== "panel")

@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 /** Gets list of ingredients and displays them on the page. If the ingredient is unavailable, toggle the red button in its row. */
+=======
+>>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
 $(document).ready(function () {
     let ingredientPromise = $.get(get_api_url() + "ingredients", {
         sort: {ingredient_type_id: 1, name: 1}
@@ -14,9 +17,17 @@ $(document).ready(function () {
         }
         setupCheckBoxListeners();
     });
+<<<<<<< HEAD
 });
 
 /** Adds a listener to each button so that when they are clicked, their corresponding ingredient will change its availability. */
+=======
+
+
+
+});
+
+>>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
 function setupCheckBoxListeners() {
     let checkboxes = document.getElementsByClassName("apple-switch");
     for (let i = 0; i < checkboxes.length; i++) {
@@ -30,4 +41,8 @@ function setupCheckBoxListeners() {
             });
         });
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
 }

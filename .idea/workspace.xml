@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3dab4adc-53eb-4ff0-aa3b-f043a5e9f34f" name="Default Changelist" comment="" />
+    <list default="true" id="3dab4adc-53eb-4ff0-aa3b-f043a5e9f34f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/letter_days.ics" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/admin_get_orders.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/google_signin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/submit_order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/WHS-Sandwiches.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/WHS-Sandwiches.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_close_dates.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_close_dates.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_main.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_set_availability.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_set_availability.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_view_orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin_view_orders.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customize.html" beforeDir="false" afterPath="$PROJECT_DIR$/customize.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/deploy.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/favorites.html" beforeDir="false" afterPath="$PROJECT_DIR$/favorites.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/orders.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/admin_ingredients_availability.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/admin_ingredients_availability.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/get_favorites.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/get_favorites.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/get_ingredient_options.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/get_ingredient_options.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/get_orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/get_orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/modify_favorite.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/modify_favorite.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -10,13 +37,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/get_favorites.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-216" />
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/get_ingredient_options.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -138,11 +158,6 @@
               <item name="WHS-Sandwiches" type="b2602c69:ProjectViewProjectNode" />
               <item name="WHS-Sandwiches" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="WHS-Sandwiches" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WHS-Sandwiches" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -155,7 +170,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -199,7 +214,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4163000" />
+    <option name="totallyTimeSpent" value="4180000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">

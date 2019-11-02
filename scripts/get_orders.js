@@ -1,7 +1,10 @@
 let orders;
 let perPage;
+<<<<<<< HEAD
 
 /** Retrieves this user's order data. */
+=======
+>>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
 $(document).ready(function () {
     let orderPromise = $.get(get_api_url() + "orders", {
         student_email: getCookie("email"),
@@ -21,7 +24,10 @@ $(document).ready(function () {
 
 });
 
+<<<<<<< HEAD
 /** Creates pagination menu given orders per page. */
+=======
+>>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
 function createPagination(ordersPerPage) {
     perPage = ordersPerPage;
     const pagination = $('.pagination');
@@ -33,7 +39,10 @@ function createPagination(ordersPerPage) {
 
 }
 
+<<<<<<< HEAD
 /** Displays HTML for orders on page pageNumber. */
+=======
+>>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
 function getOrderHistoryPage(pageNumber) {
     const table_body = $('#table-body');
     let start = (pageNumber - 1) * perPage;
@@ -59,7 +68,10 @@ function getOrderHistoryPage(pageNumber) {
     }
 }
 
+<<<<<<< HEAD
 /** Cancels an order. */
+=======
+>>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
 function cancelOrder(order_id) {
     $.ajax({
         url: get_api_url() + "orders/" + order_id,
@@ -76,7 +88,10 @@ function cancelOrder(order_id) {
     });
 }
 
+<<<<<<< HEAD
 /** Adds an event listener to the select box that changes the number of orders displayed per page. */
+=======
+>>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
 function configurePageCountSelector() {
     let a = document.getElementById("mySelectBox");
     a.addEventListener("change", function () {

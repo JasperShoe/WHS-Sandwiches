@@ -1,0 +1,8 @@
+node_modules
+.DS_Store
+.serverless
+styles/*.scss
+styles/navbar.css
+user_types.json
+blacklist
+serverless.yml
