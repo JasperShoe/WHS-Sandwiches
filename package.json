@@ -1,10 +1,7 @@
 {
   "name": "whs-sandwiches",
   "version": "1.0.0",
-<<<<<<< HEAD
-=======
   "description": "",
->>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,10 +23,5 @@
   "devDependencies": {
     "purgecss": "^1.2.0",
     "purify-css": "^1.2.5"
-<<<<<<< HEAD
-  },
-  "description": ""
-=======
   }
->>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
 }
