@@ -1,0 +1,27 @@
+{
+  "name": "whs-sandwiches",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JasperShoe/WHS-Sandwiches.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JasperShoe/WHS-Sandwiches/issues"
+  },
+  "homepage": "https://github.com/JasperShoe/WHS-Sandwiches#readme",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "serverless-finch": "^2.4.2"
+  },
+  "devDependencies": {
+    "purgecss": "^1.2.0",
+    "purify-css": "^1.2.5"
+  },
+  "description": ""
+}

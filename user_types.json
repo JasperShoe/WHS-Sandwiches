@@ -1,0 +1,11 @@
+{
+  "Student": {
+    "forbiddenPages": ["/admin_main.html", "/admin_set_availability.html", "/admin_view_orders.html", "/admin_close_dates.html"],
+    "homePage": "main.html"
+  },
+  "Admin": {
+    "forbiddenPages": ["/main.html", "/customize.html", "/orders.html"],
+    "homePage": "admin_main.html",
+    "emails": ["waysubad@gmail.com", "rafavchaves@gmail.com"]
+  }
+}

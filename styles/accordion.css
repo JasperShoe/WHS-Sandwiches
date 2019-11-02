@@ -1,0 +1,45 @@
+.accordion {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: #444;
+    cursor: pointer;
+    padding: 18px 18px 18px 0;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 20px;
+    transition: 0.4s;
+    margin-top: 0;
+}
+hr {
+    width: 100%;
+    padding: 0 18px;
+    border-color: rgb(235, 235, 235);
+    color: rgb(235, 235, 235);
+    background-color: rgb(235, 235, 235);
+    border-top: 1px rgb(235, 235, 235);
+    border-left: none;
+    margin-top: 0;
+    margin-bottom: 0;
+
+}
+
+.accordion:after {
+    content: '\002B';
+    color: gray;
+    float: right;
+
+}
+
+.accordion.active:after {
+    content: "\2212";
+}
+
+.panel {
+    padding: 0 18px 0 10px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}

@@ -1,0 +1,196 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont,
+    “Segoe UI”, “Roboto”, “Oxygen”, “Ubuntu”, “Cantarell”,
+    “Fira Sans”, “Droid Sans”, “Helvetica Neue”,
+    sans-serif;
+    font-weight: normal;
+    margin: 0;
+}
+#make_favorite_modal {
+    height: 64px;
+    border: 0;
+    margin-bottom: 0;
+    display: flex;
+}
+#make_favorite_modal input {
+    font-weight: 300;
+    outline: 0;
+    border: 0;
+    font-size: 1.4rem;
+    width: 100%;
+}
+
+.title {
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    color: #f9a114;
+}
+
+.title a {
+    font-size: 30pt;
+    margin-bottom: 0;
+    letter-spacing: 5px;
+    text-decoration: none;
+    color: #f9a114;
+    padding-top: 5px;
+}
+
+.title p {
+    font-style: italic;
+    margin-top: 0;
+}
+
+.info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.info p, li {
+    line-height: 1.5;
+    font-size: 14pt;
+}
+
+.sidecol {
+    flex: 10%; /* Sets the width of the side bars */
+    background-color: #f1f1f1;
+    max-width: 150px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.middlecol {
+    flex: 80%; /* Set the width of the main column */
+    background-color: white;
+    padding: 20px; /* 20px on top, bottom, left, and right */
+    margin-bottom: 53px;
+}
+
+.middlecol h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+.alert {
+    border-radius: 5px;
+    padding: 20px;
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    margin-bottom: 8px;
+    display: none;
+    opacity: 1;
+    transition: opacity 0.6s;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: rgb(181, 218, 182);
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+.page-footer {
+    background: #ddd;
+    padding: 10px;
+}
+#favorites_div h3 {
+    text-align: center;
+}
+@media screen and (max-width: 800px) {
+    .sidecol {
+        display: none;
+    }
+    .ingredients-td {
+        word-break: break-all;
+    }
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+i {
+    margin-right: 5px;
+}
+div#order_summary_modal {
+    line-height: 2rem;
+    word-break: break-all;
+}
+.test{
+    font-family: 'Rubik', sans-serif;
+    font-size: 35px;
+    text-align: center;
+}
+.carousel-item {
+    height: 65vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.modal-backdrop
+{
+    opacity:0.5 !important;
+}
+a.nav-link {
+    cursor: pointer;
+}
+.pointer {
+    cursor: pointer;
+}
+.custom-select {
+    display: inline-flex;
+}
+select.selectBox {
+    margin: -10px 6px 10px;
+}
+.align-center {
+    text-align: center;
+}
+li.list-group-item {
+    display: flex;
+}
+strong {
+    color:red;
+    font-weight: normal !important;
+    margin-left: 5px
+}
+ul.nav.nav-tabs {
+    margin-bottom: 10px !important;
+}
+select#favoriteSelector {
+    width: 100%;
+}
+
+hr {
+    box-sizing: inherit !important;
+}
+.nav {
+    flex-wrap: nowrap !important;
+}
+#orders_div h3 {
+    text-align: center;
+}
+#cancelButton {
+    background-color: orange;
+    color: white;
+    float: unset;
+    width: 80%;
+    min-width: 120px;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> WaySub </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="images/logo.png" rel="shortcut icon">
+    <link href="styles/card.css" rel="stylesheet">
+    <link href="styles/customize.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <link href="styles/navbar.css" rel="stylesheet">
+    <link href="styles/checkboxes.css" rel="stylesheet">
+    <link href="styles/accordion.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <script src="scripts/waysub_main.js"></script>
+    <script src="scripts/modalfix.min.js"></script>
+    <script src="scripts/modals.min.js"></script>
+    <script src="scripts/get_ingredient_options.js"></script>
+    <script src="scripts/order.js"></script>
+    <script src="scripts/get_favorites.js"></script>
+    <script src="scripts/modify_favorite.js"></script>
+    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+    <script src="scripts/sign_in.js"></script>
+
+
+</head>
+<body>
+<div class ="header"></div>
+
+<div class="info">
+    <div class="sidecol">
+        <img src="images/graytexture.png" alt = "">
+    </div>
+
+    <div class="middlecol">
+        <div class="alerts">
+            <div class="alert"><span class="closebtn" onclick="closeAlert(this.parentElement)">&times;</span><div class="alert-msg"></div></div>
+        </div>
+        <div class="cards">
+        </div>
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="favoriteName" contenteditable="true"></h4>
+                    </div>
+                    <div class="modal-body" id="ingredients-list">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" id="save_favorite_button" data-dismiss="modal" onclick="confirmFavoriteSave()">Confirm</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="sidecol">
+        <img src="images/graytexture.png" alt = "">
+    </div>
+</div>
+
+<div class="footer"></div>
+<script>
+    $("div[id^='myModal']").each(function(){
+
+        var currentModal = $(this);
+
+        //click next
+        currentModal.find('.btn-next').click(function(){
+            currentModal.modal('hide');
+            currentModal.closest("div[id^='myModal']").nextAll("div[id^='myModal']").first().modal('show');
+        });
+
+        //click prev
+        currentModal.find('.btn-prev').click(function(){
+            currentModal.modal('hide');
+            currentModal.closest("div[id^='myModal']").prevAll("div[id^='myModal']").first().modal('show');
+        });
+
+    });
+
+</script>
+
+</body>
+</html>
