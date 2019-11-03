@@ -47,7 +47,7 @@ function processPagePermissions() {
         showSignInButton();
     } else {
         showSignOutButton();
-        let perms = $.getJSON('user_types.json');
+        let perms = $.getJSON('res/user_types.json');
         perms.success(function (data) {
             admin_emails = data['Admin']['emails'];
             let user_type = admin_emails.indexOf(getCookie('email')) > -1 ? data['Admin'] : data['Student'];
@@ -197,7 +197,7 @@ function readTextFile(file) {
 function getLetterDay(desired_date) {
     desired_date = desired_date.toISOString().split("T")[0];
     // Break up the imported calendar file into each of its lines.
-    let calendar_lines = readTextFile('2019-20_calendar.ics').split("\n");
+    let calendar_lines = readTextFile('res/2019-20_calendar.ics').split("\n");
     let events = [];
     let events_i = 0;
     for (i = 0; i < calendar_lines.length; i++) {

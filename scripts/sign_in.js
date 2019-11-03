@@ -45,7 +45,7 @@ let userChanged = function (user) {
         let email = googleUser.getBasicProfile().getEmail();
         let domain = googleUser.getHostedDomain();
         showSignOutButton();
-        if (domain === "student.wayland.k12.ma.us" || readTextFile("whitelist").includes(email.toLowerCase())) {
+        if (domain === "student.wayland.k12.ma.us" || readTextFile("res/whitelist.txt").includes(email.toLowerCase())) {
             setCookie("idToken", id_token, 7);
             setCookie("email", email);
             let currentPath = getCurrentPath();

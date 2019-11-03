@@ -14,7 +14,7 @@ $(document).ready(function () {
 
 /** Gets the lunch number that corresponds to the class name and quarter and passes it into the callback function. */
 function getLunch(className, quarter, callback){
-    $.getJSON('lunches.json', function (lunches) {
+    $.getJSON('res/lunches.json', function (lunches) {
         let lunch = lunches['Quarter' + quarter][className]
         callback(lunch);
     })
