@@ -3,10 +3,7 @@ $(document).ready(function () {
     configureFavoriteNameEditor();
 });
 
-<<<<<<< HEAD
 /** Retrieves user's favorite orders and displays them in the table (given page #). */
-=======
->>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
 function getFavoritesOn(page){
     let favoritesPromise = $.get(get_api_url() + "favorite_orders", {student_email: getCookie("email"), sort: {favorite_name: 1}});
     favoritesPromise.success(function (favoriteOrders) {
@@ -41,26 +38,17 @@ function getFavoritesOn(page){
     })
 }
 
-<<<<<<< HEAD
 /** Allows users to click on the favorite order's name and edit it.*/
-=======
->>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
 function configureFavoriteNameEditor() {
     let editableTitle = document.getElementById("favoriteName");
     editableTitle.addEventListener('keypress', function (e) {
         let key = e.which || e.keyCode;
-<<<<<<< HEAD
         // If the enter/return key is pressed, stop editing the name (blur title).
-=======
->>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
         if (key === 13) {
             editableTitle.blur();
         }
     });
-<<<<<<< HEAD
     // Once a user clicks off/presses enter (blurs), save the new name to the newFavoriteName field.
-=======
->>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
     editableTitle.addEventListener('blur', function () {
         newFavoriteName = editableTitle.innerText;
     });

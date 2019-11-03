@@ -4,7 +4,7 @@ $(document).ready(function () {
     getOrdersLength();
     let nextPickup = getNextPickupDateFrom(new Date());
     let letterDayReminderHTML = getLetterDay(nextPickup) !== null ? `(${nextPickup.toDateString()} is a ${getLetterDay(nextPickup)})` : ``;
-    $('#letter-day-reminder').html(`<h3>Select Lunch ${letterDayReminderHTML} </h3>`)
+    $('#letter-day-reminder').html(`<h3>Select Lunch ${letterDayReminderHTML}</h3>`)
     $('#getLunchButton').on("click", function () {
         getLunch($('#classSelectBox option:selected').val(), $('#quarterSelectBox option:selected').val(), function (selected_lunch) {
             $(`input[type=radio][value=${selected_lunch}]`).prop("checked",true);

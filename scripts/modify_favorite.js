@@ -1,10 +1,6 @@
 let newFavoriteName, thisOrderID;
 
-<<<<<<< HEAD
 /** Gets the favorite order that the user clicked on from the database. */
-=======
-// Gets the favorite order that the user clicked on from the database.
->>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
 function identifyFavorite(favoriteOrderID) {
     const modalTitle = document.getElementById("favoriteName");
     const saveFavoriteButton = $('#save_favorite_button');
@@ -20,12 +16,8 @@ function identifyFavorite(favoriteOrderID) {
 
 }
 
-<<<<<<< HEAD
 /** Once the favorite is identified, sets the modal body so that all of the accordions are expanded and the ingredients
  * from the favorite are checked. */
-=======
-// Once the favorite is identified, set the modal body so that all of the accordions are expanded and the ingredients from the favorite are checked.
->>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
 function editFavorite(thisFavoriteOrder) {
     expandAllAccordions();
     for (let i = 0; i < thisFavoriteOrder.ingredients.length; i++) {
@@ -36,10 +28,7 @@ function editFavorite(thisFavoriteOrder) {
 
 }
 
-<<<<<<< HEAD
 /** Expands all of the accordions in the favorite order editor. */
-=======
->>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
 function expandAllAccordions() {
     const acc = document.getElementsByClassName('accordion'); // Get the five accordion elements.
     for (let i = 0; i < acc.length; i++) {
@@ -57,11 +46,7 @@ function expandAllAccordions() {
     }
 }
 
-<<<<<<< HEAD
 /** Once the user has edited their favorite order, update the changes. */
-=======
-// Once the user has edited their favorite order, loop through the checked boxes and create a new ingredient list.
->>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
 function confirmFavoriteSave() {
     const saveFavoriteButton = $('#save_favorite_button');
     const checkboxes = document.getElementsByClassName("ingredientcheckbox");
@@ -76,10 +61,6 @@ function confirmFavoriteSave() {
             });
         }
     }
-<<<<<<< HEAD
-=======
-    // Then, after making sure the favorite order still has a name and a valid ingredient set, call an http put request to update the favorite in the db.
->>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
     if (newFavoriteName && isValidOrder(favoriteOrderIngredients)) {
         saveFavoriteButton.attr("data-dismiss", "modal");
         $.ajax({
@@ -89,11 +70,6 @@ function confirmFavoriteSave() {
                 ingredients: favoriteOrderIngredients,
                 favorite_name: newFavoriteName
             },
-<<<<<<< HEAD
-
-=======
-            // Once the favorite order is successfully updated, change the html on the page with the new favorite order info.
->>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
             success: function (updated_favorite_order) {
                 getFavoritesOn(getCurrentPath());
                 showAlert(`"${updated_favorite_order.favorite_name}" has been updated.`);
@@ -104,16 +80,13 @@ function confirmFavoriteSave() {
     }
 }
 
-<<<<<<< HEAD
 /** Deletes a favorite order. */
-=======
->>>>>>> bea4bfda03b01ecc8817e8ff7e2e78e5288807ea
-function deleteFavorite(favoriteOrderID){
+function deleteFavorite(favoriteOrderID) {
     $.ajax({
         url: get_api_url() + "favorite_orders/" + favoriteOrderID,
         type: 'DELETE',
-        success: function() {
-            setTimeout(function() {
+        success: function () {
+            setTimeout(function () {
                 let favOrderContainer = $(`[data-favorite-order-id=${favoriteOrderID}]`).parent();
                 favOrderContainer.css("opacity", 0);
                 favOrderContainer.remove()
